@@ -79,6 +79,15 @@
   }
 }
 
+body,
+html {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -90,8 +99,6 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  width:100%;
-  overflow-x:hidden;
 }
 
 hr {
@@ -131,7 +138,7 @@ h1,
 }
 
 @media (min-width: 1200px) {
- 
+
 
   h1,
   .h1 {
@@ -699,7 +706,7 @@ progress {
 }
 
 @media (min-width: 576px) {
-  
+
 
   .container-sm,
   .container {
@@ -708,7 +715,7 @@ progress {
 }
 
 @media (min-width: 768px) {
-  
+
 
   .container-md,
   .container-sm,
@@ -718,7 +725,7 @@ progress {
 }
 
 @media (min-width: 992px) {
-  
+
 
   .container-lg,
   .container-md,
@@ -1194,7 +1201,7 @@ progress {
 }
 
 @media (min-width: 768px) {
- 
+
   .col-md {
     flex: 1 0 0%;
   }
@@ -2226,7 +2233,7 @@ progress {
 }
 
 @media (max-width: 575.98px) {
-  
+
   .table-responsive-sm {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -2234,7 +2241,7 @@ progress {
 }
 
 @media (max-width: 767.98px) {
-  
+
   .table-responsive-md {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -2242,7 +2249,7 @@ progress {
 }
 
 @media (max-width: 991.98px) {
- 
+
   .table-responsive-lg {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -2250,7 +2257,7 @@ progress {
 }
 
 @media (max-width: 1199.98px) {
- 
+
   .table-responsive-xl {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -2258,7 +2265,7 @@ progress {
 }
 
 @media (max-width: 1399.98px) {
- 
+
   .table-responsive-xxl {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -2936,7 +2943,9 @@ textarea.form-control-lg {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  margin: auto;
   width: 100%;
+  font-family: 'Montserrat', serif;
 }
 
 .input-group>.form-control,
@@ -12277,7 +12286,7 @@ p {
 }
 
 .footer-section {
-  padding: 6rem 0;
+  padding: 4rem 0 0 0;
   background-color: #198754;
 }
 
@@ -12414,7 +12423,9 @@ header.masthead {
   background-position: center center;
   background-size: cover;
 }
-
+.masthead {
+  text-align: center;
+}
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
   font-style: italic;
@@ -12856,59 +12867,31 @@ footer {
   color: #ffc800;
 }
 
-.footer-lower h6, .footer-lower h6 a {
+.footer-lower h6,
+.footer-lower h6 a {
   /*font-family: 'Quicksand', cursive;*/
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
   text-decoration: none;
   color: white;
 }
+
 .footer-lower h6 a:hover {
   text-decoration: underline;
-  color:#ffc800;
+  color: #ffc800;
 }
 
-.footer-lower h6:active, .footer-lower h6 a:active {
+.footer-lower h6:active,
+.footer-lower h6 a:active {
   text-decoration: none;
   color: #ffc800;
 }
+
 .footer-lower {
-  background-color:#0f5132;
-}
-.footer-lower .github-icon:hover{
-  color:#ffc800;
-}
-/*@media screen and (min-width: 1500px) {
-  
-  body{
-    width:100%;
-    overflow-x:hidden;
-  }
-
+  background-color: #0f5132;
 }
 
-@media screen and (min-width: 768px) and (max-width:1024px) {
-  body{
-    width:100%;
-    overflow-x:hidden;
-  }
-
+.footer-lower .github-icon:hover {
+  color: #ffc800;
 }
 
-@media screen and (min-width:321px) and (max-width:767px) {
-  body{
-    width:100%;
-    overflow-x:hidden;
-  }
-
-}
-
-@media screen and (max-width:320px)
-{
-
-  body{
-    width:100%;
-    overflow-x:hidden;
-  }
-
-}*/
