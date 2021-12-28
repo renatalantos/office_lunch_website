@@ -2,30 +2,78 @@
 {% load static %}
 
 {% block content %}
-<!-- Services-->
-<section class="page-section" id="services">
+{% csrf_token %}
+
+<header class="masthead">
     <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Services</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-        <div class="row text-center">
-            <div class="col-md-4">
+        <div class="masthead-subheading">Stuck in that office?</div>
+        <div class="masthead-heading text-uppercase">Hungry for lunch?</div>
+        <a class="btn btn-primary btn-danger btn-xl text-uppercase" href="#services">Order food now!</a>
+    </div>
+</header>
+{% if messages %}
+<div class="message-container"></div>
+{% endif %}
+
+
+
+<!-- Services-->
+<footer class="footer-section" id="services">
+    <div class="container">
+
+        <div class="row">
             
-                <h4 class="my-3">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            <div class="col-md-4">
+
+                <h4 class="my-3">Send us your favourite sandwich recipe!</h4>
+                <a href="#">
+                    <p>*And win a week's free lunch!</p>
+                </a>
+                <div>
+                    <form>
+                        <div class="form-group text-white w-50">
+                            <label for="exampleFormControlInput1">Your name*</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                        </div>
+
+
+                        <div class="form-group text-white w-50">
+                            <label for="exampleFormControlInput1">Your email address*</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="name@email.com">
+                        </div>
+                        
+
+
+                            <div class="form-group text-white w-50">
+                                <label for="exampleFormControlTextarea1">Your recipe*</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
             </div>
             <div class="col-md-4">
-               
-                <h4 class="my-3">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+
+                <h4 class="my-3 text-center">Quality ingredients</h4>
+                <p class="text-center"><i class="fas fa-certificate fa-3x"></i></p>
+                <p class="text-white">Our promise to you: we are only using fresh and carefully selected ingredients. Every plate of our quality artisan food starts with locally sourced, hand picked
+                    ingredients. Once you try it, our food will be a blissful addition to your daily routine! We cater
+                    for vegetarian and vegan customers!</p>
             </div>
             <div class="col-md-4">
-              
-                <h4 class="my-3">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+
+                <h4 class="my-3 text-center">Social media</h4>
+                <p class="text-center"><i class="fas fa-user-friends fa-3x"></i></p>
+                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
+                    architecto quo inventore harum ex magni, dicta impedit.</p>
             </div>
+
+
+
+
         </div>
     </div>
-</section>
+</footer>
 {% endblock %}
