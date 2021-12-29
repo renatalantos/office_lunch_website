@@ -55,105 +55,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <a class="navbar-brand" href="#page-top">Office Lunches</a>
-        <div class="container">
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ms-1"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto w-auto mx-auto py-4 py-lg-0">
-
-                    <li class="nav-item dropdown rounded-0"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" href="#all_products">Selections</a>
-                        <div class="dropdown-menu border-0 text-capitalize">
-                            <a href="" class="dropdown-item ">By Price</a>
-                            <a href="" class="dropdown-item ">By Rating</a>
-                            <a href="" class="dropdown-item ">By Category</a>
-                            <a href="" class="dropdown-item">All Products</a>
-                        </div>
-
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" href=" #food">Food</a>
-                        <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                            <a href="" class="dropdown-item">Activewear &amp; Essentials</a>
-                            <a href="" class="dropdown-item">Jeans</a>
-                            <a href="" class="dropdown-item">Shirts</a>
-                            <a href="" class="dropdown-item">All Clothing</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" href="#drinks">Drinks</a>
-                        <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                            <a href="" class="dropdown-item">Bed &amp; Bath</a>
-                            <a href="" class="dropdown-item">Kitchen &amp; Dining</a>
-                            <a href="" class="dropdown-item">All Homeware</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" href="#specials">Specials</a>
-                        <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                            <a href="" class="dropdown-item">New Arrivals</a>
-                            <a href="" class="dropdown-item">Deals</a>
-                            <a href="" class="dropdown-item">Clearance</a>
-                            <a href="" class="dropdown-item">All Specials</a>
-                        </div>
-
-                    </li>
-                </ul>
-                <ul class="navbar-nav text-uppercase">
-                   <!-- <li class="nav-item"><a class="nav-link" href="#specials"><i class="fas fa-phone-alt fa-lg"></i></a>
-                    </li>-->
-                    <li class="nav-item"><a class="nav-link" href="{% url 'search' %}"><i
-                                class="fas fa-search fa-lg"></i></a></li>
-
-
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-
-                            <i class="fas fa-user fa-lg"></i>
-
-
-                        </a>
-                        <div class="dropdown-menu border-0 mr-3" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                            {% endif %}
-                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link"
-                            href="">
-
-                            <i class="fas fa-shopping-basket fa-lg"></i>
-
-                            {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
-                            {% else %}
-                            <!--€0.00-->
-                            {% endif %}
-
-
-                        </a>
-                    </li>
-
-
-
-                </ul>
-            </div>
-        </div>
+        {% include 'includes/main-nav.html' %}
     </nav>
 
 
@@ -161,11 +63,7 @@
     {% endblock %}
 
 
-    {% block postloadjs %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    {% endblock %}
+  
 
     <!-- Footer -->
     <footer class="footer-section" id="services">
@@ -252,6 +150,10 @@
         </div>
         </div>
     </footer>
+    {% block postloadjs %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -261,6 +163,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
+    {% endblock %}
+    
+   
 </body>
 
 </html>
