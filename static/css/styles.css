@@ -2944,7 +2944,6 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   align-items: stretch;
   margin: auto;
-  width: 100%;
   font-family: 'Montserrat', serif;
 }
 
@@ -12423,9 +12422,11 @@ header.masthead {
   background-position: center center;
   background-size: cover;
 }
+
 .masthead {
   text-align: center;
 }
+
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
   font-style: italic;
@@ -12895,3 +12896,13 @@ footer {
   color: #ffc800;
 }
 
+.dropdown-item {
+  font-family: 'Lato', serif;
+  font-size: 15px;
+  font-weight:lighter;
+  color: #0f5132;
+}
+
+.dropdown-menu {
+ 
+}
