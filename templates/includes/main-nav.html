@@ -8,7 +8,7 @@
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ms-auto w-auto mx-auto py-4 py-lg-0">
-            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a>
+           <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
 
             <li class="nav-item dropdown rounded-0"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
@@ -43,7 +43,7 @@
                     <a href="" class="dropdown-item">Lunch deal</a>
                     <a href="" class="dropdown-item">Weekly deals</a>
                     <a href="" class="dropdown-item">Group discount deal</a>
-                    <a href="" class="dropdown-item">Free lunch deal</a>
+                    <a href="" class="dropdown-item">Sandwich recipe deal</a>
 
                 </div>
 
@@ -78,6 +78,7 @@
                 </div>
             </li>
             <li class="nav-item"><a class="nav-link" href="{% url 'search' %}"><i class="fas fa-search fa-lg"></i></a>
+                
             </li>
             <li class="nav-item">
                 <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link"
