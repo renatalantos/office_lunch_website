@@ -1,0 +1,82 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "sandwiches",
+            "friendly_name": "Sandwiches"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "salads",
+            "friendly_name": "Salads"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "snacks",
+            "friendly_name": "Snacks"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "smothies_juices",
+            "friendly_name": "Smoothies & Juices"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.category",
+        "fields": {
+            "name": "mineral_water",
+            "friendly_name": "Mineral Water"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+            "name": "fizzy_drinks",
+            "friendly_name": "Fizzy Drinks"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.category",
+        "fields": {
+            "name": "lunch_deal",
+            "friendly_name": "Lunch Deal"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.category",
+        "fields": {
+            "name": "weekly_deals",
+            "friendly_name": "Weekly Deals"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.category",
+        "fields": {
+            "name": "validate_a_voucher",
+            "friendly_name": "Validate a Voucher"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.category",
+        "fields": {
+            "name": "sandwich_recipe_winners",
+            "friendly_name": "Sandwich Recipe Winners"
+        }
+    }
+]

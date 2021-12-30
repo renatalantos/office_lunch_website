@@ -1,0 +1,587 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "name": "Aqua Carpatica Still Mineral Water",
+            "product_number": "01",
+            "description": "A refresing still mineral water that is a nice addition to any meal.",
+            "option_grilled": "false",
+            "price": 1.40,
+            "category": 5,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897352/rsz_pexels-francesco-paggiaro-593099_kzpevu.jpg",
+            "image": "rsz_pexels-francesco-paggiaro-593099.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "name": "Green Seafood Salad",
+            "product_number": "02",
+            "description": "A healthy seadfood salad with curly kale, prawns, salmon and orange slices, sprinkled with sesame seeds.",
+            "option_grilled": "false",
+            "price": 8.00,
+            "category": 2,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_1pexels-ruslan-khmelevsky-7655087_j3h3sz.jpg",
+            "image": "rsz_1pexels-ruslan-khmelevsky-7655087.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "name": "Serrano Ham, Ham, Cheese and Green Salad Sandwich",
+            "product_number": "03",
+            "description": "A delicious, nutricious yet healthy sandwich that will fill you up for the rest of the day, yet will give you all the energy you need. Made with home-made white bread.",
+            "option_grilled": "true",
+            "price": 9.50,
+            "category": 1,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897352/rsz_3pexels-rajdeepcraft-6416558_obmoep.jpg",
+            "image": "rsz_3pexels-rajdeepcraft-6416558.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "name": "Fresh Mediterranian Tomato, Basil, Feta and Olive Salad",
+            "product_number": "04",
+            "description": "Made with the freshest ingredients, this tomato, basil, feta and olive salad is an ideal option if you want to eat healthly but you are stuck at your desk all day. An ideal vegetarian option.",
+            "option_grilled": "false",
+            "price": 4.00,
+            "category": 2,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897352/rsz_pexels-grooveland-designs-8177410_qrgtvh.jpg",
+            "image": "rsz_pexels-grooveland-designs-8177410.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "name": "Home Baked Crinkled Potato Crips",
+            "product_number": "05",
+            "description": "Home made crinkled potato crisps made from carefully selected Irish potatos. Same portion as in a Tayto bag. Baked in sunflower oil, is suitable for vegans or vegetarians.",
+            "option_grilled": "false",
+            "price": 1.00,
+            "category": 3,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897352/rsz_pexels-iconcom-479628_q5nj74.jpg",
+            "image": "rsz_pexels-iconcom-479628.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "name": "0.2 Litre Beetroot, Cucumber and Apple Juice",
+            "product_number": "06",
+            "description": "A healthy and refreshing drink that will boost your energy levels during office hours or if you hit the gym after.",
+            "option_grilled": "false",
+            "price": 2.00,
+            "category": 4,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_1pexels-polina-tankilevitch-4443472_xlumze.jpg",
+            "image": "rsz_1pexels-polina-tankilevitch-4443472.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "name": "Classic 0.2 Litre Coca-Cola",
+            "product_number": "07",
+            "description": "Classic 0.2 Litre Coca-Cola in glass bottle. Save the environment!",
+            "option_grilled": "false",
+            "price": 1.50,
+            "category": 4,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897352/rsz_pexels-artem-beliaikin-2668308_qwexkc.jpg",
+            "image": "rsz_pexels-artem-beliaikin-2668308.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "name": "Kale, Tomato, Feta and Pineapple Salad",
+            "product_number": "08",
+            "description": "An ideal vegetarian option, this salad will keep you going until 5 pm., without making you feel hungry.",
+            "option_grilled": "false",
+            "price": 4.00,
+            "category": 2,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_2pexels-iina-luoto-1211887_hckobp.jpg",
+            "image": "rsz_2pexels-iina-luoto-1211887.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "name": "Chicken and Green Veg Dough",
+            "product_number": "09",
+            "description": "Chicken and green veg in dough bread, with Teriyaki sauce.",
+            "option_grilled": "true",
+            "price": 10.00,
+            "category": 1,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_1pexels-valeria-boltneva-1893572_vmpgxd.jpg",
+            "image": "rsz_1pexels-valeria-boltneva-1893572.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "name": "Boiled Egg and Avocado Sandwich",
+            "product_number": "10",
+            "description": "Home-baked wholemeal bread with boiled egg, avocado, sprinkled over with pine nuts. Suitable for vegetarians.",
+            "option_grilled": "true",
+            "price": 6.00,
+            "category": 1,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_3pexels-foodie-factor-566566_x88z2q.jpg",
+            "image": "rsz_3pexels-foodie-factor-566566.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "name": "Tortilla Crisps",
+            "product_number": "11",
+            "description": "Spicy Torilla Crips",
+            "option_grilled": "false",
+            "price": 1.00,
+            "category": 3,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_2pexels-karolina-grabowska-4964114_xvpwu5.jpg",
+            "image": "rsz_2pexels-karolina-grabowska-4964114.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "name": "Green Apple and Spinach Smoothie",
+            "product_number": "12",
+            "description": "A healthy and vitamin-packed drink that will nourish you during the day.",
+            "option_grilled": "false",
+            "price": 3.00,
+            "category": 4,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_1pexels-toni-cuenca-616833_dvhvpx.jpg",
+            "image": "rsz_1pexels-toni-cuenca-616833.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {            
+            "name": "White Bread, Chicken, Green Veg and Red Onion Sandwich with Salad",
+            "product_number": "13",
+            "description": "A healthy light meal with absolutely everything you need for the day. Even if you won't get home after work straight away, you won't feel hungry.",
+            "option_grilled": "true",
+            "price": 11.00,
+            "category": 1,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_3pexels-jeswin-thomas-5292918_tgbmiv.jpg",
+            "image": "rsz_3pexels-jeswin-thomas-5292918.jpg"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "name": "Chicken, Onion, Tomato and Mushroom Noodles",
+            "product_number": "14",
+            "description": "This noodle dish provides a nutritios meal. You can eat it hot or cold.",
+            "option_grilled": "false",
+            "price": 8.00,
+            "category": 10,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_2pexels-desativado-2433979_y5u6wv.jpg",
+            "image": "rsz_2pexels-desativado-2433979.jpg"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "name": "Chunky Bread with Breaded Chicken and Green Salad",
+            "product_number": "1",
+            "description": "This chunky roll is stuffed with breaded chicken, green salad, mayonnaise and cheese. The side salad is made of fresh green salad veg.",
+            "option_grilled": "true",
+            "price": 11.00,
+            "category": 1,
+            "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_1pexels-rajesh-tp-1600735_l61qpr.jpg",
+            "image": "rsz_1pexels-rajesh-tp-1600735.jpg"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003050248",
+            "name": "Levi's 529 Curvy Bootcut Jeans",
+            "description": "Levis 529 curvy bootcut jeans are flattering and perfect for any timeday or night.  sits below the waist slim fit through hip and thigh bootcut leg with 18\" opening smooth bottom 8\" front rise; 15\" back rise cotton/polyester/elastane washable imported misses average: 32\" inseam ",
+            "has_sizes": true,
+            "price": 65.99,
+            "category": 6,
+            "rating": 4.4,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0918201520303373C.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0918201520303373C.jpg"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003070787",
+            "name": "Worthington Essential Short-Sleeve Tee - Plus",
+            "description": "Our stretchy jersey knit tee's gently pleated neckline makes a simply sweet impression.  pleated u-neck short sleeves polyester/spandex washable imported",
+            "has_sizes": true,
+            "price": 33.99,
+            "category": 5,
+            "rating": 4.4,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP1119201520340305C.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP1119201520340305C.jpg"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003090182",
+            "name": "Marvel Comics Avengers Hulk Pillow Buddy",
+            "description": "The Hulk may be tough, but he's actually a real softy. Get to know his softer side with this fun Hulk-shaped pillow.  adds a playful layer of texture and comfort to bed's decor measures 15x9x20\"H Polyester with polyester fill. Spot clean. Imported.",
+            "has_sizes": false,
+            "price": 59.99,
+            "category": 2,
+            "rating": 4.8,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP0807201317072274M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP0807201317072274M.jpg"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003090186",
+            "name": "Marvel Spiderman Pillow Buddy",
+            "description": "Now your child can sling webs next to his favorite wall crawler with this Spider-Man pillow buddy. shaped like everyone's favorite web head measures 15x9x20\"H Polyester with polyester fill. Spot clean. Imported.",
+            "has_sizes": false,
+            "price": 60.99,
+            "category": 2,
+            "rating": 5.0,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP0807201317072924M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP0807201317072924M.jpg"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003161326",
+            "name": "JCPenney Home Oven Mitt",
+            "description": "Keep it cool in the kitchen with this lined oven mitt.  silicone grip protects hand from heat up to 350F contrast woven houndstooth trim fits comfortably on left or right hand handy hanging tie Sold individually. Cotton with cotton lining. Measures 7x13\". Washable. Imported. ",
+            "has_sizes": false,
+            "price": 20.99,
+            "category": 7,
+            "rating": 4.7,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0821201317103183M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0821201317103183M.jpg"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003230723",
+            "name": "Farberware Sonoma 2-qt. Whistling Tea Kettle",
+            "description": "The classic, trusted quality of Farberware pairs nicely with this durable stainless steel teakettle. Gelatin, hot chocolate or a cup of soupthe uses for a teakettle don't stop at tea.  whistle feature signals when water is at a boil removable lid makes kettle easy to fill 2-qt. capacity Stainless steel. Dishwasher safe. Imported. ",
+            "has_sizes": false,
+            "price": 60.99,
+            "category": 7,
+            "rating": 4.3,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/0900631B81D676AEM.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "0900631B81D676AEM.jpg"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003270936",
+            "name": "Silver Superman Shield Cufflinks",
+            "description": "Superman shield cuff links are a work of art, and a subtle and stylish way to properly honor the man of steel.  one-piece fixed backing featuring the DC Comics logo  x \" rhodium plated metal/enamel imported",
+            "has_sizes": false,
+            "price": 76.99,
+            "category": 4,
+            "rating": 5.0,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP0917201317033820M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP0917201317033820M.jpg"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003360384",
+            "name": "Dickies Heavyweight Long-Sleeve Pocket Tee",
+            "description": "When your workday calls for a heavyweight tee, grab this long-sleeve one from Dickies and enjoy industrial-strength comfort from the brand you trust.  chest pocket tagless back neck taped neck and shoulder seams cotton washable imported",
+            "has_sizes": true,
+            "price": 29.99,
+            "category": 9,
+            "rating": 4.8,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0927201317061305M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0927201317061305M.jpg"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003440111",
+            "name": "Royal Velvet Down Chamber Pillow",
+            "description": "The Down Chamber pillow, with its unique pillow-in-pillow design, offers all-natural comfort. With an inner core of springy, high-loft feathers wrapped in an outer layer of silk, luxurious down, you'll receive supportive, lofty comfort. The gusset allows for additional neck support so you can sleep comfortably. inner chamber of springy, True Loft feathers provides superior all-natural comfort and support outer layer of silky, soft down adds lasting cushioning and comfort 550 fill power 300 thread-count cotton cover is hypoallergenic medium support for stomach or side sleepers hypoallergenic Cotton cover; duck feather and down fill. Washable. Manufacturer's 4-year limited warranty. Assembled in America from imported fabric. Standard/Queen pillow: 20x28\"; 32-ounce fill weight King pillow: 20x36\"; 39-ounce fill weight Be sure to care for your investment with a pillow protector. It's an added layer of protection that willhelpkeep your pillow clean and fresh. ",
+            "has_sizes": false,
+            "price": 82.0,
+            "category": 2,
+            "rating": 3.8,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP1023201317051585M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP1023201317051585M.jpg"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003540313",
+            "name": "Dickies Heavyweight Fleece Full Zip HoodieBig & Tall",
+            "description": "This soft fleece jacket is a heavyweight champ that works overtime to keep the chill away.  drawcord closure on hood kangaroo pocket rib-knit cuffs and waistband cotton/polyester washable imported",
+            "has_sizes": true,
+            "price": 106.99,
+            "category": 9,
+            "rating": 3.0,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP1108201317050996M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP1108201317050996M.jpg"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003560513",
+            "name": "JCPenney Home Ashley Scalloped Stoneware 50-pc. Dinnerware Set - Service for 8",
+            "description": "A glossy glaze and scalloped rim add a fun feel to this oversized dinnerware set that includes enough pieces to set the table for everyday dining or a special dinner party.  adds a layer of texture to your place setting generous size is perfect for small or large parties microwave safe service for 8 50-piece set includes: eight 10 dinner plates eight 7 salad plates eight 6 cereal bowls with 22-ounce capacity eight 4 fruit bowls with 8-ounce capacity eight 3 dip bowls with 3-ounce capacity eight 12-ounce mugs one 9 serving bowl with 60-ounce capacity one 8.75x12 serving platter Stoneware. Dishwasher safe. Imported.",
+            "has_sizes": false,
+            "price": 241.99,
+            "category": 7,
+            "rating": 4.4,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0219201502115503C.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0219201502115503C.jpg"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003560948",
+            "name": "Rachael Ray Porcelain II 10-pc. Cookware Set",
+            "description": "Youll really get cooking with this incredible, hard-enamel cookware set as it contains all the basic pieces to ensure youll get your use out of each and every pan.  heats quickly and evenly, reducing hot spots that can burn foods long-lasting, nonstick cooking surface allows food to release from the pan, making cleanup quick and easy sylish two-tone gradient exterior adds color and style to any kitchen handles are rubberized for comfort, dual-riveted for durability and oven safe to 350F 10-piece set includes: 1-quart saucepan with lid 2-quart saucepad with lid 3-quart saut pan with lid 6-quart stock pot with lid 8\" skillet 10\" skillet Aluminum/porcelain/silicone. Hand wash. Imported.   ",
+            "has_sizes": false,
+            "price": 338.99,
+            "category": 7,
+            "rating": 5.0,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0610201317080834M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0610201317080834M.jpg"
+        }
+    },
+    {
+        "pk": 28,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003570628",
+            "name": "Hanes 3pk. Cotton Crewneck TShirts  Big & Tall",
+            "description": "This midweight t-shirt from Hanes features ultra-soft cotton for superior comfort you'll reach for everyday.  all-day comfortable fit longer stay-tucked length tagless midweight ComfortSoft cotton fabric cotton washable imported",
+            "has_sizes": true,
+            "price": 53.99,
+            "category": 4,
+            "rating": 4.3,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/0900631B818ABCB9M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "0900631B818ABCB9M.jpg"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003620308",
+            "name": "Chenille Lines Bath Rug Collection",
+            "description": "Keep your feet happy with our soft tufted bath rugs. They're available in a variety of complementary colors to suit your style.  ultra-soft 1\" pile microfiber polyester durable, tufted design resists matting nonskid latex backing Each rug sold separately. Polyester. Washable. Imported. Available in sizes 17x24\", 21x34\", or 27x45\"",
+            "has_sizes": false,
+            "price": 31.99,
+            "category": 2,
+            "rating": 4.6,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0422201517022488M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0422201517022488M.jpg"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003690115",
+            "name": "Home Expressions Jacobean Stripe Oblong Decorative Pillow",
+            "description": "Our Jacobean Stripe oblong pillow adds classic style and elegance to your room.  soothing shades of green, blue, coral and ivory  pieced fabric with rice-stitched detail a perfect complement to the Jacobean Stripe quilt, sold separately measures 18x12\"  Cotton with polyester fill. Spot clean. Imported.",
+            "has_sizes": false,
+            "price": 72.99,
+            "category": 2,
+            "rating": 5.0,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP0113201417050002M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP0113201417050002M.jpg"
+        }
+    },
+    {
+        "pk": 31,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003690116",
+            "name": "Armitron Now Womens Crystal-Accent White Leather Strap Watch",
+            "description": "Genuine leather and sparkling CRYSTALLIZED - Swarovski Elements set this watch apart as a high-quality luxury, perfect for women looking for the finer things in life.  Brand: Armitron Dial Color: White Strap: White leather Accents: 10 CRYSTALLIZED - Swarovski Elements Clasp: Buckle Movement: Quartz Case Width: 22mm Case Thickness: 9mm Bracelet Dimensions: 8 long, 23mm wide Model No.: 75/5089WTGPWT Special Features: white dial, white leather strap, 10 CRYSTALLIZED - Swarovski Elements markers, sweeping second hand Jewelry photos are enlarged to show detail.",
+            "has_sizes": false,
+            "price": 69.99,
+            "category": 3,
+            "rating": 4.0,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP0213201417022274M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP0213201417022274M.jpg"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003780391",
+            "name": "Nike NA Swoosh Dri-FIT Cotton Tee",
+            "description": "Get a tee that fits your active lifestyle, like this moisture-wicking, cotton-rich crewneck with crosshatch swoosh design.  Dri-FIT Cotton moisture management technology helps keep you cool and dry crewneck cotton/polyester washable imported",
+            "has_sizes": true,
+            "price": 35.99,
+            "category": 9,
+            "rating": 4.8,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP1028201517024563M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP1028201517024563M.jpg"
+        }
+    },
+    {
+        "pk": 33,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003790542",
+            "name": "Liz Claiborne 300tc Liquid Cotton Set of 2 Pillowcases",
+            "description": "Rest easy with these silky-smooth, 300 thread-count Liquid Cotton pilowcases. Engineered with the finest 100% cotton Pima yarns, these sumptous pillowcases have the sheen of silk and are ready to give you your best night's sleep yet.  made with extra-fine yarn for an incredibly smooth feel soft 300 thread-count Pima cotton with the feel and sheen of silk tightly woven fabric washes well and offers lasting performance great moisture absorbency due to extra-long staple cotton set of 2 Cotton. Washable. Imported. Standard pillowcase: 21x30\" King pillowcase: 21x40\"",
+            "has_sizes": false,
+            "price": 58.99,
+            "category": 2,
+            "rating": 4.5,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0422201617033665M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0422201617033665M.jpg"
+        }
+    },
+    {
+        "pk": 34,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003831225",
+            "name": "Stafford Year-Round Pleated PantsBig & Tall",
+            "description": "Indispensable wrinkle resistant and machine washable pants, with a hidden expandable waistline, offer year-round wear in colors that go with any season.  hidden expandable waistband for ease of movement wrinkle-resistant machine washable big & tall fit with slight fullness in seat and hip; thigh has additional room double-pleated front 4 pockets button closure with hook-and-eye straight leg cuffed polyester/viscose washable imported more sizes in big",
+            "has_sizes": true,
+            "price": 93.99,
+            "category": 5,
+            "rating": 4.5,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0915201413433903C.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0915201413433903C.jpg"
+        }
+    },
+    {
+        "pk": 35,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003861402",
+            "name": "Arizona Super-Skinny Jeans",
+            "description": "Our super-skinny jeans feature a feminine cut for a flattering fit that will make you miss them when theyre in the dryer.  approx. 29\"  34\" inseam cotton/polyester/spandex washable imported",
+            "has_sizes": true,
+            "price": 50.99,
+            "category": 6,
+            "rating": 4.7,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0430201405113681M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0430201405113681M.jpg"
+        }
+    },
+    {
+        "pk": 36,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003910638",
+            "name": "Nike 3-pk. Dri-FIT Fly Rise Crew Socks",
+            "description": "With moisture-wicking fabric, durability and shock absorption, these socks go the extra mile so that you can too.  dri-FIT moisture technology wicking keeps feet cool and dry maximum breathability cushioned footbed for comfort arch compression for perfected fit reinforced heel & toe for durability cushioned foot nylon/cotton/polyester/spandex washable imported",
+            "has_sizes": true,
+            "price": 23.99,
+            "category": 4,
+            "rating": 4.6,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP0401201417083996M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP0401201417083996M.jpg"
+        }
+    },
+    {
+        "pk": 37,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003950574",
+            "name": "Royal Velvet Egyptian Cotton Solid Bath Towels",
+            "description": "These Egyptian cotton bath towels complete your bath with a splash of color and a touch of luxurious softness. 2-ply construction provides extra softness incredibly soft and absorbent hollow yarns get fluffier after every wash coordinates with the Royal Velvet plush bath rug, sold separately Egyptian cotton. Washable. Imported. Bath towel: 30x56\" Hand towel: 16x28\" Washcloth: 13x13\" Bath sheet: 34x64\" Tub mat: 21x34\" 6-piece set including 2 bath towels, 2 hand towels and 2 washcloths. You can purchase these towels individually, but your best value is to buy the six-piece set altogether. This set will give your bathroom a coordinated look and feel while saving you money. Care tip: Some lint may be observed in the first few launderings of towels, and will diminish with each subsequent laundering. This does not affect the look, feel or performance of your towels. Please follow the recommended care instructions on the label and keep the lint trap clean on your dryer. Care tip: Avoid contact with skincare products to help minimize towel spotting or bleaching. Eco-friendly tip: This towel is made with long-lasting quality in mind. Give it a second life when you're through with it by donating it to a local charity instead of discarding in the trash. **This product meets the Green Good Housekeeping Seal environmental standard for Textiles for following strict industry standard and energy-efficient production processes and for J.C. Penney's corporate social responsibility efforts.",
+            "has_sizes": false,
+            "price": 21.99,
+            "category": 2,
+            "rating": 4.0,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0828201517030241M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0828201517030241M.jpg"
+        }
+    },
+    {
+        "pk": 38,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003950576",
+            "name": "Levinsohn Master Block All-In-One Mattress Protector",
+            "description": " Perfect for your son or daughter as they head off for college, this zippered mattress protector from Levinsohn features a three-layer micro-porous barrier to protect against bed bugs and dust mites.   quilted 200 thread-count fabric waterproof, stain resistant and antimicrobial  Polypropylene/polyethylene with polyester skirt. Washable. Imported.  Twin mattress protector: 39x75\" Twin XL mattress protector: 39x80\"",
+            "has_sizes": false,
+            "price": 60.99,
+            "category": 2,
+            "rating": 4.5,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0403201417141773M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0403201417141773M.jpg"
+        }
+    },
+    {
+        "pk": 39,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003960062",
+            "name": "Home Expressions Microfiber Twin XL Sheet Set",
+            "description": "Show off your fun side with this microfiber sheet set in exciting patterns and colors.  soft microfiber fabric feels great easy-care, long-lasting construction fitted sheet fits mattresses up to 14\" deep Set includes: flat sheet fitted sheet pillowcase Polyester. Washable. Imported. Twin XL: flat 66x96\"; fitted 39x80\"; pillowcase 21x32\"",
+            "has_sizes": false,
+            "price": 41.99,
+            "category": 3,
+            "rating": 3.8,
+            "image_url": "http://s7d2.scene7.com/is/image/JCPenney/DP0715201417203832M.tif?wid=65&hei=65&fmt=jpg&op_usm=.4,.8,0,0&resmode=sharp2",
+            "image": "DP0715201417203832M.jpg"
+        }
+    },
+    {
+        "pk": 40,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003960682",
+            "name": "Cake Boss Powdered Sugar Shaker with Lid",
+            "description": "Sprinkle more sweet love over cakes, cookies and more with the Cake Boss stainless steel powdered sugar shaker with lid.  holds one cup of dry ingredients and is perfect for shaking confectioner's sugar, cocoa power, cinnamon and more over desserts and baked goods crafted from top-quality stainless steel with a tight-fitting, fine mesh cap includes a snug-fitting translucent plastic lid to cover the opening and keep air and moisture away from sugars and other ingredients Stainless steel. Dishwasher safe. Imported. ",
+            "has_sizes": false,
+            "price": 31.99,
+            "category": 7,
+            "rating": 5.0,
+            "image_url": "http://s7d9.scene7.com/is/image/JCPenney/DP0430201405213832M.tif?hei=380&amp;wid=380&op_usm=.4,.8,0,0&resmode=sharp2&op_usm=1.5,.8,0,0&resmode=sharp",
+            "image": "DP0430201405213832M.jpg"
+        }
+    }
+]
