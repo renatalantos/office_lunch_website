@@ -47,40 +47,9 @@
             "friendly_name": "Fizzy Drinks"
         }
     },
+    
     {
         "pk": 7,
-        "model": "products.category",
-        "fields": {
-            "name": "lunch_deal",
-            "friendly_name": "Lunch Deal"
-        }
-    },
-    {
-        "pk": 8,
-        "model": "products.category",
-        "fields": {
-            "name": "weekly_deals",
-            "friendly_name": "Weekly Deals"
-        }
-    },
-    {
-        "pk": 9,
-        "model": "products.category",
-        "fields": {
-            "name": "validate_a_voucher",
-            "friendly_name": "Validate a Voucher"
-        }
-    },
-    {
-        "pk": 9,
-        "model": "products.category",
-        "fields": {
-            "name": "sandwich_recipe_winners",
-            "friendly_name": "Sandwich Recipe Winners"
-        }
-    },
-    {
-        "pk": 10,
         "model": "products.category",
         "fields": {
             "name": "pasta_noodles",
