@@ -7,7 +7,7 @@
 
 <section class="py-5">
     <div class="overlay"></div>
-    
+
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center">
             {% for product in products %}
@@ -21,30 +21,37 @@
                     {% endif %}
                     <!-- Product image-->
                     {% if product.image %}
-                        <a href="">
-                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}" />
-                        </a>
+                    <a href="">
+                        <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}" />
+                    </a>
                     {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
                     {% endif %}
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
                             <h5 class="fw-bolder">{{ product.name }} </h5>
-                            <!-- Product price-->
-                            
+                            <!-- Product details-->
+                        
+
+
                         </div>
                     </div>
-                    <!-- Product actions-->
+                    <!-- Product price-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        {% if product.has_gluten %}
+                        <div></div>
+                        {% else %}
+                        <div class="unique text-center">Gluten-free</div>
+                        {% endif %}
                         <div class="text-center">€ {{ product.price }}</div>
                     </div>
                 </div>
             </div>
-            
+
             {% endfor%}
 </section>
 {% endblock %}

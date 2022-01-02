@@ -5632,10 +5632,10 @@ fieldset:disabled .btn {
   padding: 0.35em 0.65em;
   font-family: 'Quicksand', cursive;
   font-size: 1em;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
-  color: #ffc800;
-  background-color: #198754;
+  background-color: #ffc800;
+  color: #198754;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -12928,7 +12928,9 @@ footer {
   background-color: #EDE9D0;
 }
 
-.btn-unique {
-  color:#0f5132;
-  font-weight: 900;
+.unique  {
+  color:orange;
+  font-family: 'Quicksand', cursive;
+  font-weight: lighter;
+  font-size:20px;
 }
