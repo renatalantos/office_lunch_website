@@ -22,7 +22,7 @@ class Product(models.Model):
     description = models.TextField()
     option_grilled = models.BooleanField(default=False, null=True, blank=True)
     lunch_deal = models.BooleanField(default=False, null=True, blank=True)
-    calory_count = models.CharField(max_length=10, null=True, blank=True)
+    calory_count = models.IntegerField(null=True, blank=True)
     has_gluten = models.BooleanField(default=False, null=True, blank=True)
     is_vegan = models.BooleanField(default=False, null=True, blank=True)
     is_vegetarian = models.BooleanField(default=False, null=True, blank=True)

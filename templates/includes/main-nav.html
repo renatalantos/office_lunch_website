@@ -8,15 +8,16 @@
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ms-auto w-auto mx-auto py-4 py-lg-0">
-           <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a>
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
 
             <li class="nav-item dropdown rounded-0"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" href="#all_products">All products</a>
                 <div class="dropdown-menu border-0 text-capitalize">
-                    <a href="" class="dropdown-item">By lifestyle choice</a>
-                    <a href="" class="dropdown-item">By Calory count</a>
-                    <a href="" class="dropdown-item">By Category</a>
+                    <a href="{% url 'products' %}?sort=is_vegan&direction=desc"class="dropdown-item">By lifestyle choice</a>
+                    <a href="{% url 'products' %}?sort=calory_count&direction=asc" class="dropdown-item">By Calory
+                        count</a>
+                    <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
                     <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
                 </div>
 
@@ -33,7 +34,8 @@
             <li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" href="#drinks">Drinks</a>
                 <div class="dropdown-menu border-0 text-capitalize" aria-labelledby="homeware-link">
-                    <a href="{% url 'products' %}?category=smothies_juices" class="dropdown-item">Smoothies &amp; Juices</a>
+                    <a href="{% url 'products' %}?category=smothies_juices" class="dropdown-item">Smoothies &amp;
+                        Juices</a>
                     <a href="{% url 'products' %}?category=mineral_water" class="dropdown-item">Mineral Water</a>
                     <a href="{% url 'products' %}?category=fizzy_drinks" class="dropdown-item">Fizzy drinks</a>
                 </div>
@@ -68,8 +70,8 @@
                 <div class="dropdown-menu border-0 text-capitalize" aria-labelledby="user-options">
                     {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
-                  
-                   <a href=""  class="dropdown-item">Product Management</a>
+
+                    <a href="" class="dropdown-item">Product Management</a>
                     {% endif %}
                     <a href="" class="dropdown-item">My Profile</a>
                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -80,7 +82,7 @@
                 </div>
             </li>
             <li class="nav-item"><a class="nav-link" href="{% url 'search' %}"><i class="fas fa-search fa-lg"></i></a>
-                
+
             </li>
             <li class="nav-item">
                 <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link"
