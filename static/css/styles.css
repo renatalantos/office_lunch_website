@@ -545,7 +545,9 @@ progress {
 
 .lead {
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 500;
+  color:#0f5132;
+  font-family: 'Montserrat', sans-serif ;
 }
 
 .display-1 {
@@ -12933,4 +12935,23 @@ footer {
   font-family: 'Quicksand', cursive;
   font-weight: lighter;
   font-size:20px;
+}
+
+.description {
+  color: #0f5132;
+}
+
+.product-info {
+  color: #0f5132;
+  font-family: 'Quicksand', cursive;
+  font-weight: lighter;
+  font-size:20px;
+
+}
+
+.price-info {
+  color: orangered;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
 }
