@@ -24,18 +24,18 @@
             <li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" href=" #food">Food</a>
                 <div class="dropdown-menu border-0 text-capitalize" aria-labelledby="clothing-link">
-                    <a href="" class="dropdown-item">Sandwiches</a>
-                    <a href="" class="dropdown-item">Salads</a>
-                    <a href="" class="dropdown-item">Snacks</a>
-                    <a href="" class="dropdown-item">Pasta and Noodles</a>
+                    <a href="{% url 'products' %}?category=sandwiches" class="dropdown-item">Sandwiches</a>
+                    <a href="{% url 'products' %}?category=salads" class="dropdown-item">Salads</a>
+                    <a href="{% url 'products' %}?category=snacks" class="dropdown-item">Snacks</a>
+                    <a href="{% url 'products' %}?category=pasta_noodles" class="dropdown-item">Pasta and Noodles</a>
                 </div>
             </li>
             <li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" href="#drinks">Drinks</a>
                 <div class="dropdown-menu border-0 text-capitalize" aria-labelledby="homeware-link">
-                    <a href="" class="dropdown-item">Smoothies &amp; Juices</a>
-                    <a href="" class="dropdown-item">Mineral Water</a>
-                    <a href="" class="dropdown-item">Fizzy drinks</a>
+                    <a href="{% url 'products' %}?category=smothies_juices" class="dropdown-item">Smoothies &amp; Juices</a>
+                    <a href="{% url 'products' %}?category=mineral_water" class="dropdown-item">Mineral Water</a>
+                    <a href="{% url 'products' %}?category=fizzy_drinks" class="dropdown-item">Fizzy drinks</a>
                 </div>
             </li>
             <li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
