@@ -101,6 +101,7 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -546,8 +547,8 @@ progress {
 .lead {
   font-size: 1.25rem;
   font-weight: 500;
-  color:#0f5132;
-  font-family: 'Montserrat', sans-serif ;
+  color: #0f5132;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .display-1 {
@@ -3932,8 +3933,10 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-dark {
-  color: #212529;
-  border-color: #212529;
+  color: #0f5132;
+  border-color: #0f5132;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:600;
 }
 
 .btn-outline-dark:hover {
@@ -5241,7 +5244,7 @@ fieldset:disabled .btn {
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
-  
+
 }
 
 .card-title {
@@ -5275,7 +5278,7 @@ fieldset:disabled .btn {
 .card-footer {
   padding: 0.5rem 1rem;
   font-family: 'Montserrat', sans-serif;
-  font-size: 25px; 
+  font-size: 25px;
   color: #FFC800;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
@@ -5637,7 +5640,7 @@ fieldset:disabled .btn {
   font-weight: 600;
   line-height: 1;
   background-color: #ffc800;
-  color: #198754;
+  color: black;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -12352,7 +12355,7 @@ p {
   font-size: 0.75rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-transform: uppercase;
-  
+
 }
 
 #mainNav .navbar-brand {
@@ -12912,29 +12915,27 @@ footer {
 .dropdown-item {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
-  font-weight:700;
+  font-weight: 700;
   color: #0f5132;
 }
 
-.dropdown-menu {
- 
-}
+.dropdown-menu {}
 
 .overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	z-index: -1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
   background-color: #EDE9D0;
 }
 
-.unique  {
-  color:orange;
+.unique {
+  color: orange;
   font-family: 'Quicksand', cursive;
   font-weight: lighter;
-  font-size:20px;
+  font-size: 20px;
 }
 
 .description {
@@ -12942,10 +12943,10 @@ footer {
 }
 
 .product-info {
-  color: #0f5132;
+  color: #423E49;
   font-family: 'Quicksand', cursive;
   font-weight: lighter;
-  font-size:20px;
+  font-size: 20px;
 
 }
 
@@ -12955,3 +12956,21 @@ footer {
   font-weight: bold;
   font-size: 25px;
 }
+
+.price-info-small {
+  color: orangered;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 10px;
+
+}
+
+/*@media (max-width: 991px) {
+  .header-container {
+      padding-top: 116px;
+  }
+
+  body {
+      height: calc(100vh - 116px);
+  }
+}*/
