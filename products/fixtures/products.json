@@ -317,7 +317,7 @@
             "is_vegan": true,
             "is_vegetarian": true,
             "price": 3.80,
-            "category": 5,
+            "category": 2,
             "image_url": "https://res.cloudinary.com/felhokkozt/image/upload/v1640897351/rsz_1pexels-markus-winkler-2862154_owrsgu.jpg",
             "image": "rsz_1pexels-markus-winkler-2862154.jpg"
         }

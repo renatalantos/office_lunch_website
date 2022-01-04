@@ -1,5 +1,4 @@
 <div class="container">
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -8,30 +7,27 @@
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ms-auto w-auto mx-auto py-4 py-lg-0">
+
             <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
 
             <li class="nav-item dropdown rounded-0"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" href="#all_products">All products</a>
                 <div class="dropdown-menu border-0 text-capitalize">
-                   
-                    <div class="btn-group dropright">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            By Lifestyle Choice
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Link 1</a>
-                            <a class="dropdown-item" href="#">Link 2</a>
-                            <a class="dropdown-item" href="#">Link 3</a>
-                        </div>
-                    </div>
-
-
-
                     <a href="{% url 'products' %}?sort=calory_count&direction=asc" class="dropdown-item">By Calory
                         count</a>
                     <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
                     <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
+                    <a class="dropdown">
+                        <a class="dropdown-toggle dropdown-item gello" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">By Lifestyle Choice</a>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=is_vegan&direction=desc">Vegan</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=is_vegetarian&direction=desc">Vegetarian</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=has_gluten">Gluten-free</a>
+                    </div>
                 </div>
 
             </li>
@@ -117,4 +113,5 @@
 
         </ul>
     </div>
+</div>
 </div>
