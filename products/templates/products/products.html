@@ -6,52 +6,67 @@
 {% block content %}
 
 <section class="py-5">
-    <div class="overlay"></div>
+    <div class="overlay">
 
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center">
-            {% for product in products %}
-            <div class="col mb-5">
-                <div class="card h-100">
-                    {% if product.lunch_deal %}
-                    <div class="badge btn-primary position-absolute"><a>Lunch Deal Item</a>
-                    </div>
-                    {% else %}
-                    <div></div>
-                    {% endif %}
-                    <!-- Product image-->
-                    {% if product.image %}
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}" />
-                    </a>
-                    {% else %}
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                    </a>
-                    {% endif %}
-                    <!-- Product details-->
-                    <div class="card-body p-4">
+    </div>
+
+    <div class="container pt-5 text-center mt-3">
+
+        {% for c in current_categories %}
+        <a class="text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+            <span class="p-2 mt-2 badge btn-primary rounded-1 border border-dark">{{ c.friendly_name }}</span>
+        </a>
+        {% endfor %}
+
+
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center">
+                {% for product in products %}
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        {% if product.lunch_deal %}
+                        <div class="badge btn-primary position-absolute"><a>Lunch Deal Item</a>
+                        </div>
+                        {% else %}
+                        <div></div>
+                        {% endif %}
+                        <!-- Product image-->
+                        {% if product.image %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}" />
+                        </a>
+                        {% else %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% endif %}
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">{{ product.name }} </h5>
+                            </div>
+                        </div>
+                        {% if product.category %}
+
                         <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">{{ product.name }} </h5>
-                            <!-- Product details-->
-                        
+                            <a href="{% url 'products' %}?category={{ product.category.name }}"
+                                class="text-decoration-none prod-info-cat">
+                                <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                            </a>
+                        </div>
 
-
+                        {% endif %}
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            {% if product.has_gluten %}
+                            <div></div>
+                            {% else %}
+                            <div class="prod-info-gluten text-center">Gluten-free</div>
+                            {% endif %}
+                            <div class="text-center">€ {{ product.price }}</div>
                         </div>
                     </div>
-                    <!-- Product price-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        {% if product.has_gluten %}
-                        <div></div>
-                        {% else %}
-                        <div class="unique text-center">Gluten-free</div>
-                        {% endif %}
-                        <div class="text-center">€ {{ product.price }}</div>
-                    </div>
                 </div>
-            </div>
 
-            {% endfor%}
+                {% endfor%}
 </section>
 {% endblock %}

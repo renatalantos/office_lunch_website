@@ -12931,7 +12931,7 @@ footer {
   background-color: #EDE9D0;
 }
 
-.unique {
+.prod-info-gluten {
   color: orange;
   font-family: 'Quicksand', cursive;
   font-weight: lighter;
@@ -12976,3 +12976,12 @@ footer {
 }*/
 
 
+/* dropdown open on right side of the menu*/
+.display-on-right {
+  top: 65%;
+  left: 100%;
+}
+
+.prod-info-cat {
+  font-family: 'Quicksand', cursive;
+}

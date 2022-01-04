@@ -26,7 +26,17 @@
                 {% endif %}</div>
             <div class="col-md-6">
             
-                <h6 class="display-6 description fw-bolder">{{ product.name }}</h6>
+                <h1 class=" display-6 description fw-bolder">{{ product.name }}</h1>
+                <p class="lead">{{ product.description }}</p>
+
+                {% if product.category %}
+                <div class="fs-5 mb-2">
+                    <span class="product-info"> <a class="text-decoration-none product-info" href="{% url 'products' %}?category={{ product.category.name }}">
+                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                    </a></span>
+                </div>
+                {% endif %}
+                
             
                 <div class="fs-5 mb-2">
 
@@ -89,7 +99,7 @@
                 {% endif %}
 
              
-                <p class="lead">{{ product.description }}</p>
+                
                 <div class="fs-5 mb-3">
 
                     <span class="price-info">€ {{ product.price }} *</span><span class="price-info-small">  price always refers to single bottle / can / bag of items even if image is different</span>

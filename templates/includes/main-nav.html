@@ -14,20 +14,23 @@
             <li class="nav-item dropdown rounded-0"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" href="#all_products">All products</a>
                 <div class="dropdown-menu border-0 text-capitalize">
+                    <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+              
+                    <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
                     <a href="{% url 'products' %}?sort=calory_count&direction=asc" class="dropdown-item">By Calory
                         count</a>
-                    <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
-                    <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
-                    <a class="dropdown">
-                        <a class="dropdown-toggle dropdown-item gello" data-toggle="dropdown" aria-haspopup="true"
+                    
+                    <a class="dropdown dropright">
+                        <a class="dropdown-toggle dropdown-item " data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">By Lifestyle Choice</a>
                     </a>
 
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu display-on-right">
                         <a class="dropdown-item" href="{% url 'products' %}?sort=is_vegan&direction=desc">Vegan</a>
                         <a class="dropdown-item" href="{% url 'products' %}?sort=is_vegetarian&direction=desc">Vegetarian</a>
                         <a class="dropdown-item" href="{% url 'products' %}?sort=has_gluten">Gluten-free</a>
                     </div>
+                    <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
                 </div>
 
             </li>
@@ -38,15 +41,17 @@
                     <a href="{% url 'products' %}?category=salads" class="dropdown-item">Salads</a>
                     <a href="{% url 'products' %}?category=snacks" class="dropdown-item">Snacks</a>
                     <a href="{% url 'products' %}?category=pasta_noodles" class="dropdown-item">Pasta and Noodles</a>
+                    <a href="{% url 'products' %}?category=sandwiches,salads,snacks,pasta_noodles" class="dropdown-item">All Food</a>
                 </div>
             </li>
             <li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" href="#drinks">Drinks</a>
                 <div class="dropdown-menu border-0 text-capitalize" aria-labelledby="drinks-link">
-                    <a href="{% url 'products' %}?category=smothies_juices" class="dropdown-item">Smoothies &amp;
+                    <a href="{% url 'products' %}?category=smoothies_juices" class="dropdown-item">Smoothies &amp;
                         Juices</a>
                     <a href="{% url 'products' %}?category=mineral_water" class="dropdown-item">Mineral Water</a>
                     <a href="{% url 'products' %}?category=fizzy_drinks" class="dropdown-item">Fizzy drinks</a>
+                    <a href="{% url 'products' %}?category=smoothies_juices,mineral_water,fizzy_drinks" class="dropdown-item">All Drinks</a>
                 </div>
             </li>
             <li class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"

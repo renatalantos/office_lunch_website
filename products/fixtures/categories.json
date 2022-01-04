@@ -27,7 +27,7 @@
         "pk": 4,
         "model": "products.category",
         "fields": {
-            "name": "smothies_juices",
+            "name": "smoothies_juices",
             "friendly_name": "Smoothies & Juices"
         }
     },

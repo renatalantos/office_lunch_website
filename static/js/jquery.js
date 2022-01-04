@@ -2,7 +2,7 @@ $('.dropdown-toggle').dropdown()
 
 
 $(document).ready(function() {
-    $('.dropright div').on("click", function(e) {
+    $('.dropright a').on("click", function(e) {
       e.stopPropagation();
       e.preventDefault();
   
