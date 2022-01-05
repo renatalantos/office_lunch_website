@@ -28,7 +28,7 @@
                     <div class="dropdown-menu display-on-right">
                         <a class="dropdown-item" href="{% url 'products' %}?sort=is_vegan&direction=desc">Vegan</a>
                         <a class="dropdown-item" href="{% url 'products' %}?sort=is_vegetarian&direction=desc">Vegetarian</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=has_gluten">Gluten-free</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=has_gluten&direction=asc">Gluten-free</a>
                     </div>
                     <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
                 </div>

@@ -3936,7 +3936,7 @@ fieldset:disabled .btn {
   color: #0f5132;
   border-color: #0f5132;
   font-family: 'Montserrat', sans-serif;
-  font-weight:600;
+  font-weight: 600;
 }
 
 .btn-outline-dark:hover {
@@ -12912,7 +12912,8 @@ footer {
   color: #ffc800;
 }
 
-.dropdown-item {
+.dropdown-item,
+.sort-select-wrapper {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -12984,4 +12985,8 @@ footer {
 
 .prod-info-cat {
   font-family: 'Quicksand', cursive;
+}
+
+.prod-text {
+  font-family: 'Montserrat', sans-serif;
 }
