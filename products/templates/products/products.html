@@ -22,21 +22,21 @@
         {% endfor %}
     
         <div class="row mt-1 mb-2">
-            <div class="col-12 col-md-5 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+            <div class="col-12 col-md-5 offset-md-1 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                 <div class="sort-select-wrapper w-50">
                     <select id="sort-selector" class="custom-select custom-select-sm rounded-1 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                         <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                         <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                         <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                        <option value="calory_count_asc" {% if current_sorting == 'calory_count_asc' %}selected{% endif %}>Calory Count (low to high)</option>
-                        <option value="calory_count_desc" {% if current_sorting == 'calory_count_desc' %}selected{% endif %}>Calory Count (high to low)</option>
+                        <option value="calory_asc" {% if current_sorting == 'calory_asc' %}selected{% endif %}>Calory Count (low to high)</option>
+                        <option value="calory_desc" {% if current_sorting == 'calory_desc' %}selected{% endif %}>Calory Count (high to low)</option>
                         <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
                         <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                         <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
                         <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-                        <option value="is_vegan_desc" {% if current_sorting == 'is_vegan_desc' %}selected{% endif %}>Vegan (show first)</option>
-                        <option value="is_vegetarian_desc" {% if current_sorting == 'is_vegetarian_desc' %}selected{% endif %}>Vegetarian (show first)</option>
-                        <option value="has_gluten_asc" {% if current_sorting == 'has_gluten_asc' %}selected{% endif %}>Gluten-free (show first)</option>
+                        <option value="vegan_desc" {% if current_sorting == 'vegan_desc' %}selected{% endif %}>Vegan (show first)</option>
+                        <option value="vegetarian_desc" {% if current_sorting == 'vegetarian_desc' %}selected{% endif %}>Vegetarian (show first)</option>
+                        <option value="gluten_asc" {% if current_sorting == 'gluten_asc' %}selected{% endif %}>Gluten-free (show first)</option>
                         
                     </select>
                 </div>
@@ -95,8 +95,9 @@
                         </div>
 
                         {% endif %}
+                        
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            {% if product.has_gluten %}
+                            {% if product.gluten %}
                             <div></div>
                             {% else %}
                             <div class="prod-info-gluten text-center">Gluten-free</div>
@@ -108,4 +109,46 @@
 
                 {% endfor%}
 </section>
+<div class="btt-button shadow-sm rounded-1 border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>	
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
+    
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}

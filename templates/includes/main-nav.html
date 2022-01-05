@@ -17,7 +17,7 @@
                     <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
               
                     <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item">By Category</a>
-                    <a href="{% url 'products' %}?sort=calory_count&direction=asc" class="dropdown-item">By Calory
+                    <a href="{% url 'products' %}?sort=calory&direction=asc" class="dropdown-item">By Calory
                         count</a>
                     
                     <a class="dropdown dropright">
@@ -26,9 +26,9 @@
                     </a>
 
                     <div class="dropdown-menu display-on-right">
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=is_vegan&direction=desc">Vegan</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=is_vegetarian&direction=desc">Vegetarian</a>
-                        <a class="dropdown-item" href="{% url 'products' %}?sort=has_gluten&direction=asc">Gluten-free</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=vegan&direction=desc">Vegan</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=vegetarian&direction=desc">Vegetarian</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?sort=gluten&direction=asc">Gluten-free</a>
                     </div>
                     <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
                 </div>

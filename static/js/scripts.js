@@ -1,8 +1,8 @@
 /*!
-* Start Bootstrap - Agency v7.0.10 (https://startbootstrap.com/theme/agency)
-* Copyright 2013-2021 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
-*/
+ * Start Bootstrap - Agency v7.0.10 (https://startbootstrap.com/theme/agency)
+ * Copyright 2013-2021 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
+ */
 //
 // Scripts
 // 
@@ -59,3 +59,25 @@ setTimeout(function () {
     alert.close();
 }, 2000);
 
+
+
+$('#sort-selector').change(function () {
+    var selector = $(this);
+    var currentUrl = new URL(window.location);
+
+    var selectedVal = selector.val();
+    if (selectedVal != "reset") {
+        var sort = selectedVal.split("_")[0];
+        var direction = selectedVal.split("_")[1];
+
+        currentUrl.searchParams.set("sort", sort);
+        currentUrl.searchParams.set("direction", direction);
+
+        window.location.replace(currentUrl);
+    } else {
+        currentUrl.searchParams.delete("sort");
+        currentUrl.searchParams.delete("direction");
+
+        window.location.replace(currentUrl);
+    }
+})
