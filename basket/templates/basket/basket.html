@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% csrf_token %}
+
+<div class="overlay"></div>
+<div class="container mb-5 pb-5">
+    <div class="row mt-5 pt-5">
+        <div class="col mt-5 pt-5">
+        
+            <h2 class="logo-font mb-4">Your shopping basket <!--<i class="fas fa-shopping-basket"></i>--></h2>
+            
+        </div>
+    </div>
+
+    <div class="row mb-5 pb-5">
+        <div class="col mb-5 pb-5">
+            {% if bag_items %}
+                <div class="table-responsive rounded"></div>
+            {% else %}
+                <p class="lead mb-5">Your basket is empty.</p>
+               <!-- <p class="lead mb-5 fw-bold">Don't stay hungry.</p>-->
+                <a href="{% url 'products' %}" class="shop-basket-btn btn btn-primary rounded-1 btn-lg">
+                    <span class="icon text-white">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% if messages %}
+<div class="message-container"></div>
+{% endif %}
+
+
+
+
+{% endblock %}

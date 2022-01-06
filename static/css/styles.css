@@ -12992,3 +12992,7 @@ footer {
 .btt-link {
   cursor: pointer;
 }
+
+.shop-basket-btn {
+  font-family: 'Quicksand', cursive;
+}

@@ -12,7 +12,7 @@
             </li>
 
             <li class="nav-item dropdown rounded-0"><a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false" href="#all_products">All products</a>
+                    aria-expanded="false" href="#all_products">All Products</a>
                 <div class="dropdown-menu border-0 text-capitalize">
                     <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
               
@@ -100,7 +100,7 @@
             </li>
             <li class="nav-item">
                 <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link"
-                    href="">
+                    href="{% url 'view_basket' %}">
 
                     <i class="fas fa-shopping-basket fa-lg"></i>
 
