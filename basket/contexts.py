@@ -13,7 +13,7 @@ def basket_contents(request):
         'total': total,
         'product_count': product_count,
         'delivery': delivery,
-        'final_total': grand_total,
+        'final_total': final_total,
     }
 
     return context
