@@ -12947,8 +12947,7 @@ footer {
   color: #423E49;
   font-family: 'Quicksand', cursive;
   font-weight: lighter;
-  font-size: 20px;
-
+  font-size: 17px;
 }
 
 .price-info {
@@ -12997,3 +12996,21 @@ footer {
   font-family: 'Quicksand', cursive;
 }
 
+
+.qty-box{
+  height: 2rem;
+  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFF;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.increment-qty, .decrement-qty {
+  background-color: transparent;
+}
+
+.product-name {
+  font-size: 1.5rem;
+}

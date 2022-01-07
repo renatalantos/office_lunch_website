@@ -12,11 +12,7 @@
         <a class="btn btn-primary btn-danger btn-xl text-uppercase" href="{% url 'products' %}">Order food now!</a>
     </div>
 </header>
-{% if messages %}
-<div class="message-container"></div>
-{% endif %}
 
-
-
+{% include 'includes/footer.html' %}
 
 {% endblock %}

@@ -9,7 +9,7 @@
     <div class="row mt-5 pt-5">
         <div class="col mt-5 pt-5">
         
-            <h2 class="logo-font mb-4">Your shopping basket <!--<i class="fas fa-shopping-basket"></i>--></h2>
+            <h2 class="logo-font mb-4">Your shopping basket <i class="fas fa-shopping-basket"></i></h2>
             
         </div>
     </div>
@@ -21,11 +21,11 @@
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
                         <tr>
-                            <th scope="col">Product Info</th>
-                            <th scope="col"></th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Qty</th>
-                            <th scope="col">Subtotal</th>
+                            <th scope="col"><p class="prod-text">Product Info</p></th>
+                            <th scope="col"><p class="prod-text"></p></th>
+                            <th scope="col"><p class="prod-text">Price</p></th>
+                            <th scope="col"><p class="prod-text">Number of items</p></th>
+                            <th scope="col"><p class="prod-text">Subtotal</p></th>
                         </tr>
                     </thead>
 
@@ -35,38 +35,38 @@
                                 <img class="img-fluid rounded" src="{{ item.product.image.url }}">
                             </td>
                             <td class="py-3">
-                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                <p class="my-0 small text-muted">Product number: {{ item.product.product_number|upper }}</p>
+                                <p class="my-0 prod-text"><strong>{{ item.product.name }}</strong></p>
+                                <p class="my-0 small text-muted prod-text">Product number: {{ item.product.product_number|upper }}</p>
                             </td>
                             <td class="py-3">
-                                <p class="my-0">€{{ item.product.price }}</p>
+                                <p class="my-0 prod-text">€{{ item.product.price }}</p>
                             </td>
                             <td class="py-3 w-25">
-                                <p class="my-0">{{ item.quantity }}</p>
+                                <p class="my-0 prod-text">{{ item.quantity }}</p>
                             </td>
                             <td class="py-3">
-                                <p class="my-0">€{{ item.product.price }}</p>
+                                <p class="my-0 prod-text">€{{ item.product.price }}</p>
                             </td>
                         </tr>
                     {% endfor %}
                     <tr>
-                        <td colspan="5" class="pt-5 text-right">
+                        <td colspan="5" class="pt-5 text-right prod-text">
                             <h6><strong>Basket Total: €{{ total|floatformat:2 }}</strong></h6>
                             <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
-                            <h4 class="mt-4"><strong>Final Total: €{{ final_total|floatformat:2 }}</strong></h4>
+                            <h4 class="mt-4 prod-text"><strong>Final Total: €{{ final_total|floatformat:2 }}</strong></h4>
                             
                         </td>
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                <span class="icon">
+                            <a href="{% url 'products' %}" class="btn shop-basket-btn btn-secondary rounded-1 btn-lg">
+                                <span class="icon text-white">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            <a href="" class="btn btn-black rounded-0 btn-lg">
-                                <span class="text-uppercase">Secure Checkout</span>
+                            <a href="" class="btn btn-primary border-dark rounded-1 btn-lg">
+                                <span class="text-uppercase shop-basket-btn">Secure Checkout</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>
                                 </span>
@@ -74,6 +74,8 @@
                         </td>
                     </tr>
                 </table>
+
+                
             {% else %}
                 <p class="lead mb-5">Your basket is empty.</p>
                <!-- <p class="lead mb-5 fw-bold">Don't stay hungry.</p>-->

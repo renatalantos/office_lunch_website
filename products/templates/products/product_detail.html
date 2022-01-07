@@ -9,7 +9,7 @@
 <section class="py-5">
     <div class="overlay"></div>
 
-    <div class="container px-4 px-lg-5 my-5">
+    <div class="container px-4 px-lg-5 pt-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
 
             <div class="col-md-6">
@@ -26,12 +26,12 @@
                 {% endif %}</div>
             <div class="col-md-6">
 
-                <h1 class=" display-6 description fw-bolder">{{ product.name }}</h1>
+                <p class="product-name lead fw-bolder">{{ product.name }}</p>
                 <p class="lead">{{ product.description }}</p>
 
                 {% if product.category %}
-                <div class="fs-5 mb-2">
-                    <span class="product-info"> <a class="text-decoration-none product-info"
+                <div class="mb-2 product-info">
+                    <span> <a class="text-decoration-none product-info"
                             href="{% url 'products' %}?category={{ product.category.name }}">
                             <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
                         </a></span>
@@ -39,25 +39,25 @@
                 {% endif %}
 
 
-                <div class="fs-5 mb-2">
+                <div class="mb-2 product-info">
 
-                    <span class="product-info">{{ product.calory }} kcal per portion</span>
+                    <span>{{ product.calory }} kcal per portion</span>
                 </div>
 
                 {% if product.gluten %}
                 <div></div>
 
                 {% else %}
-                <div class="fs-5 mb-2">
+                <div class="mb-2 product-info">
 
-                    <span class="product-info">Gluten-free <i class="fas fa-check me-1"></i></span>
+                    <span>Gluten-free <i class="fas fa-check me-1"></i></span>
                 </div>
                 {% endif %}
 
                 {% if product.vegetarian %}
-                <div class="fs-5 mb-2">
+                <div class="mb-2 product-info">
 
-                    <span class="product-info">Vegetarian <i class="fas fa-check me-1"></i></span>
+                    <span>Vegetarian <i class="fas fa-check me-1"></i></span>
                 </div>
 
 
@@ -66,9 +66,9 @@
                 {% endif %}
 
                 {% if product.vegan %}
-                <div class="fs-5 mb-2">
+                <div class="mb-2 product-info">
 
-                    <span class="product-info">Vegan <i class="fas fa-check me-1"></i></span>
+                    <span>Vegan <i class="fas fa-check me-1"></i></span>
                 </div>
 
 
@@ -77,9 +77,9 @@
                 {% endif %}
 
                 {% if product.option_grilled %}
-                <div class="fs-5 mb-2">
+                <div class="mb-2 product-info">
 
-                    <span class="product-info">Grilled at request <i class="fas fa-check me-1"></i></span>
+                    <span>Grilled at request <i class="fas fa-check me-1"></i></span>
                 </div>
 
 
@@ -89,7 +89,7 @@
 
 
                 {% if product.lunch_deal %}
-                <div class="fs-5 mb-2">
+                <div class="mb-2">
 
                     <span class="product-info"><a href="#" class="text-decoration-none product-info">Lunch Deal Item
                         </a><i class="fas fa-check me-1"></i></span>
@@ -102,55 +102,61 @@
 
 
 
-                <div class="fs-5 mb-3">
+                <div class="mb-3">
 
                     <span class="price-info">€ {{ product.price }} *</span><span class="price-info-small"> price always
                         refers to single bottle / can / bag of items even if image is different</span>
                 </div>
-                <div class="d-flex">
+                <div>
+
                     <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                         {% csrf_token %}
-                        <input class="text-center me-3" type="number" name="quantity" value="1" min="1" max="99"
-                            data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-
-                        <input type="submit" class="btn btn-outline-dark btn-primary flex-shrink-0" type="button"
-                            value="Add to basket">
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </form>
-                </div>
-                <a href="{% url 'products' %}" class="btn btn-secondary shop-basket-btn rounded-1 mt-2">
-                    <span class="icon text-white">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">Keep Shopping</span>
-                </a>
-        
-            <!--<form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="col-12">
-                       
-                        <div class="form-group w-25">
-                            <div class="input-group">
-                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                    
+                            <div class="form-group">
+                                <div class="input-group mb-2 ">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty border-0 rounded-0" 
+                                            data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                            <span class="icon text-black">
+                                                <i class="fas fa-minus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="qty-box rounded-1"><input class="form-control qty_input" type="number"
+                                        name="quantity" value="1" min="1" max="99"
+                                        data-item_id="{{ product.id }}"
+                                        id="id_qty_{{ product.id }}"></div>
+                                    <div class="input-group-append">
+                                        <button class="increment-qty border-0 rounded-0"
+                                            data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                            <span class="icon text-black">
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <input type="submit" class="btn btn-outline-dark border-dark btn-primary flex-shrink-0"
+                            type="button" value="Add to basket">
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="col-12">
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                            <span class="icon">
+                        
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <a href="{% url 'products' %}" class="btn btn-secondary shop-basket-btn rounded-1 mt-2">
+                            <span class="icon text-white">
                                 <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="text-uppercase">Keep Shopping</span>
                         </a>
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
                     </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </div>
-            </form>-->
+                </form>
+            </div>
+
         </div>
-    </div>
 </section>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/product_quantity_script.html' %}
 {% endblock %}
