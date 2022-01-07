@@ -111,6 +111,17 @@
 
                     <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                         {% csrf_token %}
+                        {% with product.option_grilled as grill %}
+                        {% if grill %}
+                            <div class="col-12 qty-box">
+                                <p><strong>Grilled</strong></p>
+                                <select class="form-control rounded-1" name="product_grilled" id='id_product_grilled'>
+                                    <option value="yes">YES</option>
+                                    <option value="no">NO</option>
+                              
+                                </select>
+                            </div>
+                        {% endif %}
                     
                             <div class="form-group">
                                 <div class="input-group mb-2 ">
@@ -148,6 +159,8 @@
                             <span class="text-uppercase">Keep Shopping</span>
                         </a>
                     </div>
+                    {% endwith %}
+               
                 </form>
             </div>
 
