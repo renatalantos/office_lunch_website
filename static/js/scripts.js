@@ -82,5 +82,10 @@ $('#sort-selector').change(function () {
     }
 })
 
-
+function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('grill')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
 

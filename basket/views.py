@@ -11,6 +11,9 @@ def add_to_basket(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    grilled = None
+    not_grilled = None
+    
     basket = request.session.get('basket', {})
 
     if item_id in list(basket.keys()):
