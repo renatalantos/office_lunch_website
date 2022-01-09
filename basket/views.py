@@ -44,7 +44,7 @@ def change_basket(request, item_id):
         option_grill = request.POST['grilled']
     basket = request.session.get('basket', {})
 
-    if option_grilled:
+    if option_grill:
         if quantity > 0:
             basket[item_id]['items_by_option_grill'][option_grill] = quantity
         else:
