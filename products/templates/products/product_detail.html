@@ -129,8 +129,8 @@
                         {% endif %}
 
                         <div class="form-group d-inline">
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
+                            <div class="mb-2 input-group">
+                                <div class="input-group-prepend d-inline-block">
                                     <button class="decrement-qty border-0 rounded-0" data-item_id="{{ product.id }}"
                                         id="decrement-qty_{{ product.id }}">
                                         <span class="icon text-black">
@@ -138,10 +138,10 @@
                                         </span>
                                     </button>
                                 </div>
-                                <div class="qty-box rounded-1"><input class="form-control qty_input" type="number"
+                                <div class="qty-box rounded-1 d-inline-block"><input class="form-control qty_input" type="number"
                                         name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}"
                                         id="id_qty_{{ product.id }}"></div>
-                                <div class="input-group-append">
+                                <div class="input-group-append d-inline-block">
                                     <button class="increment-qty border-0 rounded-0" data-item_id="{{ product.id }}"
                                         id="increment-qty_{{ product.id }}">
                                         <span class="icon text-black">
