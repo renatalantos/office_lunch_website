@@ -8,61 +8,111 @@
 <div class="container mb-5 pb-5">
     <div class="row mt-5 pt-5">
         <div class="col mt-5 pt-5">
-        
+
             <h2 class="logo-font mb-4">Your shopping basket <i class="fas fa-shopping-basket"></i></h2>
-            
+
         </div>
     </div>
 
     <div class="row mb-5 pb-5">
         <div class="col mb-5 pb-5">
             {% if basket_items %}
-            {{ basket_items }}
-            <br>
-            <br>
-            {{ request.session.basket }}
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
                         <tr>
-                            <th scope="col"><p class="prod-text">Product Info</p></th>
-                            <th scope="col"><p class="prod-text"></p></th>
-                            <th scope="col"><p class="prod-text">Price</p></th>
-                            <th scope="col"><p class="prod-text">Number of items</p></th>
-                            <th scope="col"><p class="prod-text">Subtotal</p></th>
-           
+                            <th scope="col">
+                                <p class="prod-text">Product Info</p>
+                            </th>
+                            <th scope="col">
+                                <p class="prod-text"></p>
+                            </th>
+                            <th scope="col">
+                                <p class="prod-text">Price</p>
+                            </th>
+                            <th scope="col">
+                                <p class="prod-text">Number of items</p>
+                            </th>
+                            <th scope="col">
+                                <p class="prod-text">Subtotal</p>
+                            </th>
+
                         </tr>
                     </thead>
 
                     {% for item in basket_items %}
-                  
-                        <tr>
-                            <td class="p-3 w-25">
-                                <img class="img-fluid rounded" src="{{ item.product.image.url }}">
-                            </td>
-                            <td class="py-3">
-                                <p class="my-0 prod-text"><strong>{{ item.product.name }}</strong></p>
-                                <p class="my-0 small text-muted prod-text">Product number: {{ item.product.product_number|upper }}</p>
-                            </td>
-                            <td class="py-3">
-                                <p class="my-0 prod-text">€{{ item.product.price }}</p>
-                            </td>
-                            <td class="py-3 w-25">
-                                <p class="my-0 prod-text">{{ item.quantity }}</p>
-                            </td>
-                            <td class="py-3">
-                                <p class="my-0 prod-text">€{{ item.product.price }}</p>
-                            </td>
-                            
-                            
-                        </tr>
+
+                    <tr>
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0 prod-text"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 prod-text">
+                                {% if item.product.option_grilled %}{{ item.option_grill|upper }}{% else %}{% endif %}
+                            </p>
+                            <p class="my-0 small text-muted prod-text">Product number:
+                                {{ item.product.product_number|upper }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0 prod-text">€{{ item.product.price }}</p>
+                        </td>
+                        <td class="py-3 w-25">
+                            <form class="update-form form" action="" method="POST">
+                                {% csrf_token %}
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty border-0 rounded-0"
+                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.id }}">
+                                            <span class="icon text-black">
+                                                <i class="fas fa-minus fa-sm"></i>
+                                            </span>
+                                        </button>
+
+
+                                    </div>
+
+
+                                    <div class="qty-box rounded-1"><input class="form-control qty_input" type="number"
+                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}"></div>
+                                    <div class="input-group-append">
+                                        <button class="increment-qty border-0 rounded-0"
+                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                            <span class="icon text-black">
+                                                <i class="fas fa-plus fa-sm"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+
+                                    {% if item.product.option_grilled %}
+                                    <input type="hidden" name="grilled" value="{{ item.option_grill }}">
+                                    {% endif %}
+                                </div>
+
+                            </form>
+                            <div>
+                                <div class="d-inline-block"><a class="text-info mr-5"><i
+                                            class="fas fa-check"></i></a></div>
+                                <div class="d-inline-block"><a class="text-danger ml-5" id="remove_{{ item.item_id }}"
+                                        data-size="{{ item.option_grill }}"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0 prod-text">€{{ item.product.price }}</p>
+                        </td>
+
+
+                    </tr>
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text-right prod-text">
                             <h6><strong>Basket Total: €{{ total|floatformat:2 }}</strong></h6>
                             <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
-                            <h4 class="mt-4 prod-text"><strong>Final Total: €{{ final_total|floatformat:2 }}</strong></h4>
-                            
+                            <h4 class="mt-4 prod-text"><strong>Final Total: €{{ final_total|floatformat:2 }}</strong>
+                            </h4>
+
                         </td>
                     </tr>
                     <tr>
@@ -83,25 +133,50 @@
                     </tr>
                 </table>
 
-                
-            {% else %}
+
+                {% else %}
                 <p class="lead mb-5">Your basket is empty.</p>
-               <!-- <p class="lead mb-5 fw-bold">Don't stay hungry.</p>-->
+                <!-- <p class="lead mb-5 fw-bold">Don't stay hungry.</p>-->
                 <a href="{% url 'products' %}" class="shop-basket-btn btn btn-primary rounded-1 btn-lg">
                     <span class="icon text-white">
                         <i class="fas fa-chevron-left"></i>
                     </span>
                     <span class="text-uppercase">Keep Shopping</span>
                 </a>
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
-{% if messages %}
-<div class="message-container"></div>
-{% endif %}
+    {% if messages %}
+    <div class="message-container"></div>
+    {% endif %}
 
 
 
 
-{% endblock %}
+    {% endblock %}
+    {% block postloadjs %}
+    {{ block.super }}
+    {% include 'products/includes/product_quantity_script.html' %}
+    <script type="text/javascript">
+        // Update quantity on click
+        $('.update-link').click(function(e) {
+            var form = $(this).prev('.update-form');
+            form.submit();
+        })
+    
+        // Remove item and reload on click
+        $('.remove-item').click(function(e) {
+            var csrfToken = "{{ csrf_token }}";
+            var itemId = $(this).attr('id').split('remove_')[1];
+            var option_grill = $(this).data('option_grill');
+            var url = `/bag/remove/${itemId}`;
+            var data = {'csrfmiddlewaretoken': csrfToken, 'option_grill': option_grill};
+    
+            $.post(url, data)
+             .done(function() {
+                 location.reload();
+             });
+        })
+    </script>
+    {% endblock %}
