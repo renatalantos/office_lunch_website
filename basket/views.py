@@ -11,15 +11,25 @@ def add_to_basket(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    grilled = None
-    not_grilled = None
-    
+    basket = request.session.get('basket', {})
+    option_grill = None
+    if 'grilled' in request.POST:
+        option_grill = request.POST['grilled']
     basket = request.session.get('basket', {})
 
-    if item_id in list(basket.keys()):
-        basket[item_id] += quantity
+    if option_grill:
+        if item_id in list(basket.keys()):
+            if option_grill in basket[item_id]['items_by_option_grill'].keys():
+                basket[item_id]['items_by_option_grill'][option_grill] += quantity
+            else:
+                basket[item_id]['items_by_option_grill'][option_grill] = quantity
+        else:
+            basket[item_id] = {'items_by_option_grill': {option_grill: quantity}}
     else:
-        basket[item_id] = quantity
-
+        if item_id in list(basket.keys()):
+            basket[item_id] += quantity
+        else:
+            basket[item_id] = quantity
+ 
     request.session['basket'] = basket
     return redirect(redirect_url)

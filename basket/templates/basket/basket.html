@@ -17,6 +17,10 @@
     <div class="row mb-5 pb-5">
         <div class="col mb-5 pb-5">
             {% if basket_items %}
+            {{ basket_items }}
+            <br>
+            <br>
+            {{ request.session.basket }}
             <div class="table-responsive rounded">
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
@@ -26,10 +30,12 @@
                             <th scope="col"><p class="prod-text">Price</p></th>
                             <th scope="col"><p class="prod-text">Number of items</p></th>
                             <th scope="col"><p class="prod-text">Subtotal</p></th>
+           
                         </tr>
                     </thead>
 
                     {% for item in basket_items %}
+                  
                         <tr>
                             <td class="p-3 w-25">
                                 <img class="img-fluid rounded" src="{{ item.product.image.url }}">
@@ -47,6 +53,8 @@
                             <td class="py-3">
                                 <p class="my-0 prod-text">€{{ item.product.price }}</p>
                             </td>
+                            
+                            
                         </tr>
                     {% endfor %}
                     <tr>

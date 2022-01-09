@@ -102,7 +102,7 @@
 
 
 
-                <div class="mb-3">
+                <div>
 
                     <span class="price-info">€ {{ product.price }} *</span><span class="price-info-small"> price always
                         refers to single bottle / can / bag of items even if image is different</span>
@@ -113,22 +113,19 @@
                         {% csrf_token %}
                         {% with product.option_grilled as grill %}
                         {% if grill %}
-                        <div class="mb-2 product-info">
-                            <div class="form-check d-md-inline d-lg-inline mr-2">
-                                <input class="form-check-input" type="checkbox" value="not_grilled" name="grill"
-                                    id="id_product_grilled" onclick="onlyOne(this)">
-                                <label class="form-check-label" for="id_product_grilled">
-                                Grill my sandwich
-                                </label>
-                            </div>
-                            <div class="form-check d-md-inline d-lg-inline">
-                                <input class="form-check-input" type="checkbox" value="grilled" name="grill"
-                                    id="id_product_not_grilled" checked onclick="onlyOne(this)">
-                                <label class="form-check-label" for="id_product_not_grilled">
-                                No grill
-                                </label>
-                            </div>
+
+                       <div class="mb-2 product-info rounded-1 grill-box d-inline">
+
+                            <div class="d-inline-block"><p>Grilled</p></div>
+                            <div class="d-inline-block"><select class="form-control rounded-1" name="grilled" id='id_product_grilled'>
+                                <option value="grilled">YES</option>
+                                <option value="not grilled" selected>NO</option>
+                            </select></div>
+                             
+                              
                         </div>
+                     
+
                         {% endif %}
 
                         <div class="form-group d-inline">
@@ -154,8 +151,8 @@
                                 </div>
                             </div>
                             <div class="">
-                            <input type="submit" class="btn btn-outline-dark border-dark btn-primary flex-shrink-0"
-                                type="button" value="Add to basket">
+                                <input type="submit" class="btn btn-outline-dark border-dark btn-primary flex-shrink-0"
+                                    type="button" value="Add to basket">
                             </div>
                         </div>
 
@@ -182,7 +179,7 @@
 {{ block.super }}
 
 {% include 'products/includes/product_quantity_script.html' %}
-<!--{% include 'products/includes/checkbox.html' %}-->
+{% include 'products/includes/checkbox.html' %}
 
 
 {% endblock %}
