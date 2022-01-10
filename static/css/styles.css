@@ -6268,12 +6268,17 @@ fieldset:disabled .btn {
   width: 350px;
   max-width: 100%;
   font-size: 0.875rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: black;
   pointer-events: auto;
   background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
+  overflow: visible;
+  z-index: 999999;
 }
 
 .toast.showing {
@@ -12913,7 +12918,7 @@ footer {
 }
 
 .dropdown-item,
-.sort-select-wrapper {
+.sort-select-wrapper{
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -13008,4 +13013,20 @@ footer {
 
 .product-name {
   font-size: 1.5rem;
+}
+
+.toast-success {
+  color:green;
+}
+
+.toast-info {
+  color:blue;
+}
+
+.toast-error {
+  color:red;
+}
+
+.toast-warning {
+  color:yellow;
 }
