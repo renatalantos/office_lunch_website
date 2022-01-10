@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
 
@@ -24,13 +24,17 @@ def add_to_basket(request, item_id):
         if item_id in list(basket.keys()):
             if option_grill in basket[item_id]['items_by_option_grill'].keys():
                 basket[item_id]['items_by_option_grill'][option_grill] += quantity
+                messages.success(request, f'Updated number of {product.name} ({option_grill}) in basket to {basket[item_id]["items_by_option_grill"][option_grill]}')
             else:
                 basket[item_id]['items_by_option_grill'][option_grill] = quantity
+                messages.success(request, f'Added {product.name} ({option_grill}) to your basket.')
         else:
             basket[item_id] = {'items_by_option_grill': {option_grill: quantity}}
+            messages.success(request, f'Added {product.name} ({option_grill}) to your basket.')
     else:
         if item_id in list(basket.keys()):
             basket[item_id] += quantity
+            messages.success(request, f'Updated number of {product.name} in basket to {basket[item_id]}.')
         else:
             basket[item_id] = quantity
             messages.success(request, f'Added {product.name} to your basket.')
@@ -42,6 +46,7 @@ def add_to_basket(request, item_id):
 def change_basket(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
 
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     option_grill = None
     if 'grilled' in request.POST:
@@ -51,15 +56,19 @@ def change_basket(request, item_id):
     if option_grill:
         if quantity > 0:
             basket[item_id]['items_by_option_grill'][option_grill] = quantity
+            messages.success(request, f'Updated number of {product.name} ({option_grill}) in basket to {basket[item_id]["items_by_option_grill"][option_grill]}')
         else:
             del basket[item_id]['items_by_option_grill'][option_grill]
             if not basket[item_id]['items_by_option_grill']:
                 basket.pop(item_id)
+                messages.success(request, f'Deleted {product.name} ({option_grill}) from your basket.')
     else:
         if quantity > 0:
             basket[item_id] = quantity
+            messages.success(request, f'Updated number of {product.name} in basket to {basket[item_id]}.')
         else:
             basket.pop(item_id)
+            messages.success(request, f'Deleted {product.name} from your basket.')
 
     request.session['basket'] = basket
     return redirect(reverse('view_basket'))
@@ -69,6 +78,7 @@ def delete_from_basket(request, item_id):
     """Delete item from the shopping basket"""
 
     try:
+        product = get_object_or_404(Product, pk=item_id)
         option_grill = None
         if 'grilled' in request.POST:
             option_grill = request.POST['grilled']
@@ -78,11 +88,13 @@ def delete_from_basket(request, item_id):
             del basket[item_id]['items_by_option_grill'][option_grill]
             if not basket[item_id]['items_by_option_grill']:
                 basket.pop(item_id)
+            messages.success(request, f'Deleted {product.name} ({option_grill}) from you basket.')    
         else:
             basket.pop(item_id)
-
+            messages.success(request, f'Deleted {product.name} from your basket.')
         request.session['basket'] = basket
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.error(request, f'Error deleting item: {e}')
         return HttpResponse(status=500)
