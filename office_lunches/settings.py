@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # other
     'tempus_dominus',
     'crispy_forms',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,7 @@ ROOT_URLCONF = 'office_lunches.urls'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPUS_DOMINUS_LOCALIZE = False
+TEMPUS_DOMINUS_INCLUDE_ASSETS = True
 
 TEMPLATES = [
     {

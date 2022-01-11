@@ -82,10 +82,10 @@ $('#sort-selector').change(function () {
     }
 })
 
-function deferDateTimePicker_id_reservation_date_and_time() {
+function deferDateTimePicker_id_delivery_date() {
     if (window.jQuery && $.fn.datetimepicker) {
-        $('#id_reservation_date_and_time').datetimepicker({
-            "format": "L",
+        $('#id_delivery_date').datetimepicker({
+            "format": "1",
             "icons": {
                 "time": "fa fa-clock-o"
             },
@@ -93,9 +93,9 @@ function deferDateTimePicker_id_reservation_date_and_time() {
         });
     } else {
         setTimeout(function () {
-            deferDateTimePicker_id_reservation_date_and_time()
+            deferDateTimePicker_id_delivery_date()
         }, 50);
     }
 }
 
-deferDateTimePicker_id_reservation_date_and_time();
+deferDateTimePicker_id_delivery_date();

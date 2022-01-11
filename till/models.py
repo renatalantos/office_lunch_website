@@ -34,10 +34,10 @@ class Order(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     date_of_order = models.DateTimeField(auto_now_add=True)
     cutoff = datetime.time(11, 59)
-    delivery_date = models.DateTimeField()
+    delivery_date = models.DateTimeField(null=True)
 
     def validate_date_of_order(date_of_order):
-        delivery_date = models.DateTimeField()
+        delivery_date = models.DateTimeField(null=True)
         if date_of_order > date_of_order.cutoff \
                 and delivery_date \
                 == datetime.today():
@@ -53,6 +53,10 @@ class Order(models.Model):
         """
         if delivery_date < timezone.now():
             raise ValidationError("Delivery date cannot be in the past")
+    delivery_date = models.DateTimeField(
+                                null=True,
+                                blank=True,
+                                validators=[validate_delivery_date])
 
     delivery_charge = models.DecimalField(max_digits=6,
                                           decimal_places=2,
