@@ -34,6 +34,7 @@ class Order(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     date_of_order = models.DateTimeField(auto_now_add=True)
     cutoff = datetime.time(11, 59)
+    delivery_date = models.DateTimeField()
 
     def validate_date_of_order(date_of_order):
         delivery_date = models.DateTimeField()
@@ -42,6 +43,8 @@ class Order(models.Model):
                 == datetime.today():
             raise ValidationError("Order placed too late\
                                    for today's delivery.")
+
+    
 
     def validate_delivery_date(delivery_date):
         """

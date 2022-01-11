@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'products',
     'basket',
     'till',
+    # other
+    'tempus_dominus',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +62,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'office_lunches.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+TEMPUS_DOMINUS_LOCALIZE = False
 
 TEMPLATES = [
     {
@@ -77,9 +84,15 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'basket.contexts.basket_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
+
+
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 

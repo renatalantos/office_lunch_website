@@ -17,9 +17,16 @@
     {% endblock %}
 
     {% block corejs %}
-   
-
+    <!-- Tempus Dominus Bootstrap 4 -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.38.0/js/tempusdominus-bootstrap-4.min.js"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.38.0/css/tempusdominus-bootstrap-4.min.css"
+        crossorigin="anonymous" />
+    <!-- Font Awesome icons (free version)-->
     <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
+    <!-- Local javascript and jquery scripts -->
     <script src="{% static 'js/scripts.js' %}"></script>
     <script src="{% static 'js/jquery.js' %}"></script>
     {% endblock %}
@@ -60,25 +67,25 @@
         {% include 'includes/main-nav.html' %}
     </nav>
     {% if messages %}
-        <div class="container">
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert" id="msg" role="alert">
             {% for message in messages %}
-            <div class="alert" id="msg" role="alert">
-                {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                    {% else %}
-                        {% include 'includes/toasts/toast_info.html' %}
-                    {% endif %}
-                {% endwith %}
-            {% endfor %}
-                </div>
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+            {% endwith %}
             {% endfor %}
         </div>
+        {% endfor %}
+    </div>
     {% endif %}
 
     {% block content %}
@@ -100,9 +107,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
-    
+
     {% endblock %}
-    
+
 </body>
 
 </html>
