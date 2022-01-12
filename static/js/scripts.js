@@ -81,21 +81,3 @@ $('#sort-selector').change(function () {
         window.location.replace(currentUrl);
     }
 })
-
-function deferDateTimePicker_id_delivery_date() {
-    if (window.jQuery && $.fn.datetimepicker) {
-        $('#id_delivery_date').datetimepicker({
-            "format": "1",
-            "icons": {
-                "time": "fa fa-clock-o"
-            },
-            "locale": "en-us"
-        });
-    } else {
-        setTimeout(function () {
-            deferDateTimePicker_id_delivery_date()
-        }, 50);
-    }
-}
-
-deferDateTimePicker_id_delivery_date();

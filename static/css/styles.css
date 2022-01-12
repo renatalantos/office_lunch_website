@@ -13030,3 +13030,51 @@ footer {
 .toast-warning {
   color:yellow;
 }
+
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  height: 40px;
+  padding: 10px 12px;
+
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+  color: #aab7c4;
+}
+
+.fieldset-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  position: relative;
+  right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+  color: #000;
+  
+
+}
+
+.product-details {
+  color: #423E49;
+  font-family: 'Quicksand', cursive;
+  font-weight: lighter;
+  font-size: 15px;
+}

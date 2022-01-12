@@ -1,6 +1,6 @@
 from django import forms
 from .models import Order
-from tempus_dominus.widgets import DateTimePicker
+#from tempus_dominus.widgets import DateTimePicker
 
 
 class OrderForm(forms.ModelForm):
@@ -34,17 +34,15 @@ class OrderForm(forms.ModelForm):
         }
         
         self.fields['full_name'].widget.attrs['required'] = 'required'
-        
         self.fields['email'].widget.attrs['required'] = 'required'
         self.fields['phone_number'].widget.attrs['required'] = 'required'
-        
         self.fields['town_or_city'].widget.attrs['required'] = 'required'
         self.fields['street_address1'].widget.attrs['required'] = 'required'
         self.fields['postcode'].widget.attrs['required'] = 'required'
         self.fields['county'].widget.attrs['required'] = 'required'
-        self.fields['delivery_date'].widget.attrs['required'] = 'required'        
         self.fields['delivery_date'].widget.attrs['class'] = 'form-control datetimepicker-input'
-        self.fields['delivery_date'].widget = DateTimePicker()
+        #self.fields['delivery_date'].widget = DateTimePicker()
+        self.fields['delivery_date'].widget.attrs['required'] = 'required' 
         
         self.fields['full_name'].widget.attrs['autofocus'] = True
         

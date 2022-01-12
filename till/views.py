@@ -4,7 +4,7 @@ from django.contrib import messages
 from .forms import OrderForm
 
 
-def view_till(request):
+def till(request):
     basket = request.session.get('basket', {})
     if not basket:
         messages.error(request, "There's nothing in your basket at the moment")

@@ -1,19 +1,8 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 {% load basket_aids %}
-{% load crispy_forms_tags %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'till/css/till.css' %}">
-{% endblock %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
 
 {% block content %}
 <div class="overlay"></div>
@@ -21,25 +10,25 @@
     <div class="row mt-5 pt-5">
         <div class="col mt-5 pt-5">
 
-            <h2 class="logo-font mb-4">Checkout <i class="fas fa-money-bill-wave-alt"></i></h2>
+            <h2 class="logo-font mb-4">Checkout <i class="fas fa-wallet"></i></i></h2>
 
         </div>
     </div>
 
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
-                <p class="text-muted">Order Summary ({{ product_count }})</p>
+                <p class="text-muted product-details">Order Summary ({{ product_count }})</p>
                 <div class="row">
                     <div class="col-7 offset-2">
-                        <p class="mb-1 mt-0 small text-muted">Item</p>
+                        <p class="mb-1 mt-0 small text-muted product-details">Item</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                        <p class="mb-1 mt-0 small text-muted product-details">Subtotal</p>
                     </div>
                 </div>
                 {% for item in basket_items %}
                     <div class="row">
-                        <div class="col-2 mb-1">
+                        <div class="col-2 mb-1 prod-text">
                             <a href="{% url 'product_detail' item.product.id %}">
                                 {% if item.product.image %}
                                     <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
@@ -48,32 +37,32 @@
                                 {% endif %}
                             </a>
                         </div>
-                        <div class="col-7">
+                        <div class="col-7 prod-text">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                            <p class="my-0 small">{% if item.product.option_grilled %}{{ item.option_grill|upper }}{% else %}{% endif %}</p>
+                            <p class="my-0 small text-muted product-details">Nr of items: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">${{ item.product.price | calc_total:item.quantity }}</p>
+                            <p class="my-0 small text-muted product-details">€{{ item.product.price | calc_total:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
                 <hr class="my-2">
-                <div class="row text-black text-right">
+                <div class="row text-black text-right prod-text">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">${{ total | floatformat:2 }}</p>
-                        <p class="my-0">${{ delivery | floatformat:2 }}</p>
-                        <p class="my-0"><strong>${{ final_total | floatformat:2 }}</strong></p>
+                        <p class="my-0">€{{ total | floatformat:2 }}</p>
+                        <p class="my-0">€{{ delivery | floatformat:2 }}</p>
+                        <p class="my-0"><strong>€{{ final_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="product-info text-muted">Please fill out the form below to complete your order</p>
+                <p class="product-details text-muted">Please fill out the form below to complete your order</p>
                 <form action="{% url 'till' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -92,7 +81,7 @@
                         {{order_form.delivery_date | as_crispy_field }}
                         <div class="form-check form-check-inline float-right mr-0">
 							{% if user.is_authenticated %}
-								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+								<label class="form-check-label product-details" for="id-save-info">Save this delivery information to my profile</label>
                                 <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
 							{% else %}
 								<label class="form-check-label" for="id-save-info">
@@ -104,7 +93,7 @@
                       
                     </fieldset>
                     <fieldset class="px-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <legend class="fieldset-label small text-black px-2 w-auto prod-text">Payment</legend>
                         <!-- A Stripe card element will go here -->
                         <div class="mb-3" id="card-element"></div>
 
@@ -113,23 +102,23 @@
                     </fieldset>
 
                     <div class="submit-button text-right mt-5 mb-2">                    
-						<a href="{% url 'view_basket' %}" class="btn btn-outline-black rounded-0">
-							<span class="icon">
+						<a href="{% url 'view_basket' %}" class="btn btn-secondary btn-outline-black rounded-1">
+							<span class="icon text-white">
 								<i class="fas fa-chevron-left"></i>
 							</span>
-							<span class="font-weight-bold">Adjust Basket</span>
+							<span class="font-weight-bold prod-text text-uppercase">Adjust Basket</span>
 						</a>
-						<button id="submit-button" class="btn btn-black rounded-0">
-							<span class="font-weight-bold">Complete Order</span>
-							<span class="icon">
+						<button id="submit-button" class="btn btn btn-primary border-dark rounded-1">
+							<span class="font-weight-bold prod-text text-uppercase">Complete Order</span>
+							<span class="icon text-white">
 								<i class="fas fa-lock"></i>
 							</span>
 						</button>
-						<p class="small text-danger my-0">
+						<p class="small text-danger my-0 prod-text font-weight-bold">
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
-							<span>Your card will be charged <strong>${{ final_total|floatformat:2 }}</strong></span>
+							<span>Your card will be charged <strong>€{{ final_total|floatformat:2 }}</strong></span>
 						</p>
 					</div>
                 </form>
@@ -138,5 +127,6 @@
     </div>
 {% endblock %}
 {% block postloadjs %}
+{{ block.super }}
 {% include 'includes/datepicker.html' %}
 {% endblock %}
