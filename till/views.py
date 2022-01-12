@@ -14,6 +14,8 @@ def till(request):
     template = 'till/till.html'
     context = {
         'order_form': order_form,
+        'stripe_public_key': 'pk_test_51JwUnEHVnsqPPeyfsZsxNI78kCws8KTpFwP91tGn2fsSSrUoO221NDev3BoSnA6tlaedvhGRsEN0RKR5OExOyJBt00gXKtTM1p',
+        'client_secret': 'test client_secret',
     }
 
     return render(request, template, context)

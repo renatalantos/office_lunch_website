@@ -12918,7 +12918,7 @@ footer {
 }
 
 .dropdown-item,
-.sort-select-wrapper{
+.sort-select-wrapper {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -13004,10 +13004,11 @@ footer {
   align-items: center;
   justify-content: center;
   background: #FFF;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.increment-qty, .decrement-qty {
+.increment-qty,
+.decrement-qty {
   background-color: transparent;
 }
 
@@ -13016,19 +13017,19 @@ footer {
 }
 
 .toast-success {
-  color:green;
+  color: green;
 }
 
 .toast-info {
-  color:blue;
+  color: blue;
 }
 
 .toast-error {
-  color:red;
+  color: red;
 }
 
 .toast-warning {
-  color:yellow;
+  color: yellow;
 }
 
 .StripeElement,
@@ -13068,7 +13069,7 @@ footer {
 #payment-form .form-control,
 #card-element {
   color: #000;
-  
+
 
 }
 
@@ -13077,4 +13078,16 @@ footer {
   font-family: 'Quicksand', cursive;
   font-weight: lighter;
   font-size: 15px;
+}
+
+#card-errors {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#card-element{
+  border: 1px solid lightgray;
+}
+
+.basket-btn {
+  font-family: 'Quicksand', cursive;
 }

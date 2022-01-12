@@ -30,7 +30,7 @@ class OrderForm(forms.ModelForm):
             'street_address2': 'Street Address 2',
             'postcode': 'Postcode',
             'county': 'County',
-            'delivery_date': 'Delivery Date DD/MM/YYYY',
+            'delivery_date': 'Delivery Date',
         }
         
         self.fields['full_name'].widget.attrs['required'] = 'required'
