@@ -61,7 +61,7 @@ def till(request):
                     order.delete()
                     return redirect(reverse('view_basket'))
 
-            # Save the info to the user's profile if all is well
+                # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('till_success', args=[order.order_number]))
         else:
@@ -72,7 +72,7 @@ def till(request):
         if not basket:
             messages.error(request, "There's nothing in your basket at the moment")
             return redirect(reverse('products'))
-        
+
         current_basket = basket_contents(request)
         total = current_basket['final_total']
         stripe_total = round(total * 100)
@@ -83,17 +83,16 @@ def till(request):
         )
 
         order_form = OrderForm()
-        if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. \
-                Did you forget to set it in your environment?')
-
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
        
-        template = 'till/till.html'
-        context = {
-            'order_form': order_form,
-            'stripe_public_key': 'stripe_public_key',
-            'client_secret': 'intent.client_secret',
-        }
+    template = 'till/till.html'
+    context = {
+        'order_form': order_form,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
+    }
 
     return render(request, template, context)
 

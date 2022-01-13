@@ -1,11 +1,11 @@
 import uuid
-import datetime
+# import datetime
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 from django.utils import timezone
 from django.core.exceptions import ValidationError
-from django.core.validators import RegexValidator
+# from django.core.validators import RegexValidator
 
 from products.models import Product
 
@@ -21,31 +21,31 @@ class Order(models.Model):
     postcode = models.CharField(max_length=20,
                                 null=True,
                                 blank=True)
-    postcode = models.CharField(max_length=20,
-                                null=True,
-                                blank=True,
-                                validators=[RegexValidator(
-                                            regex='^(?:^[V-]\
-                                                  [0-9]{2})[ -]?[FHKNPRTV-Y]\
-                                                  {4}$',
-                                            message='Sorry, you are outside of\
-                                                     our delivery range.\
-                                                     We only deliver in the\
-                                                     Limerick-Shannon area.',
-                                            )],
-                                )
+    # postcode = models.CharField(max_length=20,
+    #                             null=True,
+    #                             blank=True,
+    #                             validators=[RegexValidator(
+    #                                         regex='^(?:^[V-]\
+    #                                               [0-9]{2})[ -]?[FHKNPRTV-Y]\
+    #                                               {4}$',
+    #                                         message='Sorry, you are outside of\
+    #                                                  our delivery range.\
+    #                                                  We only deliver in the\
+    #                                                  Limerick-Shannon area.',
+    #                                         )],
+    #                             )
     county = models.CharField(max_length=80, null=True, blank=True)
     date_of_order = models.DateTimeField(auto_now_add=True)
-    cutoff = datetime.time(11, 59)
+    #cutoff = datetime.time(11, 59)
     delivery_date = models.DateTimeField(null=True)
 
-    def validate_date_of_order(date_of_order):
-        delivery_date = models.DateTimeField(null=True)
-        if date_of_order > date_of_order.cutoff \
-                and delivery_date \
-                == datetime.today():
-            raise ValidationError("Order placed too late\
-                                   for today's delivery.")
+    # def validate_date_of_order(date_of_order):
+    #     delivery_date = models.DateTimeField(null=True)
+    #     if date_of_order > date_of_order.cutoff \
+    #             and delivery_date \
+    #             == datetime.today():
+    #         raise ValidationError("Order placed too late\
+    #                                for today's delivery.")
 
     
 

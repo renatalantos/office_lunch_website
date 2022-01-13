@@ -88,9 +88,9 @@
                         <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
                             checked>
                         {% else %}
-                        <label class="form-check-label" for="id-save-info">
-                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                        <label class="form-check-label product-info" for="id-save-info">
+                            <a class="" href="{% url 'account_signup' %}">Create an account</a> or
+                            <a class="" href="{% url 'account_login' %}">login</a> to save this information
                         </label>
                         {% endif %}
                     </div>
@@ -100,7 +100,8 @@
                     <legend class="fieldset-label small text-black px-2 w-auto prod-text">Payment</legend>
                     <!-- A Stripe card element will go here -->
                     <div class="mb-3 rounded stripe-style-inputb card-element" id="card-element"></div>
-
+                    <!--Pass the client secret to the view so that we can get the payment intent id-->
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     <!-- Used to display form errors -->
                     <div class="mb-3 text-danger card-errors" id="card-errors" role="alert"></div>
                 </fieldset>
@@ -110,10 +111,10 @@
                         <span class="icon text-white">
                             <i class="fas fa-chevron-left"></i>
                         </span>
-                        <span class="font-weight-bold prod-text text-uppercase">Adjust Basket</span>
+                        <span class="fw-bold prod-text text-uppercase">Adjust Basket</span>
                     </a>
                     <button id="submit-button" class="btn btn btn-primary rounded-1">
-                        <span class="font-weight-bold prod-text text-uppercase">Complete Order</span>
+                        <span class="fw-bold prod-text text-uppercase">Complete Order</span>
                         <span class="icon text-white">
                             <i class="fas fa-lock"></i>
                         </span>
@@ -132,8 +133,10 @@
 {% endblock %}
 {% block postloadjs %}
 {{ block.super }}
-{% include 'includes/datepicker.html' %}
+
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
+{% include 'includes/datepicker.html' %}
 <script src="{% static 'till/js/stripe_elements.js' %}"></script>
+
 {% endblock %}
