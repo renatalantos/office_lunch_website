@@ -3,11 +3,13 @@ from django.contrib import messages
 from django.conf import settings
 from basket.contexts import basket_contents
 
-import stripe
-
+from products.models import Product
 from .models import Order, OrderComponentItem
 from .forms import OrderForm
 
+
+import stripe
+import json
 
 def till(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -48,12 +50,12 @@ def till(request):
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                product_grilled=option_grill,
+                                grilled=option_grill,
                             )
                             order_component_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your basket wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -80,12 +82,12 @@ def till(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
+        order_form = OrderForm()
         if not stripe_public_key:
             messages.warning(request, 'Stripe public key is missing. \
                 Did you forget to set it in your environment?')
 
-        template = 'till/till.html'
-        order_form = OrderForm()
+       
         template = 'till/till.html'
         context = {
             'order_form': order_form,
@@ -107,7 +109,7 @@ def till_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
-    if 'bag' in request.session:
+    if 'basket' in request.session:
         del request.session['basket']
 
     template = 'till/till_success.html'

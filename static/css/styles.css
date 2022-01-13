@@ -13080,11 +13080,11 @@ footer {
   font-size: 15px;
 }
 
-#card-errors {
+.card-errors {
   font-family: 'Montserrat', sans-serif;
 }
 
-#card-element{
+.card-element{
   border: 1px solid lightgray;
 }
 
