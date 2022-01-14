@@ -70,6 +70,8 @@ class Order(models.Model):
                                       decimal_places=2,
                                       null=False,
                                       default=0)
+    original_basket = models.TextField(null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _create_order_number(self):
         """

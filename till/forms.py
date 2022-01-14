@@ -1,11 +1,9 @@
+
 from django import forms
 from .models import Order
-#from tempus_dominus.widgets import DateTimePicker
+
 
 class OrderForm(forms.ModelForm):
-    """
-    Class to construct order form from the Order model.
-    """
     class Meta:
         model = Order
         fields = ('full_name', 'email', 'phone_number',
@@ -13,7 +11,9 @@ class OrderForm(forms.ModelForm):
                   'street_address2',
                   'postcode', 'county',
                   'delivery_date',)
-                  
+
+    def __init__(self, *args, **kwargs):
+        """   
         Add placeholders and classes, remove auto-generated
         labels and set autofocus on first field
         """
@@ -29,7 +29,7 @@ class OrderForm(forms.ModelForm):
             'county': 'County',
             'delivery_date': 'Delivery Date',
         }
-        
+
         self.fields['full_name'].widget.attrs['required'] = 'required'
         self.fields['email'].widget.attrs['required'] = 'required'
         self.fields['phone_number'].widget.attrs['required'] = 'required'
@@ -51,8 +51,5 @@ class OrderForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
-   
-
-
 
   
