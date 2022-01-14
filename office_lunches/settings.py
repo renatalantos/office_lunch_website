@@ -46,10 +46,11 @@ INSTALLED_APPS = [
     'products',
     'basket',
     'till',
+    'profiles',
     # other
-    #'tempus_dominus',
+    
     'crispy_forms',
-]
+]   
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
