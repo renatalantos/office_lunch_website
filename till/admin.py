@@ -12,16 +12,16 @@ class OrderAdmin(admin.ModelAdmin):
 
     readonly_fields = ('order_number', 'date_of_order',
                        'delivery_charge', 'order_total',
-                       'final_total',)
+                       'final_total', 'delivery_date')
 
     fields = ('order_number', 'date_of_order', 'full_name',
               'email', 'phone_number',
               'postcode', 'town_or_city', 'street_address1',
               'street_address2', 'county', 'delivery_charge',
-              'order_total', 'final_total',)
+              'order_total', 'final_total', 'delivery_date')
 
     list_display = ('order_number', 'date_of_order', 'full_name',
-                    'order_total', 'delivery_charge',
+                    'delivery_date', 'order_total', 'delivery_charge',
                     'final_total',)
 
     ordering = ('-date_of_order',)

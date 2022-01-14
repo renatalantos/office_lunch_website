@@ -1,13 +1,13 @@
 import uuid
-# import datetime
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 from django.utils import timezone
 from django.core.exceptions import ValidationError
-# from django.core.validators import RegexValidator
-
+import datetime
 from products.models import Product
+
+
 
 
 class Order(models.Model):
@@ -21,34 +21,10 @@ class Order(models.Model):
     postcode = models.CharField(max_length=20,
                                 null=True,
                                 blank=True)
-    # postcode = models.CharField(max_length=20,
-    #                             null=True,
-    #                             blank=True,
-    #                             validators=[RegexValidator(
-    #                                         regex='^(?:^[V-]\
-    #                                               [0-9]{2})[ -]?[FHKNPRTV-Y]\
-    #                                               {4}$',
-    #                                         message='Sorry, you are outside of\
-    #                                                  our delivery range.\
-    #                                                  We only deliver in the\
-    #                                                  Limerick-Shannon area.',
-    #                                         )],
-    #                             )
     county = models.CharField(max_length=80, null=True, blank=True)
     date_of_order = models.DateTimeField(auto_now_add=True)
-    #cutoff = datetime.time(11, 59)
-    delivery_date = models.DateTimeField(null=True)
-
-    # def validate_date_of_order(date_of_order):
-    #     delivery_date = models.DateTimeField(null=True)
-    #     if date_of_order > date_of_order.cutoff \
-    #             and delivery_date \
-    #             == datetime.today():
-    #         raise ValidationError("Order placed too late\
-    #                                for today's delivery.")
-
+    cutoff = datetime.time(11, 59)  
     
-
     def validate_delivery_date(delivery_date):
         """
         Function to validate date so that
@@ -57,9 +33,18 @@ class Order(models.Model):
         if delivery_date < timezone.now():
             raise ValidationError("Delivery date cannot be in the past")
     delivery_date = models.DateTimeField(
-                                null=True,
-                                blank=True,
-                                validators=[validate_delivery_date])
+                            null=True,
+                            blank=True,
+                            validators=[validate_delivery_date])
+
+
+
+    def validate_date_of_order(date_of_order):
+        if date_of_order > date_of_order.cutoff \
+            and delivery_date == datetime.datetime.today():
+            raise ValidationError("Order placed too late\
+                                   for today's delivery.")
+
 
     delivery_charge = models.DecimalField(max_digits=6,
                                           decimal_places=2,
@@ -82,13 +67,16 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update final total each time a component item is added,
-        accounting for delivery charges.
+        Update grand total each time a line item is added,
+        accounting for delivery costs.
         """
         self.order_total = self.componentitems.aggregate(Sum('componentitem_total'))['componentitem_total__sum'] or 0
+     
         self.delivery_charge = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+       
         self.final_total = self.order_total + self.delivery_charge
         self.save()
+
 
     def save(self, *args, **kwargs):
         """
