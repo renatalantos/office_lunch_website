@@ -53,7 +53,10 @@
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <p class="small mb-0 text-black font-weight-bold product-details">
-                            {{ item.product.name }}{% if item.product.option_grilled %}{{ item.option_grill|upper }}{% else %}{% endif %}</p>
+    
+                            {{ item.product.name }}{% if item.grilled %} <br>
+                            <p class="prod-text small">*We record if you ask for product to be grilled when you place the order</p> {{ item.product.option_grill|upper }}{% endif %}
+                
                         </p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right prod-text">
@@ -61,12 +64,12 @@
                     </div>
                 </div>
                 {% endfor %}
+               
 
                 <div class="row">
                     <div class="col">
                         <small class="text-muted product-info">Delivering To:</small>
                     </div>
-                </div>
 
                 <div class="row">
                     <div class="col-12 col-md-4">
