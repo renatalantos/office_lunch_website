@@ -7,7 +7,7 @@
 {% block inner_content %}
 <h1>{% trans "Sign Out" %}</h1>
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+<p class="product-details">{% trans 'Are you sure you want to sign out?' %}</p>
 
 <form class="w-75 product-details" method="post" action="{% url 'account_logout' %}">
   {% csrf_token %}
@@ -15,7 +15,7 @@
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
   <button type="submit" class="btn btn-primary">{% trans 'Sign Out' %}</button>
-  <a class="btn btn-secondary ml-2" href="{% url 'home' %}">Home</a>
+ 
 </form>
 
 

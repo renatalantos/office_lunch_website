@@ -12433,7 +12433,7 @@ p {
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
-  text-align: center;
+  /*text-align: center; */
   color: #fff;
   background-image: url('/media/header-bg11.jpg');
   /*background-image: url("../assets/img/header-bg.jpg");*/
@@ -13108,4 +13108,13 @@ footer {
     margin: 0;
     height: 100%;
  
+}
+.overlay-two {
+background-color: #ffc800;
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+position: fixed;
+z-index: -1;
 }
