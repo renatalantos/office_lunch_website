@@ -20,7 +20,7 @@
                  <div class="toast-body rounded-1">
                      {{ message }}
                  </div>
-                 {% if final_total %}
+                 {% if final_total and not on_profile_page %}
                  <p class="logo-font bg-white text-black py-1">Your Basket ({{ product_count }})</p>
                  <div class="bag-notification-wrapper">
                      {% for item in basket_items %}

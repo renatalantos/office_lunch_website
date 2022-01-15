@@ -178,13 +178,23 @@
         </div>
     </div>
     <div class="row">
+     
         <div class="col-12 col-lg-7 text-right">
+            {% if from_profile %}
+            <a href="{% url 'profile' %}" class="btn btn-secondary basket-btn rounded-1 my-2">
+                <span class="icon mr-2 text-white">
+                    <i class="fas fa-angle-left"></i>
+                </span>
+                <span class="text-uppercase text-white">Back to Profile</span>
+            </a>
+            {% else %}
             <a href="{% url 'products' %}" class="btn btn-primary rounded-1 my-2">
                 <span class="icon mr-2 text-white">
                     <i class="fas fa-utensils"></i>
                 </span>
                 <span class="text-uppercase product-details text-white">Order lunch for another day!</span>
             </a>
+            {% endif %}
         </div>
     </div>
 </div>
