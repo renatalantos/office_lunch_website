@@ -9,15 +9,16 @@ from till.models import Order
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(CustomerProfile, user=request.user)
-    orders = profile.orders.all()
-
     if request.method == 'POST':
         form = CustomerProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
-
-    form = CustomerProfileForm(instance=profile)
+        else:
+            messages.error(request, 'Update failed. Please ensure the form is valid.')
+    else:
+        form = CustomerProfileForm(instance=profile)
+    orders = profile.orders.all()
     template = 'profiles/profile.html'
     context = {
         'form': form,
