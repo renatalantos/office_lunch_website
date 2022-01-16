@@ -13123,3 +13123,8 @@ z-index: -1;
   font-size: 15px;
   font-weight:bold;
 }
+
+.prod-small{
+  font-size: 10px;
+  font-weight:bold;
+}
