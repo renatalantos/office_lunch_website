@@ -128,7 +128,15 @@
                             {% else %}
                             <div></div>
                             {% endif %}
-                            <div class="text-center">€ {{ product.price }}</div>
+                            <div class="text-center">€ {{ product.price }}
+
+                            </div>
+                            {% if request.user.is_superuser %}
+                            <small class="ml-3 prod-manage">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                            {% endif %}
 
                         </div>
                     </div>

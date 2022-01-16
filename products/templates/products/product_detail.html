@@ -114,18 +114,30 @@
                         {% with product.option_grilled as grill %}
                         {% if grill %}
 
-                       <div class="mb-2 product-info rounded-1 grill-box d-inline">
+                        <div class="mb-2 product-info rounded-1 grill-box d-inline">
 
-                            <div class="d-inline-block"><p>Want it grilled?</p></div>
-                            <div class="d-inline-block"><select class="form-control rounded-1" name="grilled" id='id_product_grilled'>
-                                <option value="grilled">YES</option>
-                                <option value="not grilled" selected>NO</option>
-                            </select></div>
-                             
-                              
+                            <div class="d-inline-block">
+                                <p>Want it grilled?</p>
+                            </div>
+                            <div class="d-inline-block"><select class="form-control rounded-1" name="grilled"
+                                    id='id_product_grilled'>
+                                    <option value="grilled">YES</option>
+                                    <option value="not grilled" selected>NO</option>
+                                </select></div>
+
+
                         </div>
-                     
 
+
+                        {% endif %}
+                        <br>
+                        {% if request.user.is_superuser %}
+                        <div class="mb-3">
+                        <small class="prod-text">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </small>
+                        </div>
                         {% endif %}
 
                         <div class="form-group d-inline">
@@ -138,9 +150,9 @@
                                         </span>
                                     </button>
                                 </div>
-                                <div class="qty-box rounded-1 d-inline-block"><input class="form-control qty_input" type="number"
-                                        name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}"
-                                        id="id_qty_{{ product.id }}"></div>
+                                <div class="qty-box rounded-1 d-inline-block"><input class="form-control qty_input"
+                                        type="number" name="quantity" value="1" min="1" max="99"
+                                        data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"></div>
                                 <div class="input-group-append d-inline-block">
                                     <button class="increment-qty border-0 rounded-0" data-item_id="{{ product.id }}"
                                         id="increment-qty_{{ product.id }}">
