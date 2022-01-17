@@ -65,10 +65,9 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """A view to show individual product details"""
-    
-    liked = False
     product = get_object_or_404(Product, pk=product_id)
-    if product.like(request.user.id).exists():
+    liked = False
+    if product.like.filter(request.user.id).exists():
         liked = True
     context = {
         'product': product,
@@ -144,12 +143,24 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
 
-@login_required
 def add_to_favourites(request, product_id):
-    
+
     product = get_object_or_404(Product, pk=product_id)
-    if product.like.filter(id=request.user.id).exists():
+    if product.like.filter(id=request.user.id).exist():
         product.like.remove(request.user)
     else:
         product.like.add(request.user)
-    return HttpResponseRedirect(reverse('product_detail'), args=[product_id])
+           
+    return render(request, 'products/products_favourites_list.html')
+
+
+
+def product_favourite_list(request, id):
+    user = request.user
+    favourite_products = user.like.all()
+    
+    context = {
+        'favourite_products': favourite_products,
+    }
+
+    return render(request, 'products/products_favourites_list.html', context)
