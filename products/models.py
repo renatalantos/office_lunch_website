@@ -1,4 +1,7 @@
 from django.db import models
+##????
+from django.contrib.auth.models import User
+from profiles.models import CustomerProfile
 
 
 class Category(models.Model):
@@ -29,6 +32,13 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    favourite = models.Foreignkey('Favorite', null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
+
+class Favourite(models.Model):
+    like = models.ManyToManyField(
+        User, related_name='product_like', blank=True)
+    
+  

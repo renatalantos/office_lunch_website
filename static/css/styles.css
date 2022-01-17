@@ -12997,7 +12997,8 @@ footer {
 
 .qty-box {
   height: 2rem;
-  width: 3.5rem;
+  width: 4.5rem;
+  padding-right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
