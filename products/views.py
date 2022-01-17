@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category
+from .models import Product, Category, Favourite
 from .forms import ProductForm
 
 
@@ -15,6 +16,7 @@ def all_products(request):
     categories = None
     sort = None
     direction = None
+    
 
     if request.GET:
         if 'sort' in request.GET:
@@ -63,10 +65,14 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """A view to show individual product details"""
+    
+    liked = False
     product = get_object_or_404(Product, pk=product_id)
-
+    if product.like(request.user.id).exists():
+        liked = True
     context = {
         'product': product,
+        'liked': liked,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -137,3 +143,13 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+@login_required
+def add_to_favourites(request, product_id):
+    
+    product = get_object_or_404(Product, pk=product_id)
+    if product.like.filter(id=request.user.id).exists():
+        product.like.remove(request.user)
+    else:
+        product.like.add(request.user)
+    return HttpResponseRedirect(reverse('product_detail'), args=[product_id])
