@@ -1,0 +1,6 @@
+<p class="my-0 prod-text"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 prod-text">
+                                {% if item.product.option_grilled %}{{ item.option_grill|upper }}{% else %}{% endif %}
+                            </p>
+                            <p class="my-0 small text-muted prod-text">Product number:
+                                {{ item.product.product_number|upper }}</p>

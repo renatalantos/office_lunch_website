@@ -45,25 +45,30 @@
 
                     <tr>
                         <td class="p-3 w-25">
-                            {% if item.product.image %}
-                            <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            <!-- {% if item.product.image %}
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}"
+                                alt="{{ item.product.name }}">
                             {% else %}
-                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                            {% endif %}
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ item.product.name }}">
+                            {% endif %} -->
+                            {% include "basket/product-image.html" %}
                         </td>
                         <td class="py-3">
-                            <p class="my-0 prod-text"><strong>{{ item.product.name }}</strong></p>
+                            <!-- <p class="my-0 prod-text"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0 prod-text">
                                 {% if item.product.option_grilled %}{{ item.option_grill|upper }}{% else %}{% endif %}
                             </p>
                             <p class="my-0 small text-muted prod-text">Product number:
-                                {{ item.product.product_number|upper }}</p>
+                                {{ item.product.product_number|upper }}</p> -->
+                                {% include "basket/product-info.html" %}    
                         </td>
                         <td class="py-3">
                             <p class="my-0 prod-text">€{{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <form class="update-form form" action="{% url 'change_basket' item.item_id %}" method="POST">
+                            <!-- <form class="update-form form" action="{% url 'change_basket' item.item_id %}"
+                                method="POST">
                                 {% csrf_token %}
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
@@ -96,12 +101,12 @@
                                 </div>
 
                             </form>
-                            
-                                <a class="text-info mr-5 update-link"><i class="fas fa-pen"></i></a>
-                                <a class="text-danger ml-5 delete-item" id="delete_{{ item.item_id }}"
-                                        data-grilled="{{ item.option_grill }}"><i class="fas fa-trash-alt"></i></a>
-                                
-                            
+
+                            <a class="text-info mr-5 update-link"><i class="fas fa-pen"></i></a>
+                            <a class="text-danger ml-5 delete-item" id="delete_{{ item.item_id }}"
+                                data-grilled="{{ item.option_grill }}"><i class="fas fa-trash-alt"></i></a>-->
+                                {% include "basket/quantity-form.html" %}
+
                         </td>
                         <td class="py-3">
                             <p class="my-0 prod-text">€{{ item.product.price|calc_total:item.quantity }}</p>
@@ -112,16 +117,17 @@
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text-right prod-text">
-                            <h6><strong>Basket Total: €{{ total|floatformat:2 }}</strong></h6>
+                            <!-- <h6><strong>Basket Total: €{{ total|floatformat:2 }}</strong></h6>
                             <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
                             <h4 class="mt-4 prod-text"><strong>Final Total: €{{ final_total|floatformat:2 }}</strong>
-                            </h4>
+                            </h4> -->
+                            {% include "basket/basket-total.html" %}
 
                         </td>
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-                            <a href="{% url 'products' %}" class="btn shop-basket-btn btn-secondary rounded-1 btn-lg">
+                            <!-- <a href="{% url 'products' %}" class="btn shop-basket-btn btn-secondary rounded-1 btn-lg">
                                 <span class="icon text-white">
                                     <i class="fas fa-chevron-left"></i>
                                 </span>
@@ -132,7 +138,8 @@
                                 <span class="icon text-white">
                                     <i class="fas fa-lock"></i>
                                 </span>
-                            </a>
+                            </a> -->
+                            {% include "basket/till-buttons.html" %}
                         </td>
                     </tr>
                 </table>
@@ -151,36 +158,37 @@
             </div>
         </div>
     </div>
-    {% if messages %}
-    <div class="message-container"></div>
-    {% endif %}
- 
+</div> <!---?????????????-->
 
- 
-    {% endblock %}
-    {% block postloadjs %}
-    {{ block.super }}
-    {% include 'products/includes/product_quantity_script.html' %}
-    <script type="text/javascript">
-        // Update quantity on click
-        $('.update-link').click(function(e) {
-            var form = $(this).prev('.update-form');
-            form.submit();
-        })
-    
-        // Remove item and reload on click
-        //check variables for grill
-        $('.delete-item').click(function(e) {
-            var csrfToken = "{{ csrf_token }}";
-            var itemId = $(this).attr('id').split('delete_')[1];
-            var grill = $(this).data('grilled');
-            var url = `/basket/delete/${itemId}/`;
-            var data = {'csrfmiddlewaretoken': csrfToken, 'grilled': grill};
-    
-            $.post(url, data)
-             .done(function() {
-                 location.reload();
-             });
-        })
-    </script>
-    {% endblock %}
+
+
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/product_quantity_script.html' %}
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function (e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    //check variables for grill
+    $('.delete-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('delete_')[1];
+        var grill = $(this).data('grilled');
+        var url = `/basket/delete/${itemId}/`;
+        var data = {
+            'csrfmiddlewaretoken': csrfToken,
+            'grilled': grill
+        };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+</script>
+{% endblock %}
