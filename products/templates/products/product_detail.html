@@ -133,10 +133,10 @@
                         <br>
                         {% if request.user.is_superuser %}
                         <div class="mb-3">
-                        <small class="prod-text">
-                            <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                        </small>
+                            <small class="prod-text">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
                         </div>
                         {% endif %}
 

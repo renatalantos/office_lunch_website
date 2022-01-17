@@ -23,7 +23,7 @@
                     <p class="mb-1 mt-0 small text-muted product-details">Item</p>
                 </div>
                 <div class="col-3 text-right">
-                    <p class="mb-1 mt-0 small text-muted product-details">Subtotal</p>
+                    <p class="mb-1 mt-0 small text-muted product-details">Total</p>
                 </div>
             </div>
             {% for item in basket_items %}
@@ -42,7 +42,7 @@
                     <p class="my-0 small">
                     {% if item.product.option_grilled %}{{ item.option_grill|upper }}{% else %}{% endif %}
     
-                    <p class="my-0 small text-muted product-details">Nr of items: {{ item.quantity }}</p>
+                    <p class="my-0 small text-muted product-details">Nr of items: {{ item.quantity }} x €{{item.product.price }}</p>
                 </div>
                 <div class="col-3 text-right">
                     <p class="my-0 small text-muted product-details">
@@ -55,7 +55,7 @@
                 <div class="col-7 offset-2">
                     <p class="my-0">Order Total:</p>
                     <p class="my-0">Delivery:</p>
-                    <p class="my-0">Grand Total:</p>
+                    <p class="my-0">Final Total:</p>
                 </div>
                 <div class="col-3">
                     <p class="my-0">€{{ total | floatformat:2 }}</p>
@@ -108,13 +108,13 @@
                 </fieldset>
 
                 <div class="submit-button text-right mt-5 mb-2">
-                    <a href="{% url 'view_basket' %}" class="btn btn-secondary btn-outline-black rounded-1">
+                    <a href="{% url 'view_basket' %}" class="btn btn-secondary btn-outline-black rounded-1 mb-1">
                         <span class="icon text-white">
                             <i class="fas fa-chevron-left"></i>
                         </span>
                         <span class="fw-bold prod-text text-uppercase">Adjust Basket</span>
                     </a>
-                    <button id="submit-button" class="btn btn btn-primary rounded-1">
+                    <button id="submit-button" class="btn btn btn-primary rounded-1 mb-1">
                         <span class="fw-bold prod-text text-uppercase">Complete Order</span>
                         <span class="icon text-white">
                             <i class="fas fa-lock"></i>
