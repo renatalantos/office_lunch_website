@@ -22,6 +22,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class FavouriteAdmin(admin.ModelAdmin):
     list_display = (
+        'is_fav',
        
     )
 

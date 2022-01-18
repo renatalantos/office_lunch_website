@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category, Favourite
@@ -66,14 +67,13 @@ def all_products(request):
 def product_detail(request, product_id):
     """A view to show individual product details"""
     product = get_object_or_404(Product, pk=product_id)
-    liked = False
-    if product.like.filter(request.user.id).exists():
-        liked = True
+    is_favourite = False
+    if product.favourites.filter(id=request.user.id).exists():
+        is_favourite = True
     context = {
-        'product': product,
-        'liked': liked,
-    }
-
+            'product': product,
+            'is_favourite': is_favourite,
+        }
     return render(request, 'products/product_detail.html', context)
 
 
@@ -143,24 +143,22 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
 
-def add_to_favourites(request, product_id):
 
+@login_required
+def product_as_favourite(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    if product.like.filter(id=request.user.id).exist():
-        product.like.remove(request.user)
+    if product.favourites.filter(id=request.user.id).exists():
+        product.favourites.remove(request.user)
     else:
-        product.like.add(request.user)
-           
-    return render(request, 'products/products_favourites_list.html')
+        product.favourites.add(request.user)
+    return HttpResponseRedirect(product.get_absolute_url())
 
 
-
-def product_favourite_list(request, id):
+@login_required
+def favourite_products_list(request):
     user = request.user
-    favourite_products = user.like.all()
-    
+    favourite_products = user.favourites.all()
     context = {
         'favourite_products': favourite_products,
     }
-
     return render(request, 'products/products_favourites_list.html', context)
