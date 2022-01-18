@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Favourite
+from .models import Product, Category
 from .forms import ProductForm
 
 
@@ -67,12 +67,8 @@ def all_products(request):
 def product_detail(request, product_id):
     """A view to show individual product details"""
     product = get_object_or_404(Product, pk=product_id)
-    is_favourite = False
-    if product.favourites.filter(id=request.user.id).exists():
-        is_favourite = True
     context = {
             'product': product,
-            'is_favourite': is_favourite,
         }
     return render(request, 'products/product_detail.html', context)
 
@@ -144,21 +140,3 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
-@login_required
-def product_as_favourite(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
-    if product.favourites.filter(id=request.user.id).exists():
-        product.favourites.remove(request.user)
-    else:
-        product.favourites.add(request.user)
-    return HttpResponseRedirect(product.get_absolute_url())
-
-
-@login_required
-def favourite_products_list(request):
-    user = request.user
-    favourite_products = user.favourites.all()
-    context = {
-        'favourite_products': favourite_products,
-    }
-    return render(request, 'products/products_favourites_list.html', context)
