@@ -30,7 +30,7 @@ def view_favourite_list(request):
 @login_required
 def add_product_to_favourites(request, item_id):
     """Add a particular product to favourites"""
-    product = get_object_or_404(Product.objects.get(pk=item_id))
+    product = get_object_or_404(Product, pk=item_id)
     
     try:
         favourites = get_object_or_404(Favourites, username=request.user.id)
@@ -40,7 +40,7 @@ def add_product_to_favourites(request, item_id):
         messages.info(request, 'This item has already been added to your favourites.')    
     else:
         favourites.products.add(product)
-        messages.info(request, 'The item has been added to favourites.')
+        messages.success(request, 'The item has been added to favourites.')
     return redirect(reverse('product_detail', args=[item_id]))
 
 @login_required

@@ -100,6 +100,24 @@
                 <div></div>
                 {% endif %}
 
+                {% if user.is_authenticated %}
+                <form class="d-inline" action="{% url 'add_to_favourites' product.id %}" method="POST">
+                    {% csrf_token %}
+                    {% if liked %}
+                    <button type="submit" name="blogpost_id" value="{{ product.id }}" class="btn-like">
+                        <i class="fas fa-heart"></i></button>
+                    {% else %}
+                    <button type="submit" name="blogpost_id" value="{{ product.id }}" class="btn-like">
+                        <i class="far fa-heart"></i></button>
+                    {% endif %}
+                </form>
+                {% else %}
+                <span class="text-secondary"><i class="far fa-heart"></i></span>
+                {% endif %}
+               
+           
+
+
 
 
                 <div>
@@ -107,7 +125,7 @@
                     <span class="price-info">€ {{ product.price }} *</span><span class="price-info-small"> price always
                         refers to single bottle / can / bag of items even if image is different</span>
                 </div>
-                
+
                 <div>
 
                     <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
