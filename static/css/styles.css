@@ -12962,7 +12962,14 @@ footer {
   font-size: 10px;
 
 }
+.price-info-smaller {
+  color: orangered;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
 
+
+}
 
 /* dropdown open on right side of the menu*/
 .display-on-right {
@@ -13158,4 +13165,9 @@ z-index: -1;
   background-color: #dc3545;
   border-color: #dc3545;
   border-radius: 5;
+}
+
+.btn-fav, .btn-like, .heart{
+  background-color: transparent;
+  color:red;
 }
