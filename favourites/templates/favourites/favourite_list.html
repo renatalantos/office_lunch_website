@@ -6,30 +6,35 @@
 
 
 <div class="overlay"></div>
-<div class="container mb-5 pb-5">
-    <div class="row mt-5 pt-5">
-        <div class="col mt-5 pt-5">
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col mt-5 pt-5 mb-2">
 
             <h2 class="logo-font mb-4">Your favourites <i class="far fa-heart"></i></h2>
 
         </div>
     </div>
+</div>
 
-    <div class="row mb-5 pb-5">
-        <div class="col mb-5 pb-5">
-            {% if favourites_items %}
+{% if favourites_items %}
 
+<div class="row mb-5 pb-5 ">
+    <div class="col mb-5 pb-5">
+
+
+        <div class="row m-2">
             {% for fav in favourites_items %}
-            <div class="row">
 
+
+
+            <div class="col-12 col-sm-6 mb-2">
                 {% if fav.image %}
-                <div class="col-12 col-sm-6 mb-2"></div>
                 <img class="img-fluid rounded" src="{{ fav.image.url }}" alt="{{ fav.name }}">
                 {% else %}
                 <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ fav.product.name }}">
                 {% endif %}
             </div>
-            <div class="col-12 col-sm-6 mb-2">
+            <div class="col-12 col-sm-6 mb-2 ">
                 <div class="my-0 product-name lead fw-bolder">{{ fav.name }}</div>
                 <div class="my-0 lead">{{ fav.description }}</div>
                 <div class="my-0 product-info">
@@ -101,9 +106,24 @@
 
                 <div class="my-0 price-info-smaller">Price: €{{ fav.price }}</div>
 
+
+
+                <a href="{% url 'remove_from_favourites' fav.id 'favourites' %}">
+
+
+                    <i class="fas fa-trash-alt"></i>Remove from Favourites</a>
             </div>
 
+
+
+            <hr class="text-muted">
             {% endfor %}
+
+
+
+
+
+
             {% else %}
             <p class="lead mb-5">Your favourites list is empty.</p>
             <a href="{% url 'products' %}" class="shop-basket-btn btn btn-primary rounded-1 btn-lg">
@@ -112,11 +132,10 @@
                 </span>
                 <span class="text-uppercase">Find favourites</span>
             </a>
-            {% endif %}
-
-
         </div>
+        {% endif %}
     </div>
+
 </div>
 </div>
 <div class="btt-button shadow-sm rounded-0 border border-black">
@@ -124,11 +143,10 @@
         <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
     </a>
 </div>
-
-
 {% endblock %}
+
 {% block postloadjs %}
-
+{{ block.super }}
 {% include 'products/includes/scroll_to_top.html' %}
-
+{% include 'products/includes/sort_products.html' %}
 {% endblock %}

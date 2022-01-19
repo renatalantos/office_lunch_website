@@ -18,8 +18,7 @@ def view_favourite_list(request):
         favourites_items = all_favourites.products.all()
         favourites_count = all_favourites.products.all().count()
 
-    if not favourites_items:
-        messages.info(request, "There is nothing in your favourites.")
+
     template = 'favourites/favourite_list.html'
     context = {
         'favourites_items': favourites_items,
@@ -49,12 +48,12 @@ def remove_product_from_favourites(request, item_id, redirect_from):
     product = get_object_or_404(Product, pk=item_id)
     favourites = get_object_or_404(Favourites, username=request.user.id)
     if product in favourites.products.all():
-        favourites.product.remove(product)
+        favourites.products.remove(product)
         messages.info(request, 'This item has been removed from your favourites.')    
     else:
         messages.error(request, 'This product is not in your favourites.')
     if redirect_from == 'favourites':
-        redirect_url = reverse('view_favourite_list')
+        redirect_url = reverse('favourites')
     else:
         redirect_url = reverse('product_detail', args=[item_id])    
     return redirect(redirect_url)
