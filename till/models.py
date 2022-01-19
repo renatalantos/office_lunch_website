@@ -40,26 +40,6 @@ class Order(models.Model):
                             blank=True,
                             validators=[validate_delivery_date])
 
-    # def validate_delivery_date(delivery_date):
-    #         """
-    #         Function to validate date so that
-    #         booking date is not in the past.
-    #         """
-    #         date_of_order = models.DateTimeField(auto_now_add=True)
-    #         if delivery_date < timezone.now():
-    #             raise ValidationError("Delivery date cannot be in the past")
-    #         cutoff = date.time(15, 59)
-    #         if date_of_order > date_of_order.cutoff and delivery_date == datetime.date.today():
-    #             raise ValidationError("Order placed too late\
-    #                                 for today's delivery")
-
-    # delivery_date = models.DateTimeField(
-    #                             null=True,
-    #                             blank=True,
-    #                             validators=[validate_delivery_date])
-
-
-
 
     delivery_charge = models.DecimalField(max_digits=6,
                                           decimal_places=2,

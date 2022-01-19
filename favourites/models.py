@@ -1,11 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from.products.model import Product
+from products.models import Product
 
-class Favourites:
+class Favourites(models.Model):
     """
     Class enables user to have a favourites list
     """
     products = models.ManyToManyField(Product, blank=True)
-    user_name = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.username} owns this wishlist.'

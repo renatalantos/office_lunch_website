@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import Http404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
-
+from favourites.models import Favourites
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
@@ -63,12 +62,19 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-
 def product_detail(request, product_id):
     """A view to show individual product details"""
     product = get_object_or_404(Product, pk=product_id)
+
+    try:
+        favourites = get_object_or_404(Favourites, username=request.user.id)
+    except Http404:
+        product_is_favorite = False
+    else: 
+        product_is_favorite = bool(product in favourites.products.all())
     context = {
             'product': product,
+            'product_is_favorite': product_is_favorite,
         }
     return render(request, 'products/product_detail.html', context)
 
