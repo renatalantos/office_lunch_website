@@ -13169,9 +13169,12 @@ z-index: -1;
 
 .btn-fav, .btn-like, .heart{
   background-color: transparent;
-  color:red;
+ 
 }
 
 .orangered {
   color: orangered;
+}
+.btn-favorites {
+background-color: transparent;
 }
