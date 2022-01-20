@@ -28,33 +28,38 @@
                     <div class="col">
                         {% include "basket/till-buttons.html" %}
                         <p class="text-muted product-info mb-5">A summary of your basket contents is below</p>
-                        
+
                     </div>
-                    
+
                 </div>
                 {% for item in basket_items %}
-                            <div class="row">
-                                <div class="col-12 col-sm-6 mb-2">
-                                    {% include "basket/product-image.html" %}
-                                </div>
-                                <div class="col-12 col-sm-6 mb-2">
-                                    {% include "basket/product-info.html" %}
-                                </div>
-                                <div class="col-12 col-sm-6 order-sm-last">
-                                    <p class="my-0 prod-text">Price Each: €{{ item.product.price }}</p>
-                                    <p class="prod-text f-bold"><strong>Total per Item: </strong>€{{ item.product.price | calc_total:item.quantity }}</p>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    {% include "basket/quantity-form.html" %}
-                                </div>
-                            </div>
-                            <div class="row"><div class="col"><hr class="text-muted"></div></div>
-                        {% endfor %}
-                        <div class="btt-button shadow-sm rounded-0 border border-black">
-                            <a class="btt-link d-flex h-100">
-                                <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-                            </a>	
-                        </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% include "basket/product-image.html" %}
+                    </div>
+                    <div class="col-12 col-sm-6 mb-2">
+                        {% include "basket/product-info.html" %}
+                    </div>
+                    <div class="col-12 col-sm-6 order-sm-last">
+                        <p class="my-0 prod-text">Price Each: €{{ item.product.price }}</p>
+                        <p class="prod-text f-bold"><strong>Total per Item:
+                            </strong>€{{ item.product.price | calc_total:item.quantity }}</p>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        {% include "basket/quantity-form.html" %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <hr class="text-muted">
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="btt-button shadow-sm rounded-0 border border-black">
+                    <a class="btt-link d-flex h-100">
+                        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+                    </a>
+                </div>
 
             </div>
             <div class="table-responsive rounded d-none d-md-block">
@@ -87,13 +92,13 @@
                             {% include "basket/product-image.html" %}
                         </td>
                         <td class="py-3">
-                                {% include "basket/product-info.html" %}    
+                            {% include "basket/product-info.html" %}
                         </td>
                         <td class="py-3">
                             <p class="my-0 prod-text">€{{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-25">
-                                {% include "basket/quantity-form.html" %}
+                            {% include "basket/quantity-form.html" %}
 
                         </td>
                         <td class="py-3">
@@ -136,8 +141,8 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
-    $('.btt-link').click(function(e) {
-        window.scrollTo(0,0)
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
     })
 </script>
 {% include 'products/includes/product_quantity_script.html' %}

@@ -5,7 +5,7 @@
 {% block content %}
 
 
-<div class="overlay"></div>
+<!-- <div class="overlay"></div>
 <div class="container mt-5 pt-5">
     <div class="row">
         <div class="col mt-5 pt-5 mb-2">
@@ -108,10 +108,10 @@
 
 
 
-                <a href="{% url 'remove_from_favourites' fav.id 'favourites' %}">
+                <a href="{% url 'remove_from_favourites' fav.id 'favourites' %}" class=" remove-link text-decoration-none">
 
 
-                    <i class="fas fa-trash-alt"></i>Remove from Favourites</a>
+                    <i class="fas fa-trash-alt"></i> Remove from Favourites</a>
             </div>
 
 
@@ -125,6 +125,7 @@
 
 
             {% else %}
+          
             <p class="lead mb-5">Your favourites list is empty.</p>
             <a href="{% url 'products' %}" class="shop-basket-btn btn btn-primary rounded-1 btn-lg">
                 <span class="icon text-white">
@@ -132,8 +133,10 @@
                 </span>
                 <span class="text-uppercase">Find favourites</span>
             </a>
+        
+            {% endif %}
         </div>
-        {% endif %}
+
     </div>
 
 </div>
@@ -142,11 +145,116 @@
     <a class="btt-link d-flex h-100">
         <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
     </a>
-</div>
-{% endblock %}
+</div> -->
 
-{% block postloadjs %}
-{{ block.super }}
-{% include 'products/includes/scroll_to_top.html' %}
-{% include 'products/includes/sort_products.html' %}
-{% endblock %}
+
+<div class="overlay"></div>
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col mt-5 pt-5 mb-2">
+
+            <h2 class="logo-font mb-4">Your favourites <i class="far fa-heart"></i></h2>
+
+        </div>
+    </div>
+</div>
+
+
+{% if favourites_items %}
+<div class="container pt-5 text-center mt-3">
+
+
+    <div class="container px-4 px-lg-5 mt-5">
+
+        <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center">
+            {% for fav in favourites_items %}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    {% if fav.lunch_deal %}
+                    <div class="badge btn-primary position-absolute"><a>Lunch Deal Item</a>
+                    </div>
+                    {% else %}
+                    <div></div>
+                    {% endif %}
+                    <!-- Product image-->
+
+                    {% if fav.image %}
+                    <a href="{% url 'product_detail' fav.id %}">
+                        <img class="card-img-top" src="{{ fav.image.url }}" alt="{{ fav.name }}" />
+                    </a>
+                    {% else %}
+                    <a href="{% url 'product_detail' fav.id %}">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ fav.name }}">
+                    </a>
+                    {% endif %}
+
+
+
+
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h5 class="fw-bolder">{{ fav.name }} </h5>
+                        </div>
+                    </div>
+                    {% if fav.category %}
+
+                    <div class="text-center">
+                        <a href="{% url 'products' %}?category={{ product.category.name }}"
+                            class="text-decoration-none prod-info-cat">
+                            <i class="fas fa-tag mr-1"></i>{{ fav.category.friendly_name }}
+                        </a>
+                    </div>
+
+                    {% endif %}
+
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        {% if fav.gluten %}
+                        <div></div>
+                        {% else %}
+                        <img src="{% static 'assets/gluten-free.png' %}" class="rounded-1">
+                        {% endif %}
+                        {% if fav.vegetarian%}
+                        <img src="{% static 'assets/vegetarian.png' %}" class="rounded-1">
+                        {% else %}
+                        <div></div>
+                        {% endif %}
+                        {% if fav.vegan%}
+                        <img src="{% static 'assets/vegan.png' %}" class="rounded-1">
+                        {% else %}
+                        <div></div>
+                        {% endif %}
+                        <div class="text-center">€ {{ fav.price }}
+
+                        </div>
+
+
+
+
+                    </div>
+                    <a href="{% url 'remove_from_favourites' fav.id 'favourites' %}"
+                        class=" mb-2 mx-2 orangered remove-link text-decoration-none">
+
+
+                        <i class="fas fa-trash-alt"></i> Remove from Favourites</a>
+                </div>
+            </div>
+
+            {% endfor%}
+
+            {% else %}
+
+            <p class="lead mb-5">Your favourites list is empty.</p>
+            <a href="{% url 'products' %}" class="shop-basket-btn btn btn-primary rounded-1 btn-lg">
+                <span class="icon text-white">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Find favourites</span>
+            </a>
+            {% endif %}
+            {% endblock %}
+
+            {% block postloadjs %}
+            {{ block.super }}
+            {% include 'products/includes/scroll_to_top.html' %}
+            {% include 'products/includes/sort_products.html' %}
+            {% endblock %}

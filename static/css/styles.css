@@ -12977,7 +12977,7 @@ footer {
   left: 100%;
 }
 
-.prod-info-cat {
+.prod-info-cat, .remove-link {
   font-family: 'Quicksand', cursive;
 }
 
@@ -13172,3 +13172,6 @@ z-index: -1;
   color:red;
 }
 
+.orangered {
+  color: orangered;
+}
