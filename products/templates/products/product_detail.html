@@ -101,17 +101,20 @@
                 {% endif %}
 
                 {% if user.is_authenticated %}
+    
                 <form class="d-inline" action="{% url 'add_to_favourites' product.id %}" method="POST">
                     {% csrf_token %}
                     {% if product_is_favorite %}
-                    <button type="submit" name="add_favourite_id" value="{{ product.id }}" class="border-0 product-info btn-like">
-                        <i class="fas fa-heart fa-lg heart"></i></button>
+                    <button type="submit" name="add_favourite_id" value="{{ product.id }}" class="border-0 product-info btn-like pl-0">Added to favourites <i class="fas fa-heart fa-lg heart"></i></button>
                     {% else %}
-                    <button type="submit" name="add_favorite_id" value="{{ product.id }}" class="border-0 product-info btn-like">
-                        <i class="far fa-heart fa-lg heart"></i></button>
+                    <button type="submit" name="add_favorite_id" value="{{ product.id }}" class="border-0 product-info btn-like pl-0">
+                        Add to favourites <i class="far fa-heart fa-lg heart"></i></button>
                     {% endif %}
                 </form>
+        
                 {% else %}
+              
+            
                 <span class="product-info"><i class="far fa-heart fa-lg"></i></span>
                 {% endif %}
                
