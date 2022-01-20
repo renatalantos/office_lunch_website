@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from products.models import Product, Category
+from products.models import Product
 from .models import ProductReview
 from .forms import ReviewForm
 
@@ -25,12 +25,13 @@ def add_review(request, product_id):
         else:
             messages.error(request, 'Something is wrong with you reviews.')
     review_form = ReviewForm()
+    template = 'products/product_detail.html'
     context = {
         'review_form': review_form,
     
         }
    
-    return render(request, context)
+    return render(request, template, context)
 
 
 
@@ -48,7 +49,7 @@ def edit_review(request, review_id):
     if request.method == "POST":
         review_form = ReviewForm(request.POST, instance=existing_review)
         if review_form.is_valid():
-            review = review_form.save()
+            existing_review = review_form.save()
             existing_review.user = request.user
             existing_review.save()
             messages.success(request, 'Your review has been updated.')
@@ -65,7 +66,7 @@ def edit_review(request, review_id):
         'existing_review': existing_review,
         'product': product,
         }
-    return render(request, template, context
+    return render(request, template, context)
 
 
 
@@ -77,23 +78,23 @@ def delete_review(request, review_id):
     """
 
     existing_review = get_object_or_404(ProductReview, username=request.user.id)
-    product = existing.review.product
+    product = existing_review.product
     if request.method == "POST":
         review_form = ReviewForm(request.POST, instance=existing_review)
         if existing_review.user != request.user:
             messages.error(request, 'You are tring to delete a review by someone else.')
-        if review.delete():
+        if existing_review.delete():
             messages.success(request, 'Your review has been deleted.')
-     
-
+        return redirect(reverse('products:product_detail', args=[product.id]))
+    
     
 
     review_form = ReviewForm(instance=existing_review)
-
+    template = 'products/product_detail.html'
    
     context = {
         'review_form': review_form,
         'existing_review': existing_review,
         'product': product,
     }
-    return redirect(reverse('home')
+    return render(request, template, context)

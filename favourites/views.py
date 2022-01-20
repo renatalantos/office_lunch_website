@@ -40,7 +40,12 @@ def add_product_to_favourites(request, item_id):
     else:
         favourites.products.add(product)
         messages.success(request, 'The item has been added to favourites.')
-    return redirect(reverse('product_detail', args=[item_id]))
+        return redirect(reverse('product_detail', args=[item_id]))   
+    context = {
+        'favourites': favourites,
+        'product': product
+        }
+    return render(request, 'products/product_detail.html', context)
 
 @login_required
 def remove_product_from_favourites(request, item_id, redirect_from):

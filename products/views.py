@@ -6,6 +6,8 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
+from  reviews.models import ProductReview
+from  reviews.forms import ReviewForm 
 from favourites.models import Favourites
 
 def all_products(request):
@@ -66,6 +68,7 @@ def all_products(request):
 def product_detail(request, product_id):
     """A view to show individual product details"""
     product = get_object_or_404(Product, pk=product_id)
+    review_form = ReviewForm()
     try:
         favourites = get_object_or_404(Favourites, username=request.user.id)
     except Http404:
@@ -75,6 +78,7 @@ def product_detail(request, product_id):
     context = {
             'product': product,
             'product_is_favorite': product_is_favorite,
+            'review_form': review_form,
         }
     return render(request, 'products/product_detail.html', context)
 

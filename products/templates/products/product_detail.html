@@ -106,9 +106,9 @@
                 <form class="d-inline" action="{% url 'add_to_favourites' product.id %}" method="POST">
                     {% csrf_token %}
                     {% if product_is_favorite %}
-                    <button type="submit" name="add_favourite_id" value="{{ product.id }}" class="border-0 product-info btn-like pl-0">Added to favourites <i class="fas fa-heart fa-lg heart"></i></button>
+                    <button type="submit" name="add_favourite_id" value="{{ item.id }}" class="border-0 product-info btn-like pl-0">Added to favourites <i class="fas fa-heart fa-lg heart"></i></button>
                     {% else %}
-                    <button type="submit" name="add_favorite_id" value="{{ product.id }}" class="border-0 product-info btn-like pl-0">
+                    <button type="submit" name="add_favorite_id" value="{{ item.id }}" class="border-0 product-info btn-like pl-0">
                         Add to favourites <i class="far fa-heart fa-lg heart"></i></button>
                     {% endif %}
                 </form>
@@ -207,6 +207,48 @@
             </div>
 
         </div>
+        <hr>
+        
+        <div class="notification space-below">
+            {% if request.user.is_authenticated %}
+                <form method="post" action="{% url 'add_review' product.id %}" name="review_form">
+                    {% csrf_token %}
+
+                    <div class="field">
+                        <label>Stars</label>
+
+                        <div clas="control">
+                            <div class="select">
+                                <select name="stars">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3" selected>3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Content</label>
+
+                        <div class="control">
+                            <textarea class="textarea" name="content">{{ form|crispy }}</textarea>
+                        </div>
+                    </div>
+               
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+              
+            {% else %}
+                <p>Please sign in to add review!</p>
+                
+            {% endif %}
         
 </section>
 
