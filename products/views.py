@@ -62,10 +62,10 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
+
 def product_detail(request, product_id):
     """A view to show individual product details"""
     product = get_object_or_404(Product, pk=product_id)
-
     try:
         favourites = get_object_or_404(Favourites, username=request.user.id)
     except Http404:
@@ -146,3 +146,4 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
+# 

@@ -30,18 +30,21 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+
+    def get_rating(self):
+        total_stars = sum(int(review['stars']) for review in self.reviews.values())
+
+        if self.reviews.count() > 0:
+            return total_stars / self.reviews.count()
+        else:
+            return 0
   
 
     def __str__(self):
         return self.name
 
 
-class ProductReview(models.Model):
-    product = models.ForeignKey('Product', related_name='reviews', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
-    content = models.TextField(blank=True, null=True)
-    stars = models.IntegerField()
-    date_added = models.DateTimeField(auto_now_add=True)
+
 
 
 
