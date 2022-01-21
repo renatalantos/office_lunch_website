@@ -23,11 +23,12 @@ def add_review(request, product_id):
             messages.success(request, 'Review successful.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Something is wrong with you reviews.')
+            messages.error(request, 'Something is wrong with you review form.')
     review_form = ReviewForm()
     template = 'products/product_detail.html'
     context = {
         'review_form': review_form,
+        'product': product,
     
         }
    

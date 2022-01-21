@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class ProductReview(models.Model):
-    product = models.ForeignKey('products.Product', null=True, blank=True, related_name='reviews', on_delete=models.CASCADE)
+    product = models.ForeignKey('products.Product', related_name='review', on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name='reviewer', on_delete=models.CASCADE)
     content = models.TextField(blank=True, null=True)
     stars = models.IntegerField()

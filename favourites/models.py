@@ -7,6 +7,10 @@ class Favourites(models.Model):
     """
     Class enables user to have a favourites list
     """
+    
+    class Meta:
+        verbose_name_plural = 'Favourites'
+        
     products = models.ManyToManyField(Product, blank=True)
     username = models.OneToOneField(User, on_delete=models.CASCADE)
 
