@@ -4,7 +4,7 @@ from django.contrib import messages
 from products.models import Product
 from .models import ProductReview
 from .forms import ReviewForm
-
+from profiles.models import CustomerProfile
 
 @login_required
 def add_review(request, product_id):
@@ -12,25 +12,33 @@ def add_review(request, product_id):
     Function enables user to write a review for a product
     and add it to the database.
     """
-    review_form = ReviewForm(request.POST)
     product = get_object_or_404(Product, pk=product_id)
+    
     if request.method == 'POST':
+        
+
+       
+        review_form = ReviewForm(request.POST)
+        print(review_form)
         if review_form.is_valid():
-            review = review_form.save()
-            review.user = request.user
-            review.product = request.product
-            review.save()
+            product_review = ProductReview()
+            review = review_form.save(commit=False)
+            product_review.content = review.content
+            product_review.user = CustomerProfile.objects.get(user=request.user)
+            product_review.product = product
+            product_review.save()        
             messages.success(request, 'Review successful.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Something is wrong with you review form.')
+            messages.error(request, 'Something is wrong with your review form.')
+            print('Wrong')
     review_form = ReviewForm()
     template = 'products/product_detail.html'
     context = {
         'review_form': review_form,
-        'product': product,
-    
-        }
+        'product':product,
+       
+    }
    
     return render(request, template, context)
 
@@ -43,28 +51,28 @@ def edit_review(request, review_id):
     it has been made and added to the database.
     """
    
-    existing_review = get_object_or_404(ProductReview, pk=review_id)
-    product = existing_review.product
-    if existing_review.user != request.user:
+    review = get_object_or_404(ProductReview, pk=review_id)
+    product = review.product
+    if review.user != request.user:
         messages.error(request, 'You are tring to edit a review by someone else.')
     if request.method == "POST":
-        review_form = ReviewForm(request.POST, instance=existing_review)
+        review_form = ReviewForm(request.POST, instance=review)
         if review_form.is_valid():
-            existing_review = review_form.save()
-            existing_review.user = request.user
-            existing_review.save()
+            review = review_form.save()
+            review.user = request.user
+            review.save()
             messages.success(request, 'Your review has been updated.')
             return redirect(reverse('products:product_detail', args=[product.id]))
         else:
             messages.warning(request, 'Your review could not be updated.')
      
     else: 
-        review_form = ReviewForm(instance=existing_review)
+        review_form = ReviewForm(instance=review)
     messages.info(request, 'You are editing your review')
     template = 'products/product_detail.html'
     context = {
         'review_form': review_form,
-        'existing_review': existing_review,
+        'review': review,
         'product': product,
         }
     return render(request, template, context)
@@ -78,24 +86,22 @@ def delete_review(request, review_id):
     it has been made and added to the database.
     """
 
-    existing_review = get_object_or_404(ProductReview, username=request.user.id)
-    product = existing_review.product
+    review = get_object_or_404(ProductReview, username=request.user.id)
+    product = review.product
     if request.method == "POST":
-        review_form = ReviewForm(request.POST, instance=existing_review)
-        if existing_review.user != request.user:
+        review_form = ReviewForm(request.POST, instance=review)
+        if review.user != request.user:
             messages.error(request, 'You are tring to delete a review by someone else.')
-        if existing_review.delete():
+        if review.delete():
             messages.success(request, 'Your review has been deleted.')
         return redirect(reverse('products:product_detail', args=[product.id]))
     
-    
-
-    review_form = ReviewForm(instance=existing_review)
+    review_form = ReviewForm(instance=review)
     template = 'products/product_detail.html'
    
     context = {
         'review_form': review_form,
-        'existing_review': existing_review,
+        'review': review,
         'product': product,
     }
     return render(request, template, context)

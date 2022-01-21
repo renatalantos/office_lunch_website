@@ -3,6 +3,8 @@ from products.models import Product, Category
 from .models import ProductReview
 
 class ReviewForm(forms.ModelForm):
+    
     class Meta:
         model = ProductReview
-        fields = '__all__'
+        exclude = ('product', 'user', 'date_added')
+  

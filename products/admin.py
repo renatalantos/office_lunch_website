@@ -21,13 +21,6 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-class ProductReviewAdmin(admin.ModelAdmin):
-    list_display = (
-        'date_added',
-        'content',
-        'stars',
-       
-    )
 
 
 admin.site.register(Product, ProductAdmin)

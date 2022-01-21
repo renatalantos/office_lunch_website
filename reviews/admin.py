@@ -4,9 +4,14 @@ from .models import ProductReview
 # Register your models here.
 class ProductReviewAdmin(admin.ModelAdmin):
     list_display = (
-        'date_added',
+
+        'product',
+        'user',
+        'title',
         'content',
-        'stars',
+        'rating',
+        'date_added',
        
     )
+    
 admin.site.register(ProductReview, ProductReviewAdmin)

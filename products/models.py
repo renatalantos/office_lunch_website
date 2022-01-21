@@ -3,6 +3,7 @@ from django.db import models
 
 
 
+
 class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
@@ -32,13 +33,6 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
-    # def get_rating(self):
-    #     total_stars = sum(int(review['stars']) for review in self.reviews.values())
-
-    #     if self.reviews.count() > 0:
-    #         return total_stars / self.reviews.count()
-    #     else:
-    #         return 0
   
 
     def __str__(self):
