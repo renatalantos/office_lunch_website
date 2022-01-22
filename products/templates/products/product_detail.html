@@ -210,94 +210,125 @@
             </div>
 
         </div>
-        <hr>
-        <h2 class="subtitle">Reviews</h2>
-
-        <div class="reviews-wrapper">
-            {% for review in product.reviews.all %}
-            <div class="notification space-below">
-                {% if review.rating is 1 %}
-                <p><i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i></p>
-                
-                    {% elif review.rating is 2 %}
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i></p>
-                    {% elif review.rating is 3 %}
-                    
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i></p>
-                    {% elif review.rating is 4%}
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i></p>
-                    {% else %}
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i></p>
-                {% endif %}
-
-              
-                {{ review.title }}
-                {{ review.content }}
-            </div>
-            {% empty %}
-            <div class="notification space-below">
-                No reviews yet...
-            </div>
-            {% endfor %}
-        </div>
-
-        <div class="notification space-below">
-            {% if request.user.is_authenticated %}
-            <form method="post" action="{% url 'add_review' product.id %}">
-                {% csrf_token %}
+        <hr class="text-muted">
 
 
 
-                <div class="col-md-6 ml-0 pl-0">
-
-
-                    <div class="control border-0 rounded-1">
-                        {{ review_form.rating | as_crispy_field }}
-                        {{ review_form.title | as_crispy_field }}
-                        {{ review_form.content | as_crispy_field }}
-
-                    </div>
-
-                </div>
-
-                <div class="field">
-                    <div class="control">
+        <!-- Reviews -->
+        <div class="container">
 
 
 
 
-                        <button class="button is-success">Submit</button>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="subtitle mb-3">Reviews</h2>
+                    <div class="reviews-wrapper">
+                        {% for review in product.reviews.all %}
+                        <div class="notification space-below">
+                            {% if review.rating is 1 %}
+                            <p><i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i></p>
+
+                            {% elif review.rating is 2 %}
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i></p>
+                            {% elif review.rating is 3 %}
+
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i></p>
+                            {% elif review.rating is 4%}
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i></p>
+                            {% else %}
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i></p>
+                            {% endif %}
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="">
+                                        <div class="review-elements">
+                                        <p class="card-title">{{ review.title }} </p>
+                                        <p class=" text-muted">{{ review.content }}</p>
+                                            </div>
+                                        <p class="small text-muted"> by {{ review.user }} on
+                                            {{ review.date_added|date:"d-m-Y"}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="text-muted w-50">
+                        </div>
+                        {% empty %}
+                        <div class="notification space-below">
+                            No reviews yet... be the first one to review this product.
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
-            </form>
-            {% else %}
-            <p>Please sign in to add review!</p>
-            {% endif %}
+
+                <div class="col-md-6">
+
+                    <h2 class="subtitle mb-3">Write a Review</h2>
+                    <div class="notification space-below w-200">
+                        {% if request.user.is_authenticated %}
+                        <form method="post" action="{% url 'add_review' product.id %}">
+                            {% csrf_token %}
+
+
+
+
+
+
+                            <div class="control border-0 rounded-1 w-25">
+                                Rating
+                                {{ review_form.rating | as_crispy_field }}
+                            </div>
+                            <div class="control border-0 rounded-1 w-75">
+                                Review Title
+                                {{ review_form.title | as_crispy_field }}
+                                Write your review below
+                                {{ review_form.content | as_crispy_field }}
+                            </div>
+
+
+
+
+                            <div class="field">
+                                <div class="control">
+
+
+
+
+                                    <button class="btn btn-primary">Submit Review</button>
+                                </div>
+                            </div>
+                        </form>
+                        {% else %}
+                        <p>Please <a href="{% url 'account_login' %}">sign in</a> or <a href="{% url 'account_signup' %}"> register</a> to add review!</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-
-
-    </div>
-
 </section>
 
 {% endblock %}

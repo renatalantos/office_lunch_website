@@ -23,6 +23,8 @@ def add_review(request, product_id):
         if review_form.is_valid():
             product_review = ProductReview()
             review = review_form.save(commit=False)
+            product_review.user = review.user
+            product_review.date_added = review.date_added
             product_review.content = review.content
             product_review.rating = review.rating
             product_review.title = review.title

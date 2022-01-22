@@ -12918,7 +12918,7 @@ footer {
 }
 
 .dropdown-item,
-.sort-select-wrapper {
+.sort-select-wrapper, .notification {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -13177,4 +13177,9 @@ z-index: -1;
 }
 .btn-favorites {
 background-color: transparent;
+}
+
+.review-elements {
+  word-break: break-all;
+  max-width: 300px;
 }
