@@ -215,51 +215,87 @@
 
         <div class="reviews-wrapper">
             {% for review in product.reviews.all %}
-                <div class="notification space-below">
-                  
+            <div class="notification space-below">
+                {% if review.rating is 1 %}
+                <p><i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i></p>
+                
+                    {% elif review.rating is 2 %}
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i></p>
+                    {% elif review.rating is 3 %}
+                    
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i></p>
+                    {% elif review.rating is 4%}
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i></p>
+                    {% else %}
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i></p>
+                {% endif %}
 
-                    {{ review.content }}
-                </div>
+              
+                {{ review.title }}
+                {{ review.content }}
+            </div>
             {% empty %}
-                <div class="notification space-below">
-                    No reviews yet...
-                </div>
+            <div class="notification space-below">
+                No reviews yet...
+            </div>
             {% endfor %}
         </div>
 
         <div class="notification space-below">
             {% if request.user.is_authenticated %}
-                <form method="post" action="{% url 'add_review' product.id %}">
-                    {% csrf_token %}
+            <form method="post" action="{% url 'add_review' product.id %}">
+                {% csrf_token %}
 
-                    
 
-                    <div class="col-md-6 ml-0 pl-0">
-               
 
-                        <div class="control border-0 rounded-1">
-                            {{ review_form.content | as_crispy_field }}
-                           
-                        </div>
-                        
+                <div class="col-md-6 ml-0 pl-0">
+
+
+                    <div class="control border-0 rounded-1">
+                        {{ review_form.rating | as_crispy_field }}
+                        {{ review_form.title | as_crispy_field }}
+                        {{ review_form.content | as_crispy_field }}
+
                     </div>
 
-                    <div class="field">
-                        <div class="control">
-                    
-                               
-                           
-                       
-                            <button class="button is-success">Submit</button>
-                        </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+
+
+
+
+                        <button class="button is-success">Submit</button>
                     </div>
-                </form>
+                </div>
+            </form>
             {% else %}
-                <p>Please sign in to add review!</p>
+            <p>Please sign in to add review!</p>
             {% endif %}
         </div>
 
-      
+
     </div>
 
 </section>

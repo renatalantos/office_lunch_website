@@ -24,6 +24,8 @@ def add_review(request, product_id):
             product_review = ProductReview()
             review = review_form.save(commit=False)
             product_review.content = review.content
+            product_review.rating = review.rating
+            product_review.title = review.title
             product_review.user = CustomerProfile.objects.get(user=request.user)
             product_review.product = product
             product_review.save()        
