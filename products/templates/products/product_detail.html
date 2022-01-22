@@ -270,7 +270,7 @@
                                 </div>
                             </div>
                           
-                            {% if new_review.user == current_user or request.user.is_superuser %}
+                            {% if review.user == current_user or request.user.is_superuser %}
                             <div class="card-head text-right">
                                 <a class="btn btn-info edit-btn" href="{% url 'edit_review' review.id %}">
                                     Edit Review

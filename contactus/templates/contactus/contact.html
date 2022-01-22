@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col mt-5 pt-5 mb-2">
+            <h2 class="logo-font mb-4">Contact Us <i class="far fa-envelope"></i></h2>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+            <p class="product-details text-muted">Please fill in the below form.</p>
+            <form class="mt-3 w-75" action="{% url 'contact' %}" method="POST" id="contact_form">
+                {% csrf_token %}
+              
+                <div class="mb-3">
+                    <label for="name " class="form-label product-details">Name</label>
+                    <input type="text" class="form-control prod-text" id="name" name="name" placeholder="Name">
+                    <label for="email" class="form-label product-details">Email address</label>
+                    <input type="email" class="form-control prod-text" id="email" name="email"
+                        placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="enquiry" class="form-label product-details">Your enquiry</label>
+                    <textarea class="form-control prod-text" id="enquiry" rows="3"></textarea>
+                </div>
+                <button class="btn btn-primary text-uppercase basket-btn float-right mb-5">Send email</button>
+            </form class="mb-5">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'includes/toast_code.html' %}
+{% include 'includes/footer.html' %}
+
+<script src="{% static 'js/scripts.js' %}"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+
+
+
+{% endblock %}
