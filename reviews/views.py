@@ -13,13 +13,8 @@ def add_review(request, product_id):
     and add it to the database.
     """
     product = get_object_or_404(Product, pk=product_id)
-    
     if request.method == 'POST':
-        
-
-       
         review_form = ReviewForm(request.POST)
-        print(review_form)
         if review_form.is_valid():
             product_review = ProductReview()
             review = review_form.save(commit=False)
@@ -35,18 +30,52 @@ def add_review(request, product_id):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Something is wrong with your review form.')
-            print('Wrong')
+
     review_form = ReviewForm()
     template = 'products/product_detail.html'
     context = {
         'review_form': review_form,
-        'product':product,
+        'product': product,
+        'edit': True,
        
     }
    
     return render(request, template, context)
 
 
+
+# @login_required
+# def edit_review(request, review_id):
+#     """
+#     Function enables user to edit a booking after
+#     it has been made and added to the database.
+#     """
+   
+#     review = get_object_or_404(ProductReview, pk=review_id)
+#     product = review.product
+#     if review.user != request.user:
+#         messages.error(request, 'You are tring to edit a review by someone else.')
+#     if request.method == "POST":
+#         review_form = ReviewForm(request.POST, instance=review)
+#         if review_form.is_valid():
+#             review = review_form.save()
+#             review.user = request.user
+#             review.save()
+#             messages.success(request, 'Your review has been updated.')
+#             return redirect(reverse('products:product_detail', args=[product.id]))
+#         else:
+#             messages.warning(request, 'Your review could not be updated.')
+     
+#     else: 
+#         review_form = ReviewForm(instance=review)
+#     messages.info(request, 'You are editing your review')
+#     template = 'products/product_detail.html'
+#     context = {
+#         'review_form': review_form,
+#         'review': review,
+#         'product': product,
+#         }
+#     return render(request, template, context)
 
 @login_required
 def edit_review(request, review_id):
@@ -57,27 +86,43 @@ def edit_review(request, review_id):
    
     review = get_object_or_404(ProductReview, pk=review_id)
     product = review.product
-    if review.user != request.user:
+    content = review.content
+    current_user = review.user
+    rating = review.rating
+    date_added = review.date_added
+    title = review.title
+    current_user = CustomerProfile.objects.get(user=request.user)
+    if review.user != current_user:
         messages.error(request, 'You are tring to edit a review by someone else.')
+        return redirect(reverse('product_detail', args=[product.id]))
+    else:
+        messages.info(request, 'You are editing your review')
     if request.method == "POST":
         review_form = ReviewForm(request.POST, instance=review)
-        if review_form.is_valid():
-            review = review_form.save()
-            review.user = request.user
+
+        if review_form.is_valid(): 
+            review = review_form.save()       
+            review.user = current_user       
+            review.content = content
+            review.rating = rating
+            review.title = title
+            review.date_added = date_added
+            review.product = product
             review.save()
             messages.success(request, 'Your review has been updated.')
-            return redirect(reverse('products:product_detail', args=[product.id]))
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.warning(request, 'Your review could not be updated.')
      
     else: 
         review_form = ReviewForm(instance=review)
-    messages.info(request, 'You are editing your review')
+    
     template = 'products/product_detail.html'
     context = {
         'review_form': review_form,
         'review': review,
         'product': product,
+        'edit': True,
         }
     return render(request, template, context)
 
@@ -98,7 +143,7 @@ def delete_review(request, review_id):
             messages.error(request, 'You are tring to delete a review by someone else.')
         if review.delete():
             messages.success(request, 'Your review has been deleted.')
-        return redirect(reverse('products:product_detail', args=[product.id]))
+        return redirect(reverse('product_detail', args=[product.id]))
     
     review_form = ReviewForm(instance=review)
     template = 'products/product_detail.html'
