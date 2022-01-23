@@ -30,7 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['renatalantos-office-lunches.herokuapp.com', 'localhost']
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
