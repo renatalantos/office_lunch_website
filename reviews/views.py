@@ -53,35 +53,35 @@ def edit_review(request, review_id):
     review = get_object_or_404(ProductReview, pk=review_id)
     product = review.product
     content = review.content
-    current_user = review.user
     rating = review.rating
     date_added = review.date_added
     title = review.title
    
     current_user = CustomerProfile.objects.get(user=request.user)
-    # if review.user != current_user:
-    #     messages.error(request, 'You are tring to edit a review by someone else.')
-    #     return redirect(reverse('product_detail', args=[product.id]))
-    # else:
-    #     messages.info(request, 'You are editing your review')
+    if request.user.is_superuser:
+        messages.info(request, 'You are editing reviews as a superuser.')
+    elif review.user != current_user:
+        messages.error(request, 'You are tring to edit a review by someone else.')
+        return redirect(reverse('product_detail', args=[product.id]))
+    else:
+        messages.info(request, 'You are editing your review')
     if request.method == "POST":
         review_form = ReviewForm(request.POST, instance=review)
 
         if review_form.is_valid(): 
-            review = review_form.save()       
+            review = review_form.save(commit=False)       
             review.user = CustomerProfile.objects.get(user=request.user)    
-            review.content = content
-            review.rating = rating
-            review.title = title
-            review.date_added = date_added
-            review.product = product
-            review.user = current_user
+            # review.content = content
+            # review.rating = rating
+            # review.title = title
+            # review.date_added = date_added
+            # review.product = product
             review.save()
             messages.success(request, 'Your review has been updated.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.warning(request, 'Your review could not be updated.')
-     
+    
     else: 
         review_form = ReviewForm(instance=review)
     
