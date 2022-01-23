@@ -270,7 +270,7 @@
                                 </div>
                             </div>
                           
-                            {% if review.user == current_user or request.user.is_superuser %}
+                            {% if current_user or request.user.is_superuser %}
                             <div class="card-head text-right">
                                 <a class="btn btn-info edit-btn" href="{% url 'edit_review' review.id %}">
                                     Edit Review
@@ -315,7 +315,7 @@
                             </div>
                         </form>
                         {% if edit %}
-                        <!-- Edit Review Form -->
+                        Edit Review Form
                         <form method="POST" action="{% url 'edit_review' review.id %}#reviews">
                             {% csrf_token %}
                             {{ form|crispy }}
@@ -328,6 +328,7 @@
                         <p>Please <a href="{% url 'account_login' %}">sign in</a> or <a href="{% url 'account_signup' %}"> register</a> to add review!</p>
                         {% endif %}
                     </div>
+                  
                 </div>
 
 
