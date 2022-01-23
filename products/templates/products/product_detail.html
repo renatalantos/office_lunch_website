@@ -269,18 +269,18 @@
                                     </div>
                                 </div>
                             </div>
-                         
+                          
                             {% if review.review.user == current_user or request.user.is_superuser %}
-                            <div class="card-head text-right">
-                                <a class="btn btn-secondary" href="{% url 'edit_review' review.id %}">
+                            <div class="button-group">
+                                <a class="btn btn-secondary btn-sm mb-1" href="{% url 'edit_review' review.id %}">
                                     Edit Review
                                 </a>
-                            </div>
+                            
                             
                             {% endif %}
                             {% if review.review.user == current_user or request.user.is_superuser %}
-                            <div class="card-head text-right">
-                                <a class="btn btn-secondary" href="{% url 'delete_review' review.id %}">
+                         
+                                <a class="btn btn-secondary btn-sm mb-1" href="{% url 'delete_review' review.id %}">
                                    Delete Review
                                 </a>
                             </div>
@@ -290,7 +290,9 @@
                          
                             <hr class="text-muted w-50">
                         </div>
+                        
                         {% empty %}
+                       
                         <div class="notification space-below">
                             No reviews yet... be the first one to review this product.
                         </div>

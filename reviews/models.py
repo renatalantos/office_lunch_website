@@ -11,11 +11,11 @@ class ProductReview(models.Model):
         ordering = ['-date_added']
 
     rating_selection = (
-        (5, '5'),
-        (4, '4'),
-        (3, '3'),
-        (2, '2'),
-        (1, '1'),
+        (5, '5 stars'),
+        (4, '4 stars'),
+        (3, '3 stars'),
+        (2, '2 stars'),
+        (1, '1 stars'),
     )
 
     product = models.ForeignKey(Product,
