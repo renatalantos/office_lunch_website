@@ -53,27 +53,31 @@ def edit_review(request, review_id):
     review = get_object_or_404(ProductReview, pk=review_id)
     product = review.product
    
-    current_user = CustomerProfile.objects.get(user=request.user)
- 
-   
+    current_user = CustomerProfile.objects.get(user=request.user)   
     if review.user != current_user:
         messages.error(request, 'You are tring to edit a review by someone else.')
         return redirect(reverse('product_detail', args=[product.id]))
-    if request.method == "POST":
-        review_form = ReviewForm(request.POST, instance=review)
-
-        if review_form.is_valid(): 
-            review = review_form.save(commit=False)       
-            review.user = CustomerProfile.objects.get(user=request.user)
-            product = review.product    
-            review.save()
-            messages.success(request, 'Your review has been updated.')
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.warning(request, 'Your review could not be updated.')
+    # if review.user != current_user and not request.user.is_superuser:
+    #     messages.error(request, 'You are tring to delete a review by someone else.')
+    #     return redirect(reverse('product_detail', args=[product.id]))   
+    if review.user == current_user or request.user.is_superuser:
+        
     
-    else: 
-        review_form = ReviewForm(instance=review)
+        if request.method == "POST":
+            review_form = ReviewForm(request.POST, instance=review)
+
+            if review_form.is_valid(): 
+                review = review_form.save(commit=False)       
+                review.user = CustomerProfile.objects.get(user=request.user)
+                product = review.product    
+                review.save()
+                messages.success(request, 'Your review has been updated.')
+                return redirect(reverse('product_detail', args=[product.id]))
+            else:
+                messages.warning(request, 'Your review could not be updated.')
+        
+        else: 
+            review_form = ReviewForm(instance=review)
     
     template = 'products/product_detail.html'
     context = {
@@ -83,33 +87,17 @@ def edit_review(request, review_id):
         'edit': True,
         }
     return render(request, template, context)
-
-
+#request.user.is_superuser
 
 @login_required
 def delete_review(request, review_id):
-    """
-    Function enables user to delete a review after
-    it has been made and added to customer reviews.
-    """
-
-    review = get_object_or_404(ProductReview, username=request.user.id)
+    review = get_object_or_404(ProductReview, pk=review_id)
     product = review.product
     current_user = CustomerProfile.objects.get(user=request.user)
-    if request.method == "POST":
-        review_form = ReviewForm(request.POST, instance=review)
-        if review.user != current_user:
-            messages.error(request, 'You are tring to delete a review by someone else.')
-        if review.delete():
-            messages.success(request, 'Your review has been deleted.')
-        return redirect(reverse('product_detail', args=[product.id]))
-    
-    review_form = ReviewForm(instance=review)
-    template = 'products/product_detail.html'
-   
-    context = {
-        'review_form': review_form,
-        'review': review,
-       
-    }
-    return render(request, template, context)
+    if review.user != current_user and not request.user.is_superuser:
+        messages.error(request, 'You are tring to delete a review by someone else.')
+        return redirect(reverse('product_detail', args=[product.id]))   
+    if review.user == current_user or request.user.is_superuser:
+        review.delete()
+        messages.success(request, 'Review deleted!')
+    return redirect(reverse('product_detail', args=[product.id]))
