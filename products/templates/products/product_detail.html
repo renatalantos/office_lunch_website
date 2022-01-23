@@ -272,7 +272,7 @@
                          
                             {% if review.review.user == current_user or request.user.is_superuser %}
                             <div class="card-head text-right">
-                                <a class="btn btn-info edit-btn" href="{% url 'edit_review' review.id %}#reviews">
+                                <a class="btn btn-secondary" href="{% url 'edit_review' review.id %}#reviews">
                                     Edit Review
                                 </a>
                             </div>
@@ -292,10 +292,36 @@
 
                 <div class="col-md-6">
 
-                    <h2 class="subtitle mb-3">Write a Review</h2>
+                    <!-- <h2 class="subtitle mb-3">Write a Review</h2> -->
                     <div class="notification space-below w-200">
                         {% if request.user.is_authenticated %}
+                      
                         
+                        
+                        {% if edit %}
+                        <h2 class="subtitle mb-3 text-body">Edit a Review</h2>
+                       
+                        <form method="POST" action="{% url 'edit_review' review.id %}#reviews">
+                            {% csrf_token %}
+                            <div class="control border-0 rounded-1 w-25">
+                                Rating
+                                {{ review_form.rating | as_crispy_field }}
+                            </div>
+                            <div class="control border-0 rounded-1 w-100">
+                                Review Title
+                                {{ review_form.title | as_crispy_field }}
+                                Write your review below
+                                {{ review_form.content | as_crispy_field }}
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <button class="btn btn-primary">Update Review</button>
+                                </div>
+                            </div>
+                        </form>
+                       
+                        {% else %}
+                        <h2 class="subtitle mb-3 text-body">Write a Review</h2>
                         <form method="post" action="{% url 'add_review' product.id %}">
                             {% csrf_token %}
 
@@ -303,7 +329,7 @@
                                 Rating
                                 {{ review_form.rating | as_crispy_field }}
                             </div>
-                            <div class="control border-0 rounded-1 w-75">
+                            <div class="control border-0 rounded-1 w-100">
                                 Review Title
                                 {{ review_form.title | as_crispy_field }}
                                 Write your review below
@@ -313,15 +339,6 @@
                                 <div class="control">
                                     <button class="btn btn-primary">Submit Review</button>
                                 </div>
-                            </div>
-                        </form>
-                        {% if edit %}
-                        Edit Review Form
-                        <form method="POST" action="{% url 'edit_review' review.id %}#reviews">
-                            {% csrf_token %}
-                            {{ review_form|crispy }}
-                            <div class="text-right">
-                                <button class="btn btn-info font-weight-bold" type="submit">Update Review</button>
                             </div>
                         </form>
                         {% endif %}
