@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow:/basket/
+Sitemap: https://renatalantos-office-lunches.herokuapp.com/sitemap.xml
