@@ -9,7 +9,7 @@
 
 <p class="product-details">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}" class="product-details">sign in</a>.{% endblocktrans %}</p>
 
-<form class="signup w-75 product-details" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<form class="signup product-details" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form|crispy}}
   {% if redirect_field_value %}
