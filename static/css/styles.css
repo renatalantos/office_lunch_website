@@ -12918,7 +12918,8 @@ footer {
 }
 
 .dropdown-item,
-.sort-select-wrapper, .notification {
+.sort-select-wrapper,
+.notification {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -12962,6 +12963,7 @@ footer {
   font-size: 10px;
 
 }
+
 .price-info-smaller {
   color: orangered;
   font-family: 'Montserrat', sans-serif;
@@ -12977,7 +12979,8 @@ footer {
   left: 100%;
 }
 
-.prod-info-cat, .remove-link {
+.prod-info-cat,
+.remove-link {
   font-family: 'Quicksand', cursive;
 }
 
@@ -13090,7 +13093,7 @@ footer {
   font-family: 'Montserrat', sans-serif;
 }
 
-.card-element{
+.card-element {
   border: 1px solid lightgray;
 }
 
@@ -13099,42 +13102,43 @@ footer {
 }
 
 #loading-overlay {
-	display: none;
-	position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(25, 162, 184, .85);
-    z-index: 9999;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(25, 162, 184, .85);
+  z-index: 9999;
 }
 
 .loading-spinner {
-	display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    height: 100%;
- 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100%;
+
 }
+
 .overlay-two {
-background-color: #ffc800;
-height: 100%;
-width: 100%;
-top: 0;
-left: 0;
-position: fixed;
-z-index: -1;
+  background-color: #ffc800;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
 }
 
-.prod-manage{
+.prod-manage {
   font-size: 15px;
-  font-weight:bold;
+  font-weight: bold;
 }
 
-.prod-small{
+.prod-small {
   font-size: 10px;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 /* Product Form */
@@ -13143,7 +13147,7 @@ z-index: -1;
   position: relative;
   overflow: hidden;
 
-  
+
 }
 
 .btn-file input[type="file"] {
@@ -13167,16 +13171,19 @@ z-index: -1;
   border-radius: 5;
 }
 
-.btn-fav, .btn-like, .heart{
+.btn-fav,
+.btn-like,
+.heart {
   background-color: transparent;
- 
+
 }
 
 .orangered {
   color: orangered;
 }
+
 .btn-favorites {
-background-color: transparent;
+  background-color: transparent;
 }
 
 .review-elements {
@@ -13184,3 +13191,15 @@ background-color: transparent;
   max-width: 300px;
 }
 
+/* #mc_embed_signup {
+  background: #fff;
+  clear: left;
+  font: 14px Helvetica, Arial, sans-serif; */
+
+#mc_embed_signup:focus {
+  outline: none;
+}
+
+.btn-mailchimp {
+  color: #ffc800;
+}

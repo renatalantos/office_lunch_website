@@ -4,31 +4,65 @@
 
         <div class="row">
             <div class="col-md-4">
-
-                <h4 class="my-3 text-center">Sign up to our newsletter!</h4>
                 
-                    <p class="text-center">*And win a week's free lunch!</p>
-               
-                <div>
-                    <form>
-                        <div class="form-group text-white w-100">
-                            <label for="formControlInput1">Your name*</label>
-                            <input type="text" class="form-control" required id="formControlInput1">
+                <div id="mc_embed_signup">
+                    <form
+                        action="https://herokuapp.us20.list-manage.com/subscribe/post?u=f47cfea34a9beb69d76ed45c2&amp;id=0d04b9b7bc"
+                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                        target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
+                            <h2>Subscribe to our newsletter</h2>
+                            
+                            <div class="mc-field-group shadow-none">
+                                <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
+                                </label>
+                                <!-- <div class="indicates-required d-inline"><span class="asterisk">*</span> indicates required</div> -->
+                                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                            </div>
+                            <div id="mce-responses" class="clear foot">
+                                <div class="response" id="mce-error-response" style="display:none"></div>
+                                <div class="response" id="mce-success-response" style="display:none"></div>
+                            </div>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                    name="b_f47cfea34a9beb69d76ed45c2_0d04b9b7bc" tabindex="-1" value=""></div>
+                            <div class="optionalParent">
+                                <div class="clear foot ">
+                                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+  
+                                        class="button">
+                                    
+                                </div>
+                            </div>
+                            <p class="brandingLogo"><a href="http://eepurl.com/hSY6Tv"
+                                title="Mailchimp - email marketing made easy and fun"  target="_blank"><img
+                                    src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a>
+                        </p>
                         </div>
-
-
-                        <div class="form-group text-white w-100">
-                            <label for="formControlInput2">Your email address*</label>
-                            <input type="email" class="form-control" required id="formControlInput2"
-                                placeholder="name@email.com">
-                        </div>
-
-
-
-                      
-                        <button type="submit" class="btn btn-primary mb-5">Send</button>
                     </form>
                 </div>
+                <!-- <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
+                </script>
+                <script type='text/javascript'>
+                    (function ($) {
+                        window.fnames = new Array();
+                        window.ftypes = new Array();
+                        fnames[0] = 'EMAIL';
+                        ftypes[0] = 'email';
+                        fnames[1] = 'FNAME';
+                        ftypes[1] = 'text';
+                        fnames[2] = 'LNAME';
+                        ftypes[2] = 'text';
+                        fnames[3] = 'ADDRESS';
+                        ftypes[3] = 'address';
+                        fnames[4] = 'PHONE';
+                        ftypes[4] = 'phone';
+                        fnames[5] = 'BIRTHDAY';
+                        ftypes[5] = 'birthday';
+                    }(jQuery));
+                    var $mcj = jQuery.noConflict(true);
+                </script> -->
+                <!--End mc_embed_signup-->
 
             </div>
             <div class="col-md-4">
@@ -74,9 +108,34 @@
                     target="_blank" class="github-icon"><i class="fab fa-github text-white"></i></a></h6>
         </div>
         <div class="footer-lower col-md-4">
-            <h6 class="my-3 text-center"><a a href="#">Privacy Statement</a></h6>
+            <h6 class="my-3 text-center"><a a
+                    href="https://www.privacypolicygenerator.info/live.php?token=oXnSqVkXDv1YE0bu3NHTjQsnFgCvle2h"
+                    target="_blank">Privacy Statement</a></h6>
         </div>
     </div>
     </div>
-</div>
+    </div>
 </footer>
+{% block postloadjs %}
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'>
+</script>
+<script type='text/javascript'>
+    (function ($) {
+        window.fnames = new Array();
+        window.ftypes = new Array();
+        fnames[0] = 'EMAIL';
+        ftypes[0] = 'email';
+        fnames[1] = 'FNAME';
+        ftypes[1] = 'text';
+        fnames[2] = 'LNAME';
+        ftypes[2] = 'text';
+        fnames[3] = 'ADDRESS';
+        ftypes[3] = 'address';
+        fnames[4] = 'PHONE';
+        ftypes[4] = 'phone';
+        fnames[5] = 'BIRTHDAY';
+        ftypes[5] = 'birthday';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);
+</script>
+{% endblock%}
