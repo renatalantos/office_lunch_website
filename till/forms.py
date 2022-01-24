@@ -1,19 +1,28 @@
-
+"""
+Creates order form and its elements.
+"""
 from django import forms
 from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """
+    Extracts elements to display for user from model.
+    """
     class Meta:
+        """
+        Extracts elements to display for user from model
+        and enables styling.
+        """
         model = Order
         fields = ('full_name', 'email', 'phone_number',
-                  'town_or_city', 'street_address1', 
+                  'town_or_city', 'street_address1',
                   'street_address2',
                   'postcode', 'county',
                   'delivery_date',)
 
     def __init__(self, *args, **kwargs):
-        """   
+        """
         Add placeholders and classes, remove auto-generated
         labels and set autofocus on first field
         """
@@ -38,11 +47,9 @@ class OrderForm(forms.ModelForm):
         self.fields['postcode'].widget.attrs['required'] = 'required'
         self.fields['county'].widget.attrs['required'] = 'required'
         self.fields['delivery_date'].widget.attrs['class'] = 'form-control datetimepicker-input'
-        #self.fields['delivery_date'].widget = DateTimePicker()
-        self.fields['delivery_date'].widget.attrs['required'] = 'required' 
-        
+        self.fields['delivery_date'].widget.attrs['required'] = 'required'
         self.fields['full_name'].widget.attrs['autofocus'] = True
-        
+
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
@@ -51,5 +58,3 @@ class OrderForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
-
-  

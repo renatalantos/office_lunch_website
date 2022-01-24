@@ -1,5 +1,9 @@
+"""
+Displays contact form for user.
+"""
 from django import forms
 from .models import ContactUs
+
 
 class ContactForm(forms.ModelForm):
     """
@@ -7,5 +11,8 @@ class ContactForm(forms.ModelForm):
     """
 
     class Meta:
+        """
+        Extracts fields from model.
+        """
         model = ContactUs
         fields = '__all__'

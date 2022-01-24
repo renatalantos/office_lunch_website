@@ -1,10 +1,16 @@
+"""
+Views to set up logic for user
+to add, edit and delete reviews.
+"""
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from products.models import Product
+from profiles.models import CustomerProfile
 from .models import ProductReview
 from .forms import ReviewForm
-from profiles.models import CustomerProfile
+
+
 
 @login_required
 def add_review(request, product_id):
@@ -25,7 +31,7 @@ def add_review(request, product_id):
             product_review.title = review.title
             product_review.user = CustomerProfile.objects.get(user=request.user)
             product_review.product = product
-            product_review.save()        
+            product_review.save()
             messages.success(request, 'Review successful.')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
@@ -37,9 +43,7 @@ def add_review(request, product_id):
         'review_form': review_form,
         'product': product,
         'edit': True,
-       
     }
-   
     return render(request, template, context)
 
 
@@ -49,36 +53,28 @@ def edit_review(request, review_id):
     Function enables user to edit a booking after
     it has been made and added to the database.
     """
-   
     review = get_object_or_404(ProductReview, pk=review_id)
     product = review.product
-   
-    current_user = CustomerProfile.objects.get(user=request.user)   
+    current_user = CustomerProfile.objects.get(user=request.user)
     if review.user != current_user:
         messages.error(request, 'You are tring to edit a review by someone else.')
         return redirect(reverse('product_detail', args=[product.id]))
-    # if review.user != current_user and not request.user.is_superuser:
-    #     messages.error(request, 'You are tring to delete a review by someone else.')
-    #     return redirect(reverse('product_detail', args=[product.id]))   
     if review.user == current_user or request.user.is_superuser:
-        
-    
+
         if request.method == "POST":
             review_form = ReviewForm(request.POST, instance=review)
 
-            if review_form.is_valid(): 
-                review = review_form.save(commit=False)       
+            if review_form.is_valid():
+                review = review_form.save(commit=False)
                 review.user = CustomerProfile.objects.get(user=request.user)
-                product = review.product    
+                product = review.product
                 review.save()
                 messages.success(request, 'Your review has been updated.')
                 return redirect(reverse('product_detail', args=[product.id]))
             else:
                 messages.warning(request, 'Your review could not be updated.')
-        
-        else: 
+        else:
             review_form = ReviewForm(instance=review)
-    
     template = 'products/product_detail.html'
     context = {
         'review_form': review_form,
@@ -87,16 +83,20 @@ def edit_review(request, review_id):
         'edit': True,
         }
     return render(request, template, context)
-#request.user.is_superuser
+
 
 @login_required
 def delete_review(request, review_id):
+    """
+    View enables user to delete their own reviews
+    and superuser to delete reviews by others besides.
+    """
     review = get_object_or_404(ProductReview, pk=review_id)
     product = review.product
     current_user = CustomerProfile.objects.get(user=request.user)
     if review.user != current_user and not request.user.is_superuser:
         messages.error(request, 'You are tring to delete a review by someone else.')
-        return redirect(reverse('product_detail', args=[product.id]))   
+        return redirect(reverse('product_detail', args=[product.id]))
     if review.user == current_user or request.user.is_superuser:
         review.delete()
         messages.success(request, 'Review deleted!')

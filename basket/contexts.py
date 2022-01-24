@@ -1,9 +1,17 @@
+"""Functions to define variables for
+basket views and their operations.
+"""
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def basket_contents(request):
+    """
+    Function to define basket views variables
+    and their operations.
+    """
 
     basket_items = []
     total = 0
@@ -20,8 +28,6 @@ def basket_contents(request):
                 'quantity': item_data,
                 'product': product,
             })
-
-
         else:
             product = get_object_or_404(Product, pk=item_id)
             for option_grill, quantity in item_data['items_by_option_grill'].items():
@@ -36,7 +42,6 @@ def basket_contents(request):
 
     delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
     final_total = delivery + total
-    
     context = {
         'basket_items': basket_items,
         'total': total,
@@ -44,5 +49,4 @@ def basket_contents(request):
         'delivery': delivery,
         'final_total': final_total,
     }
-
     return context

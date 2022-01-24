@@ -1,21 +1,26 @@
+"""
+Views to handle checkout activities
+"""
+import json
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+import stripe
 from basket.contexts import basket_contents
 
 from products.models import Product
-from .models import Order, OrderComponentItem
 from profiles.models import CustomerProfile
 from profiles.forms import CustomerProfileForm
+from .models import Order, OrderComponentItem
 from .forms import OrderForm
 
 
-import stripe
-import json
-
 @require_POST
 def cache_till_data(request):
+    """
+    Cache checkout data.
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -32,6 +37,9 @@ def cache_till_data(request):
 
 
 def till(request):
+    """
+    Handles customer payments.
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -50,7 +58,6 @@ def till(request):
             'delivery_date': request.POST['delivery_date'],
         }
         order_form = OrderForm(form_data)
-        
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
@@ -129,7 +136,6 @@ def till(request):
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
-       
     template = 'till/till.html'
     context = {
         'order_form': order_form,
@@ -142,7 +148,7 @@ def till(request):
 
 def till_success(request, order_number):
     """
-    Handle successful tills
+    Handles successful checkouts.
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
@@ -177,6 +183,4 @@ def till_success(request, order_number):
     context = {
         'order': order,
     }
-
     return render(request, template, context)
-

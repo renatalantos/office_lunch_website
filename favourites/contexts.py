@@ -1,6 +1,9 @@
+"""
+Creates variables and operations for
+favourites count to be used in views.
+"""
 from django.http import Http404
 from django.shortcuts import get_object_or_404
-
 from.models import Favourites
 
 

@@ -1,3 +1,6 @@
+"""
+Views to determine logic for basket pages.
+"""
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from products.models import Product
@@ -38,7 +41,6 @@ def add_to_basket(request, item_id):
         else:
             basket[item_id] = quantity
             messages.success(request, f'Added {product.name} to your basket.')
- 
     request.session['basket'] = basket
     return redirect(redirect_url)
 
@@ -88,7 +90,7 @@ def delete_from_basket(request, item_id):
             del basket[item_id]['items_by_option_grill'][option_grill]
             if not basket[item_id]['items_by_option_grill']:
                 basket.pop(item_id)
-            messages.success(request, f'Deleted {product.name} ({option_grill}) from you basket.')    
+            messages.success(request, f'Deleted {product.name} ({option_grill}) from you basket.')
         else:
             basket.pop(item_id)
             messages.success(request, f'Deleted {product.name} from your basket.')

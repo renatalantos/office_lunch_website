@@ -1,20 +1,26 @@
+"""
+Creates Till model.
+"""
 import uuid
+import datetime
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 from django.utils import timezone
 from django.core.exceptions import ValidationError
-import datetime
 from products.models import Product
 from profiles.models import CustomerProfile
 
 
-
-
 class Order(models.Model):
+    """
+    Creates order model components.
+    """
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(CustomerProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')
+    user_profile = models.ForeignKey(CustomerProfile,
+                                     on_delete=models.SET_NULL,
+                                     null=True, blank=True,
+                                     related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -26,8 +32,8 @@ class Order(models.Model):
                                 blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date_of_order = models.DateTimeField(auto_now_add=True)
-    cutoff = datetime.time(15, 59)  
-    
+    cutoff = datetime.time(15, 59)
+
     def validate_delivery_date(delivery_date):
         """
         Function to validate date so that
@@ -39,8 +45,6 @@ class Order(models.Model):
                             null=True,
                             blank=True,
                             validators=[validate_delivery_date])
-
-
     delivery_charge = models.DecimalField(max_digits=6,
                                           decimal_places=2,
                                           null=False,
@@ -54,7 +58,10 @@ class Order(models.Model):
                                       null=False,
                                       default=0)
     original_basket = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254,
+                                  null=False,
+                                  blank=False,
+                                  default='')
 
     def _create_order_number(self):
         """
@@ -68,12 +75,9 @@ class Order(models.Model):
         accounting for delivery costs.
         """
         self.order_total = self.componentitems.aggregate(Sum('componentitem_total'))['componentitem_total__sum'] or 0
-     
         self.delivery_charge = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
-       
         self.final_total = self.order_total + self.delivery_charge
         self.save()
-
 
     def save(self, *args, **kwargs):
         """
@@ -89,11 +93,28 @@ class Order(models.Model):
 
 
 class OrderComponentItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='componentitems')
-    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    grilled = models.CharField(max_length=11, null=True, blank=True)
-    quantity = models.IntegerField(null=False, blank=False, default=0)
-    componentitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    """
+    Class creates order component items.
+    """
+    order = models.ForeignKey(Order, null=False,
+                              blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='componentitems')
+    product = models.ForeignKey(Product,
+                                null=False,
+                                blank=False,
+                                on_delete=models.CASCADE)
+    grilled = models.CharField(max_length=11,
+                               null=True,
+                               blank=True)
+    quantity = models.IntegerField(null=False,
+                                   blank=False,
+                                   default=0)
+    componentitem_total = models.DecimalField(max_digits=6,
+                                              decimal_places=2,
+                                              null=False,
+                                              blank=False,
+                                              editable=False)
 
     def save(self, *args, **kwargs):
         """

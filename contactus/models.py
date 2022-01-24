@@ -1,4 +1,8 @@
+"""
+Constructs ContactUs model and its components.
+"""
 from django.db import models
+
 
 class ContactUs(models.Model):
     """
@@ -10,4 +14,3 @@ class ContactUs(models.Model):
 
     def __str__(self):
         return str(self.name)
-
