@@ -313,7 +313,7 @@
 
                         <form method="POST" action="{% url 'edit_review' review.id %}#reviews">
                             {% csrf_token %}
-                            <div class="control border-0 rounded-1 w-25">
+                            <div class="control border-0 rounded-1 w-50">
                                 Rating
                                 {{ review_form.rating | as_crispy_field }}
                             </div>
@@ -335,7 +335,7 @@
                         <form method="post" action="{% url 'add_review' product.id %}">
                             {% csrf_token %}
 
-                            <div class="control border-0 rounded-1 w-25">
+                            <div class="control border-0 rounded-1 w-50">
                                 Rating
                                 {{ review_form.rating | as_crispy_field }}
                             </div>
