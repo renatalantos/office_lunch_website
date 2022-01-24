@@ -178,7 +178,8 @@
                                 </div>
                                 <div class="qty-box rounded-1 d-inline-block">
                                     <input class="form-control qty_input id_qty_{{ product.id }}" type="number"
-                                        name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}"></div>
+                                        name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
+                                </div>
                                 <div class="input-group-append d-inline-block">
                                     <button class="increment-qty increment-qty_{{ product.id }} border-0 rounded-0"
                                         data-item_id="{{ product.id }}">
@@ -319,7 +320,7 @@
                             <div class="control border-0 rounded-1 w-100">
                                 Review Title
                                 {{ review_form.title | as_crispy_field }}
-                                Write your review below
+                                Edit your review below
                                 {{ review_form.content | as_crispy_field }}
                             </div>
                             <div class="field">
@@ -363,6 +364,7 @@
 
             </div>
         </div>
+    </div>
 </section>
 
 {% endblock %}
