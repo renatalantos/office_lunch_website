@@ -38,13 +38,19 @@ This is the main marketing website for the fictitious e-commerce business, Offic
     - Further Testing
     - Unresolved Bugs 
 
+* [Search Engine Optimization](#SEO)
+    - Techniques Implemented
+    - Linking to Other Websites
+    - Other Backend Solutions
+    - Handling Nonexistent Content and User Errors
+
 * [Deployment](#deployment)
 
 * [Credits](#credits)
 
 # Introduction
 
-The product Office Lunches is a fictitious E_commerce webpage where users can buy quick lunches that will be delivered to them. 
+The product Office Lunches is a fictitious E-commerce webpage where users can buy quick lunches that will be delivered to them. 
 Beside being able to view pages like the Home page, All Products, Food, Drinks and Contact Us pages, users are also able to 
 * create an account
 * sign in
@@ -78,33 +84,41 @@ The site has been designed to be fully responsive on desktop, laptop, tablet and
 
     -   #### First Time Visitor Goals
 
-        1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the business.
+        1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the business and its products.
         2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
-        3. As a First Time Visitor, I want to sign up for a user account to access restricted content.
-        4. As a First Time Visitor, I want to create a table booking, view booking details, and learn what changes I can make on created bookings.
-        5. As a First Time Visitor, I want to sign out of my user account at the end of the session to keep my account related details safe.
+        3. As a First Time Visitor, I want to sign up for a user account to access restricted contentd.
+        4. As a First Time Visitor, I want to search for products, view all products, view individual product details.
+        5. As a First Time Visitor, I want to place an order.
+        6. As a First Time Visitor, I want to make a safe payment.
+        7. As a First Time Visitor, I want to create a user profile, so that I can save my details in them and make next-time interaction with the site faster and easier.
+        8. As a First Time Visitor, I want to sign out of my user account at the end of the session to keep my account related details safe.
+        9. As a First Time Visitor, I want to get feedback on all activities performed other than viewing products.
         
 
     -   #### Returning and Frequent Visitor Goals
 
         1. As a Returning and Frequent Visitor, I want to sign into my user account.
-        2. As a Returning and Frequent Visitor, I want to create a table booking, view my current and previous booking details, and alternatively edit them or delete them.
-        3. As a Returning and Frequent visitor I want to send messages and queries to the site owner.
-        4. As a Returning and Frequent visitor I want to like the restaurant services.
-        5. As a Returning and Frequent Visitor, I want to sign out of my account at the end of the session to keep my account safe.
+        2. As a Returning and Frequent Visitor, I want to create orders and view my current and previous orders.
+        3. As a Returning and Frequent Visitor, I want to create reviews and alternatively edit them or delete them.
+        4. As a Returning and Frequent visitor I want to send messages and queries to the site owner.
+        5. As a Returning and Frequent visitor I want to add products to my favourites list, to make reordering easier, alternatively, I would like to delete them from there.
+        6. As a Returning and Frequent Visitor, I want to subscribe to the companies newsletter to find out about new products and deals.
+        7. As a Returning and Frequent Visitor, I want to sign out of my account at the end of the session to keep my account safe.
+        9. As a Returning and Frequent Visitor, I want to get feedback on all activities performed other than viewing products.
 
     -   #### Site Administrator Goals
-        1. As a Site Administrator I would like to be able to create, view, edit and delete bookings.    
+        1. As a Site Administrator I would like to be able to add, view, edit and delete products.
+        1. As a Site Administrator I would like to be able to create, view, and delete reviews.
         
         
 # Layout
 -   ### Design
     -   #### Colour Scheme
-        -   The main colours in the website theme for header, background, footer and text labels are brown, yellow, and beige.
+        -   The main colours in the website theme for header, background, footer and text labels are yellow, very light olive green, and green. For small details, like small links to products, I use red.
     -   #### Typography
-        -   I used a standard Bootstrap theme with all the components and styling. Raleway and Lora are the main fonts used, Raleway for label titles and Lora for body text.
+        -   I used a standard Bootstrap theme with all the components and styling. Montserrat and Quicksand are the main fonts used, with Montserrat representing the more factual content and Quicksand is more used for product detail or where I'm hoping to attract the user to the site - e.g footer headers.
     -   #### Imagery
-        -   Imagery was chosen to go with the website's colour and content theme. I'm using dining and restaurant interior images with deep-toned, soothing colours and attractive graphics. For the edit, delete and logout page I'm using images with graphics that signal what will happen if user edits, deletes or signs out.
+        -   Imagery was chosen to go with the website's colour and content theme. I'm using product images with bright, cheerful colours and attractive graphics. The navbar, the home page, the footer and the display all products layout come from A Bootstrap template, which I customized for my own use. I use Boostrap cards to display multiple products, this way product image and product information are strongly tied together. Information whether a product is vegan, vegetarian, glutenfree is displayed with small images on the products page. Users who are interested in these products are familiar with the imagery.
 
 *   ### Wireframes
     -   #### Discrepancy with original ideas
