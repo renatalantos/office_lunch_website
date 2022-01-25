@@ -1,108 +1,452 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome renatalantos,
+# Milestone Project 5 - Office Lunches Website
+![All devices](ADD IMAGE!) 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[View the live project here.](https://renatalantos-office-lunches.herokuapp.com/)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+This is the main marketing website for the fictitious e-commerce business, Office Lunches. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential users and buyers.
 
-## Gitpod Reminders
+## Table of Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* [Introduction](#introduction)
 
-`python3 -m http.server`
+* [UX](#ux) 
+    - User Stories
+        -  First Time Visitor Goals
+        -  Returning and Frequent Visitor Goals
+        -  Site Administrator Goals  
+* [Layout](#layout)
 
-A blue button should appear to click: _Make Public_,
+    - Design
+        - Colour scheme
+        - Typography
+        - Images
+    - Wireframes
+        - Discrepancy with Original Ideas
+        - Links to Wireframes
+* [Features](#features)
+    - Responsivity
+    - Interactive Elements
+    - Features to add in future
 
-Another blue button should appear to click: _Open Browser_.
+* [Technologies Used](#technologies-used) 
+    - Languages Used
+    - Frameworks, Libraries and Programs Used  
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* [Testing](#testing)
+    - Testing User Stories from User Experience (UX) Section
+    - Further Testing
+    - Unresolved Bugs 
 
-A blue button should appear to click: _Make Public_,
+* [Deployment](#deployment)
 
-Another blue button should appear to click: _Open Browser_.
+* [Credits](#credits)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+# Introduction
 
-To log into the Heroku toolbelt CLI:
+The product Office Lunches is a fictitious E_commerce webpage where users can buy quick lunches that will be delivered to them. 
+Beside being able to view pages like the Home page, All Products, Food, Drinks and Contact Us pages, users are also able to 
+* create an account
+* sign in
+* sign up for a newsletter
+* view the company's privacy policy
+* search for products
+* sort products by category and other criteria
+* view all products
+* view individual product details
+* place products in basket
+* update product quantity
+* delete products from basket
+* place an order for a product
+* make a payment
+* create a profile
+* save profile details 
+* view profile details
+* view order history 
+* write, edit, and delete user reviews
+* add products to favourites list and remove them from there
+* contact the company by submitting an enquiry
+* get feedback on all actions they are performing.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+Certain features are available for registered users only, however unregistered users can buy from the site as well.  Site administrators are able to add end edit product and to add and delete reviews.
+The site has been designed to be fully responsive on desktop, laptop, tablet and mobile devices.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
-------
+# UX
 
-## Release History
+-   ### User stories 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+    -   #### First Time Visitor Goals
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+        1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the business.
+        2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
+        3. As a First Time Visitor, I want to sign up for a user account to access restricted content.
+        4. As a First Time Visitor, I want to create a table booking, view booking details, and learn what changes I can make on created bookings.
+        5. As a First Time Visitor, I want to sign out of my user account at the end of the session to keep my account related details safe.
+        
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+    -   #### Returning and Frequent Visitor Goals
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+        1. As a Returning and Frequent Visitor, I want to sign into my user account.
+        2. As a Returning and Frequent Visitor, I want to create a table booking, view my current and previous booking details, and alternatively edit them or delete them.
+        3. As a Returning and Frequent visitor I want to send messages and queries to the site owner.
+        4. As a Returning and Frequent visitor I want to like the restaurant services.
+        5. As a Returning and Frequent Visitor, I want to sign out of my account at the end of the session to keep my account safe.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+    -   #### Site Administrator Goals
+        1. As a Site Administrator I would like to be able to create, view, edit and delete bookings.    
+        
+        
+# Layout
+-   ### Design
+    -   #### Colour Scheme
+        -   The main colours in the website theme for header, background, footer and text labels are brown, yellow, and beige.
+    -   #### Typography
+        -   I used a standard Bootstrap theme with all the components and styling. Raleway and Lora are the main fonts used, Raleway for label titles and Lora for body text.
+    -   #### Imagery
+        -   Imagery was chosen to go with the website's colour and content theme. I'm using dining and restaurant interior images with deep-toned, soothing colours and attractive graphics. For the edit, delete and logout page I'm using images with graphics that signal what will happen if user edits, deletes or signs out.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+*   ### Wireframes
+    -   #### Discrepancy with original ideas
+        -   I originally intended to create my own HTML pages and CSS styling, however, I decided to use a standard Bootstrap theme instead, which saved me a huge amount of time. I simply followed the theme layout, customized text labels for various forms, so the original wireframes were not used at all. As the theme is fully responsive, I didn't create mobile device wireframes after deciding to use Bootstrap. By using a Boostrap theme, my theme is more unified, too. I also created a menu page for the site, which wasn't in my original plans.
+    -   #### Links to Wireframes
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+        -   Home Page Wireframe - [View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Home%20Page%20Wireframe.pdf)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+        -   Booking Page Wireframe - [View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Booking%20Page%20Wireframe.pdf)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+        -   Contact Us Page Wireframe - [View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Contact%20Page%20Wireframe.pdf)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+        -   Login Page Wireframe - [View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Login%20Page%20Wireframe.pdf)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+        -   Register Page Wireframe -[View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Register%20Page%20Wireframe.pdf)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+# Features
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+-   ### Responsivity
 
-------
+The application is responsive on all device sizes, thanks to the Boostrap theme. In mobile view there is a collapsible menu icon. All images, text labels, forms get appropriately resized. There is an exception, however: when bookings are displayed in the database table in the view_booking.html, on mobile phone screens in portrait mode there is not enough room for all columns to be shown. However, Bootstrap adds a slide bar so that user can slide the page content from left to right. 
 
-## FAQ about the uptime script
+[View database table in portrait mode on smallest mobile device](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/site%20features/Booking%20table%20with%20slide%20bar.JPG)
 
-**Why have you added this script?**
+In mobile phone landscape mode all columns show beside one another, however, the nav header and footer don't reach from one end of the page to the other.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+[View database table in landscape mode on smallest mobile device](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/site%20features/Booking%20table%20landscape.JPG)
 
-**How will this affect me?**
+-   ### Interactive elements
+    -   #### Nav links for Home, Menu, Book a Table, Contact Us, My bookings, Register, Login and Logout pages
+    -   #### Form input fields on signup, register, signout, table booking, edit booking and delete booking forms
+    -   #### Buttons - including form buttons (signup, register, signout, table booking, edit booking and delete booking form buttons) and page buttons (Visit Us button on Home page)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+-   ### Features to add in future   
+    -   #### I would like to add a dropdown list for registered users to acess their account-related activites like view bookings, login and logout.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+## Technologies Used
+# Technologies Used
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Languages Used
 
-**So….?**
+-   [HTML5](https://en.wikipedia.org/wiki/HTML5)
+-   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Frameworks, Libraries & Programs Used
+1. [Django:](https://www.djangoproject.com/)
+    - The Python-based Django framework was used to set up the structure, functionalities,  data model and database of the website.
+1. [Bootstrap 5.1.3:](https://startbootstrap.com/theme/business-casual)
+    - Bootstrap was used to assist with the responsiveness and styling of the website.
+1. [Google Fonts:](https://fonts.google.com/)
+    -    Raleway and Lora are the main fonts used, Raleway for label titles and Lora for body text.
+1. [Font Awesome:](https://fontawesome.com/)
+    - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+1. [jQuery:](https://jquery.com/)
+    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript. It is also used for the Bootstrap Tempus Dominus datetime picker.
+1. [Javascript:](https://en.wikipedia.org/wiki/JavaScript)  
+    - Javascript was used to define visibility duration for popup messages that signal successful completion of different form related activities.
+1. [Git:](https://git-scm.com/)
+    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+1. [GitHub:](https://github.com/)
+    - GitHub is used to store the projects code after being pushed from Git.
+1. [Balsamiq:](https://balsamiq.com/)
+    - Balsamiq was used to create the wireframes during the design process. [Wireframes](https://github.com/renatalantos/booking-system/tree/main/restaurant/documents/screenshots/wireframes)
+1. [Lucidchart:](https://www.lucidchart.com/)
+    - Lucidchart was used to create the data model of the project . [View Booking data model](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/1%20model%20only%20with%20Booking.JPG)   
+1. [SQLite3 database:](https://en.wikipedia.org/wiki/SQLite)
+    - SQLite3 is Django's default database system.
+1. [Cloudinary:](https://cloudinary.com/)
+    - I used cloudinary for cloud-based storage and partly for linking of my website images.
+1. [Heroku:](https://www.heroku.com/)
+    -  Heroku is used for the deployment and ultimate cloud-based storage of my application.
 
-**Can I opt out?**
+# Testing
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every pagefor HTML and CSS of the project to ensure there were no syntax errors in the project. I used the inbuilt pylint compiler to validate the Python files.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+-   [W3C URI Validator](https://validator.w3.org/#validate_by_uri)
+    - See the [URI Validator Results](https://github.com/renatalantos/booking-system/tree/main/restaurant/documents/screenshots/html%20validation)
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+    - See the [CSS Validator Results](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/css%20validation/Jigsaw%20CSS%20Validator.JPG)
+-   [Gitpod Pylint](https://pylint.org/)
+    - See the [Gitpod Pylint Results](https://github.com/renatalantos/booking-system/tree/main/restaurant/documents/screenshots/pylint%20validation)    
 
-**Anything more?**
+### Testing User Stories from User Experience (UX) Section
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+-   #### First Time Visitor Goals
 
----
+    1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the business.
+        1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath there is a Hero Image with Text and a "Visit Us Today!" Call to action button. The name a resturant is a banner above the navigation bar, with a bit of a fun fact above. (WINNER OF THE SURPRISE ENTREPRENEUR OF THE YEAR AWARD)
+        2. The main points are made immediately with the hero image, which is a restaurant interior and the text label attached to it.
+        3. The user has two options, click the call to action button "Visit Us Today!" or go to the "Contact Us" page, both of which will lead to the same place, to learn more about the restaurant.
 
-Happy coding!
+    2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
+        1. The site has been designed to have minimum content per page so that the user is not entrapped. The content is limited to what it says in the navigation links. The navigation bar is more towards the middle of the page and each link clearly describes what the page where the user will end up does.
+
+    3. As a First Time Visitor, I want to sign up for a user account to access restricted content.
+        1. Once the new visitor has read the Home, Contact us and Menu pages, had a look at what the Login and Register pages do, they might decide to book a table at the restaurant. They will click on the Book a Table navigation link, which will take them to the login page sign in form (hero image with restaurant interior and sign in form).
+        2. The login page sign in form contains a link where user can create an account from: "If you have not created an account yet, then please sign up to make reservations." This way users can understand that all booking functionalities are only accessed for registered users.
+        3. Alternatively, the user might want to create an account from the navbar link "Register", which will take them straight to the signup form. 
+        4. Once the user signs up by creating a username, optionally adding an email address, creating and repeating the password, they are redirected to the home page. 
+        5. In the navbar now, the Login and Register navbar links have disappeared, My Bookings, Logout and Logged in as (Created username) appear instead.
+    
+    4. As a First Time Visitor, I want to create a table booking, view booking details, and learn what changes I can make on created bookings.
+
+
+        1. Once the first-time user has created an account and been redirected to the home page, they can click on the Book a Table nav link again. This time they will see a hero image with tables and a booking form with the  following form elements:
+            - #### Form title "Table Booking Form"
+            - #### The following input fields:
+                *   ##### Customer name - takes alphanumerical characters
+                *   ##### Phone number - takes alphanumerical characters
+                *   ##### Reservation date and time - has a calendar popping up with date and time picker
+                *   ##### Number of customers - takes only positive whole numbers (not 0)
+            - #### Submit booking button
+
+
+        2.  User enters in Customer name, phone number, reservation date and time and number of customers on the form.
+        Although only two fields are marked with an asterisk, customer cannot submit without filling in all fields. 
+        
+        
+        [Go to booking form validation section from this link to see all issues](#booking-form-validation)
+        
+        
+        Once customer clicks on Submit booking, they are redirected to a page where bookings are arranged in a table. At the same time a pop up message appears just under the navbar: "Booking successful".
+        The table where the booking(s) is visible has the following headings and the row(s) and columns(s) underneath:
+        * Logged in User - username as per what user is logged in as
+        * Booking Id - booking id as generated by the foor loop in view_booking.html
+        * Customer name - as per user input on booking form
+        * Reservation date and time - as per user input on booking form
+        * Phone number - as per user input on booking form
+        * Number of guests - as per user input on booking form
+        * Edit booking - button
+        * Delete booking - button
+
+
+        3. If user decides that they do not wish to perform any further action on their booking, they can easily go on any other site page from the navbar that is visible straight above the bookings table.
+        4. If user decides, that they wish to edit their booking, they must click on the Edit Booking button. The booking will appear on a separate page, with a clean pad and pencil image, on a form like the table booking form. The form has the following elements:
+        - #### Form title "Edit Your Booking"
+        - #### Link "Changed my mind, back to my booking" in case customer has changed their mind
+        - #### The following input fields:
+            *  ##### Customer name - as per user input when creating a booking
+            *  ##### Phone number - as per user input when creating a booking
+            *  ##### Reservation date and time - as per user input when creating a booking
+            *  ##### Number of customers - as per user input when creating a booking
+        - #### Submit edited booking button
+
+        If user clicks on "Changed my mind, back to my booking" link, they are taken back to the previous page, to the table with all booking details.
+        Whether user edits their booking details on the form or leave them unedited on the form and click on the "Submit edited booking" button, they are taken back to the previous page, to the table with all booking details. Additionally, user sees the following popup message "Your booking has been updated". If user enters a date in the past, the form won't update and the error message "Booking date must be in the future" appears. 
+        Customer can then go onto any page after as per navbar links, which are displayed straight above the bookings table.
+        
+        5. If user decides, that they wish to delete their booking, they must click on the Delete Booking button. The booking will appear on a separate page, with a waste paper basket image, on a form like the table booking form. The form has the following elements:
+        - #### Form title "Are You Sure You Want to Delete this Booking?"
+        - #### Link "No, back to my booking" in case customer has changed their mind
+        - #### The following input fields:
+            * ##### Customer name - as per user input when creating a booking
+            * ##### Phone number - as per user input when creating a booking
+            * ##### Reservation date and time - as per user input when creating a booking
+            * ##### Number of customers - as per user input when creating a booking
+        - #### Delete booking button
+
+        If user clicks on "No, back to my booking" link, they are taken back to the previous page, to the table with all booking details.
+        When user clicks on the "Delete booking" button, they are taken back to the previous page, to the table with all booking details, without the deleted booking details. Additionally, user sees the following popup message "Your booking has been deleted". If customer deletes a booking where a date in the past now, the success message won't appear. Customer can then go onto any page after as per navbar links, which are displayed straight above the bookings table.
+
+        
+    5. As a First Time Visitor, I want to sign out of my user account at the end of the session to keep my account related details safe. 
+        1. To accomplish this, user clicks on the Logout navbar link.
+        2. A logout form with matching image as a background and with the following elements appears:
+            *   Form title "Sign Out"
+            *   Text "Are you sure you want to sign out?"
+            *   Sign Out button
+        3. If user clicks on the SIgn Out button, they are taken to the home page, at the same time the message "You have signed out" appears.
+
+     
+
+
+
+-   #### Returning and Frequent Visitor Goals
+
+     1. As a Returning and Frequent Visitor, I want to sign into my user account to access restricted content.
+
+        1. User clicks on Login button.
+        2. They will be directed to the sign in form.
+        3. They enter username and password created at the signup.
+        4. If username and password match, they are taken to the home page. At the same time a pop up message appears
+        "Successfully signed in as 'username'".
+        5. If username and/or password are incorrect, the following message appears on the signup form: "The username and/or password you specified are not correct." User need to enter correct details or re-register. They are directed to the home page then.
+        6. If user signs in by clicking on the Book a Table link first, they are directed to the Book a Table page.
+
+
+    2. As a Returning and Frequent Visitor, I want to create a new table booking, view details of my newly made and previous bookings, and alternatively edit them or delete them.
+
+        1. Users can create a new booking, as per the steps described above, by clicking on the booking form, from the Book a Table menu .
+        2. After submitting the booking, users can view their newly added or older booking details. Editing and deleting can be done from there.
+        3. Alternatively, if users do not wish to create a new booking, just would like to view their existing booking details or edit or delete them, they can click on the "My bookings" navbar link, which will be visible for authenticated users after login. This exposes the same page where users get after adding a booking.
+        
+    3. As a Returning and Frequent visitor I want to like the restaurant services on their website.
+        1. Currently this feature is outside of this project's scope as was labelled as a non-immediate requirement in the Agile user stories (labelled as could have). I would like to add this feature in future.
+        [Agile User Stories](https://github.com/renatalantos/booking-system/projects/1)
+    4. As a Returning and Frequent visitor I want to send messages and queries to the site owner via a form.
+        1. Currently this feature is outside of this project's scope as was labelled as a non-immediate requirement in the Agile user stories (labelled as should have). I would like to add this feature in future.
+        [Agile User Stories](https://github.com/renatalantos/booking-system/projects/1)
+
+    5. As a Returning and Frequent Visitor, I want to sign out of my account at the end of the session to keep my account safe.
+        1. User should follow the steps described above for First Time Visitors.
+    6. As a Returning and Frequent Visitor, I would like to see if there are any changes to the menu or opening hours.
+        1. User goes on the Menu or Contact page to do this.
+
+-   #### Site Administrator Goals
+
+    1. As a Site Administrator I would like register as a site admin and then log into the admin page.
+        1. In the Django framework, in the terminal window of the development environment the following command needs to be run:
+        python manage.py createsuperuser and then user needs to press enter 
+        2. Next user is prompted to create a username and then user needs to press enter 
+        3. Next user is prompted to enter an email address (optional) and then user needs to press enter 
+        4. Next user is prompted to enter a password, press enter, repeat password and then user needs to press enter again. 
+        1. In the Django framework, the site administrator can log into the site by adding /admin to the basic web address. 
+        2. They can login here through the standard login form provided.
+
+    2. As a Site Administrator I would like to be able to create, view, edit and delete bookings.
+        1. Once the booking object is created in the admin database (after being created in models.py, registered in admins.py and connection to the database), a site administrator can avail of the inbuilt functionalities in the Django admin site, like adding bookings, viewing all bookings made, editing and deleting bookings. They can do this for themselves and all authenticated users. This is fairly straightforward. All booking related changes on the website on the front end that registered and authenticated users make like adding, editing and deleting are synchronized with the django admin database and vice versa.
+        [Django Admin Database Functionalities](https://github.com/renatalantos/booking-system/tree/main/restaurant/documents/screenshots/admin%20page)
+
+### Further Testing
+
+-   The Website was tested on Google Chrome, Firefox, Microsoft Edge, Opera and Internet Explorer browsers. The site renders fine in all browsers. In IE the body fonts revert from Lora to Times New Roman.
+-   The website was viewed on a variety of devices such as Desktop, Laptop, Samsung Galaxy A51 and Google Developer Tools. It is responsive on all devices and all features work as expected.
+-   A large amount of testing was done to ensure that all pages were linking correctly. - See Testing User Stories
+-   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+
+### Unresolved Bugs
+
+-   #### In general
+    1. In the Gitpod Development Environment the site works with full CSS styling by now when Debug is off in the settings.py file. However, the admin page (/admin) comes up without CSS styling.
+
+    [No CSS for site admin page](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/admin%20page/Site%20admin%20no%20css.JPG)
+    
+    When Debug is on in the development environment, the admin site has full CSS styling.
+    # Booking form validation
+-   #### Booking form related validation issues
+    1. Validations I could implement
+        -   1. There is a validation in place where user cannot enter a past or immediate present date (Immediate present date is already the past when user submits the booking form.) There is a validation function in the models.py file, with a validation error raised. In the views.py file in the add_booking function then, when due to the validaton error form is not valid, and cannot be saved, an error pop up message is generated, saying "Booking date must be in the past".
+
+        [Validation function in models.py](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/Booking%20cannot%20be%20in%20past.JPG)
+
+
+        [Error message in views.py](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/Error%20message%20in%20views.JPG)
+
+        -   2. User cannot enter a duplicate booking. This is due to the uniqe_together list with its items in the models.py Meta class. User, customer name and reservation date and time cannot be duplicated together, otherwise a 505 error will show, which I customized as a duplicate_booking.html page.
+
+        [Must be unique](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/unique_together.JPG)
+
+
+        [Customized 505 error](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/Duplicate%20booking%20customized%20page.JPG)
+
+    2. Validations I could not implement
+        -   1. I wanted phone number to be purely numerical. At the moment it's at the user's discretion whether they enter alphabetical or numerical characters. I tried to use PhoneNumberField and validate regular expressions (with from django.core.validators import RegexValidator). However, the former could be deprecated and when I tried to add a regular expression with a validator, my booking page froze. However, no error message appeared.
+        Due to time restraints, I'm not pursuing a further solution at the moment. In future I would like to add this validation.
+
+        -   2. I wanted to define an opening time and make sure that user cannot book a reservation outside the opening hours. My approach was to extract the hour and minute from the reservation date and time and compare this to a certain hour and minute combination of the opening and closing time. However, I didn't manage to find a date-time format for opening and closing time where I could have compared them to the reservation date. Due to time restraints, I'm not pursuing a further solution at the moment. In future I would like to add this problem.
+
+        Please find a screenshot below for a validation attempt and the error I was getting:
+
+
+        
+        [Validation attempt for opening hours](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/errors/Validate%20opening%20time%20error.JPG)
+
+
+        [Error after opening hours validation attempt](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/errors/Validate%20opening%20time.JPG)
+
+    3.  On the booking form, all fields are required, user cannot submit the form without filling in all fields. However, only Customer name and number of customers have an asterisk behind them. I assume the formatting and styling of the form fields is done by the crispy form tags. I noticed that when I changed the model for the form field in models.py, the asterisks were taken away in some cases. In future I would like to correct this validation.
+
+    [No asterisk on form beside import field yet field is required](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/Booking%20form%20no%20asterisk%20yet%20fied%20is%20required.JPG)
+
+
+
+# Deployment
+
+### Heroku
+
+The project was created in Github first and then transferred to the Gitpod development environment by the use of the green Gitpod button.
+
+## Initial Deployment  
+- ### When creating a Django project, it is highly advisable to deploy early, due to the compexities of the development process and the actual application.
+
+1. In the Gitpod environment a skeleton django project was created (project, app and relating files).
+2. A Heroku app was created in Heroku.
+3. In Heroku, under the Resources tab, in Add-ons, I searched for Postgres. When found I submitted a request to use it. 
+This attached Heroku Postgres to my project in Heroku.
+4. In the Heroku Settings tab I clicked on "Reveal Config Vars" and copied the automatically added postgres link from beside the DATABASE_URL variable. 
+5. In Gitpod dev environment, I looked for the env.py file that was automatially generated from the CI template at the beginning. This file stores environment variables.
+6. After importing the os into the env.py file, I added the database URL from Heroku into env.py.
+7. I added a secret key in the env.py file after having it generated on the [Django Secret Key Generator - MiniWebtool](https://miniwebtool.com/django-secret-key-generator/) website.
+8. I added the secret key into the Heroku Settings > config vars as well.
+9. In the settings.py file in Gitpod I imported os and added an if statement saying that outside the development environment the environment variables must be used from env.py, including the secret key.
+10. Still in the settings.py file, I commented out the present code for databases and added code to use the currently set up django database URL as set in the env.py file and also in the Heroku config vars.
+11. I migrated these changes in Gitpod using python3 manage.py migrate
+12. To get static and media sites stored on Cloudinary, I went to the dashboard of my previously created Cloudinary account and copied the API Environment Variable.
+13. I added this to the Gitpod env.py file and into the Heroku Settings > config vars. 
+14. I also added DISABLE_COLLECTATIC = 1 to the Heroku config vars. 
+15. I added cloudinary and cloudinary_storage to the installed apps in settings.py. 
+16. I set up the static file storage, static file directory, the static root, the media url, the default file storage and the templates directory in settings.py.
+17. I added the Heroku name followed by herokuapp.com to the ALLOWED_HOSTS variable name in settings.py, followed by a comma and 'localhost' (to allow running in the development environment).
+18. I created 3 directories at the top level: media, static, templates.
+19. I created a Procfile at the top level directory. 
+20. I did a git add, git commit and git push.
+21. In the Deployment tab in Heroku, in Deployment method, I added Github, set up Enable Automated Deployment, looked for my Github repository, connected my Heroku app to it and clicked on Deploy Branch at the bottom of the page.
+22. When I opened the app after the app was built and deployed, I saw the success message page with a rocket.
+23. After  my application was built, as the first step of the final deployment I turned Debug to False in the settings.py file in Gitpod.
+24. In Heroku I removed the DISABLE_COLLECTSTATIC variable.
+25. I saved my changes on all my files and performed a git add, git commit and git push.
+26. As automatic depoyment had been enabled in Heroku, I waited until my app was built, then I opened it and made sure that all functionalities work.
+
+# Credits
+
+### Code
+
+-   The structure and the code of the project was mainly based on two project walkthroughs by Code Institute:
+    * Hello Django - I created CRUD functionalities based on this walkthrough.
+    * I think therefore I blog - I created authentication and messages functionalities based on this walkthrough and followed the deployment steps described here. 
+
+-   [Bootstrap5 Template](https://startbootstrap.com/theme/business-casual): Bootstrap Theme used throughout the project  to style pages and make site responsive.
+
+-   [Official Django Documentation](https://docs.djangoproject.com/en/3.2/) was researched for syntax, code expressions, code functionalities.
+
+-   Stack Overflow was was researched for syntax, code expressions, code functionalities, problem solving. Validation function for reservation date and time is from there.
+
+-   How to implement widgets for form fields was answered by tutor on FullStack Slack channel.
+
+
+### Content
+
+-   Content comes from the Bootstrap template, I made slight changes to the prewritten content there. Food descriptions in Menu page come partly from the Burger Joint web page and various recipe websites. 
+
+
+### Media
+
+-   Images are from pexels.com and from the Bootstrap template.
+### Acknowledgements
+
+-   My Mentor Rohit for continuous helpful feedback.
+-   Kasia for supporting all of us in all circumstances and for being available for individual support.
+-   My classmates for their ongoing support and solidarity.
+-   My family for their patience. Thanks for putting up with me in these intense times.
