@@ -122,7 +122,7 @@ The site has been designed to be fully responsive on desktop, laptop, tablet and
 
 *   ### Wireframes
     -   #### Discrepancy with original ideas
-        -   I originally intended to closely follow the Boutique Ado tutorial, which is strongly reflected in my wireframes. However, the home page and the all products page come from 2 separate Bootstrap templates.
+        -   I originally intended to closely follow the Boutique Ado tutorial, which is strongly reflected in my wireframes. However, the home page and the all products page come from 2 different separate Bootstrap templates.
         The layout for the rest of the pages comes from Boutique Ado. However, I don't use 2 separate headers but one and the search, user and basket icons are in the same line as the nav links. Other than that, the finished site is very similar as drawn up in the wireframes, only I gave forms 100% width in mobile view as it was done in the tutorial.
     -   #### Links to Wireframes
 
@@ -137,14 +137,17 @@ The site has been designed to be fully responsive on desktop, laptop, tablet and
 
 -   ### Responsivity
 
-The application is responsive on all device sizes, thanks to the Boostrap theme. In mobile view there is a collapsible menu icon. All images, text labels, forms get appropriately resized. There is an exception, however: when bookings are displayed in the database table in the view_booking.html, on mobile phone screens in portrait mode there is not enough room for all columns to be shown. However, Bootstrap adds a slide bar so that user can slide the page content from left to right. 
+The application is responsive on all device sizes, thanks Boostrap. In mobile view there is a collapsible menu icon. All images, text labels, forms get appropriately resized. I followed the code refactoring tutorial in Boutique Ado for the shopping bag page, so the only one that caused problems is resizing properly now. 
 
-[View database table in portrait mode on smallest mobile device](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/site%20features/Booking%20table%20with%20slide%20bar.JPG)
+[Shopping bag in Desktop view](ADD IMAGE)
 
-In mobile phone landscape mode all columns show beside one another, however, the nav header and footer don't reach from one end of the page to the other.
+[Shopping bag in Tablet View](ADD IMAGE)
 
-[View database table in landscape mode on smallest mobile device](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/site%20features/Booking%20table%20landscape.JPG)
+[Shopping bag in Mobile View](ADD IMAGE)
 
+[Order form in Desktop View](ADD IMAGE)
+
+[Order form in Mobile View](ADD IMAGE)
 -   ### Interactive elements
     -   #### Nav links for Home, Menu, Book a Table, Contact Us, My bookings, Register, Login and Logout pages
     -   #### Form input fields on signup, register, signout, table booking, edit booking and delete booking forms
