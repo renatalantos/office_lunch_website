@@ -212,11 +212,14 @@ The application is responsive on all device sizes, thanks to Boostrap. In mobile
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every pagefor HTML and CSS of the project to ensure there were no syntax errors in the project. I used the inbuilt pylint compiler to validate the Python files.
 
 -   [W3C URI Validator](https://validator.w3.org/#validate_by_uri)
-    - See the [URI Validator Results](https://github.com/renatalantos/booking-system/tree/main/restaurant/documents/screenshots/html%20validation)
+    - See the [URI Validator Results](ADD LINK TO FOLDER)
+    - Please note that I wasn't able to assign alt tags to images on the AWS server. Other errors come from the Bootstrap template in HTML. I'm most likely responsible for stray and unclosed tags and I did my best to refactor my code, however, all HTML pages show some standard errors in this project: [Standard errors:](ADD Image)
+
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
-    - See the [CSS Validator Results](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/css%20validation/Jigsaw%20CSS%20Validator.JPG)
+    - See the [CSS Validator Results](ADD IMGAE)
 -   [Gitpod Pylint](https://pylint.org/)
-    - See the [Gitpod Pylint Results](https://github.com/renatalantos/booking-system/tree/main/restaurant/documents/screenshots/pylint%20validation)    
+    - See the [Gitpod Pylint Results](ADD LINK TO FOLDER)    
+    - I'm getting two main errors on these files - "Line too long" and "Class class_name has no object member" I do not want to break the long lines as I might break the code if I'm not attentive and the other one is a standard error in Django that can be ignored when in the views and if the views are set up correctly. 
 
 ### Testing User Stories from User Experience (UX) Section
 
