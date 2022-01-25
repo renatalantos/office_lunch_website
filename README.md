@@ -197,7 +197,7 @@ The application is responsive on all device sizes, thanks to Boostrap. In mobile
 1. [Lucidchart:](https://www.lucidchart.com/)
     - Lucidchart was used to create the data model of the project . 
     * [View data models for Product, Category and Order](ADD image)   
-    * [View data models for Product, Category and UserProfile](ADD image)  
+    * [View data models for Product, Category and UserProfile](ADD image)
 1. [SQLite3 database:](https://en.wikipedia.org/wiki/SQLite)
     - SQLite3 is Django's default database system.
 1. [Cloudinary:](https://cloudinary.com/)

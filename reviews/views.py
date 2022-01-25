@@ -11,7 +11,6 @@ from .models import ProductReview
 from .forms import ReviewForm
 
 
-
 @login_required
 def add_review(request, product_id):
     """

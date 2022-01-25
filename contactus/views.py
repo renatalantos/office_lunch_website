@@ -1,6 +1,9 @@
+"""
+Enables customer to send a query
+"""
 from django.shortcuts import render
 from django.contrib import messages
-from .forms import ContactForm 
+from .forms import ContactForm
 
 
 def contact(request):
@@ -10,7 +13,7 @@ def contact(request):
     """
     if request.method == 'POST':
         contact_form = ContactForm(request.POST)
-        if contact_form.is_valid():            
+        if contact_form.is_valid():
             contact_form.save()
             messages.success(request, 'Thank you. Your email has been sent. We will get back to you as soon as possible.')
         else:
