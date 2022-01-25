@@ -187,8 +187,8 @@ The application is responsive on all device sizes, thanks to Boostrap. In mobile
     - Balsamiq was used to create the wireframes during the design process.
 1. [Lucidchart:](https://www.lucidchart.com/)
     - Lucidchart was used to create the data model of the project . 
-    * [View data models for Product, Category and Order:](ADD image)   
-    * [View data models for Product, Category and UserProfile:](ADD image)
+    * [View data models for Product, Category and Order:](https://github.com/renatalantos/office_lunch_website/blob/main/static/documents/database%20schema/Product%2C%20Category%20and%20Checkout%20Model.pdf)   
+    * [View data models for OrderLineItem and UserProfile:](https://github.com/renatalantos/office_lunch_website/blob/main/static/documents/database%20schema/OrderLineItem%20and%20User%20Profile%20Models.pdf)
 1. [SQLite3 database:](https://en.wikipedia.org/wiki/SQLite)
     - SQLite3 is Django's default database system.
 1. [Cloudinary:](https://cloudinary.com/)
@@ -208,12 +208,12 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 -   [W3C URI Validator](https://validator.w3.org/#validate_by_uri)
     - See the [URI Validator Results](ADD LINK TO FOLDER)
-    - Please note that I wasn't able to assign alt tags to images on the AWS server. Other errors come from the Bootstrap template in HTML. I'm most likely responsible for stray and unclosed tags and I did my best to refactor my code, however, all HTML pages show some standard errors in this project: [Standard errors:](ADD Image)
+    - Please note that I wasn't able to assign alt tags to images on the AWS server. Other errors come from the Bootstrap template in HTML. I'm most likely responsible for stray and unclosed tags and I did my best to refactor my code, however, all HTML pages show some standard errors in this project: [Standard errors:](https://github.com/renatalantos/office_lunch_website/tree/main/static/documents/validation/html)
 
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
-    - See the [CSS Validator Results](ADD IMGAE)
+    - See the [CSS Validator Results](https://github.com/renatalantos/office_lunch_website/blob/main/static/documents/validation/css/CSS%20Validation%20jigsaw.JPG)
 -   [Gitpod Pylint](https://pylint.org/)
-    - See the [Gitpod Pylint Results](ADD LINK TO FOLDER)    
+    - See the [Gitpod Pylint Results](https://github.com/renatalantos/office_lunch_website/tree/main/static/documents/validation/python)    
     - I'm getting two main errors on these files - "Line too long" and "Class class_name has no object member" I do not want to break the long lines as I might break the code if I'm not attentive and the other one is a standard error in Django that can be ignored when in the views and if the views are set up correctly. 
 
 ### Testing User Stories from User Experience (UX) Section
@@ -280,20 +280,6 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         1. As mentioned, customer is fed back all add, edit, delete functionality.
 
 
-
-        
-    3. As a Returning and Frequent visitor I want to like the restaurant services on their website.
-        1. Currently this feature is outside of this project's scope as was labelled as a non-immediate requirement in the Agile user stories (labelled as could have). I would like to add this feature in future.
-        [Agile User Stories](https://github.com/renatalantos/booking-system/projects/1)
-    4. As a Returning and Frequent visitor I want to send messages and queries to the site owner via a form.
-        1. Currently this feature is outside of this project's scope as was labelled as a non-immediate requirement in the Agile user stories (labelled as should have). I would like to add this feature in future.
-        [Agile User Stories](https://github.com/renatalantos/booking-system/projects/1)
-
-    5. As a Returning and Frequent Visitor, I want to sign out of my account at the end of the session to keep my account safe.
-        1. User should follow the steps described above for First Time Visitors.
-    6. As a Returning and Frequent Visitor, I would like to see if there are any changes to the menu or opening hours.
-        1. User goes on the Menu or Contact page to do this.
-
 -   #### Site Administrator Goals
 
     1. As a Site Administrator I would like to be able to add, view, edit and delete products.
@@ -315,7 +301,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     #### Errors in development
     1. Most errors I got were fairly common and could be troubleshooted through Slack or StackOverflow. However, 
     I got a CircularImport error when creating the Review model twice. This issue was resolved by the help of my mentor.
-    1. [CircularImportError](ADD IMAGE)
+ 
     
 # Deployment
 
@@ -376,6 +362,15 @@ This attached Heroku Postgres to my project in Heroku.
 41. I did a git push.
 42. I created a media folder in AWS and uploaded my image files manually.
 43. I added Stripe variables to Heroku (STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, STRIPE_WH_SECRET)
+
+# [Search Engine Optimization and Marketing](#SEO) a
+### Techniques Implemented
+
+- I used meta keywords relating to my site in the base.html head Included were site profile, products and location.
+- I used the Facebook site template provided by CI [Facebook](https://github.com/renatalantos/office_lunch_website/tree/main/static/documents/facebook)
+- I included the built-in Mailchimp logo with the Mailchimp newsletter form as a link to another site. I added the nollow link to this as it is not related to the site.
+- I included Sitemap.xml and robots.txt files.
+- for handling Nonexistent Content and User Errors I added 404.html and 505.html error pages in the root directory templates folder.
 
 
 # Credits
