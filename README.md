@@ -118,23 +118,19 @@ The site has been designed to be fully responsive on desktop, laptop, tablet and
     -   #### Typography
         -   I used a standard Bootstrap theme with all the components and styling. Montserrat and Quicksand are the main fonts used, with Montserrat representing the more factual content and Quicksand is more used for product detail or where I'm hoping to attract the user to the site - e.g footer headers.
     -   #### Imagery
-        -   Imagery was chosen to go with the website's colour and content theme. I'm using product images with bright, cheerful colours and attractive graphics. The navbar, the home page, the footer and the display all products layout come from A Bootstrap template, which I customized for my own use. I use Boostrap cards to display multiple products, this way product image and product information are strongly tied together. Information whether a product is vegan, vegetarian, glutenfree is displayed with small images on the products page. Users who are interested in these products are familiar with the imagery.
+        -   Imagery was chosen to go with the website's colour and content theme. I'm using product images with bright, cheerful colours and attractive graphics. The navbar, the home page, the footer and the display all products layout come from 2 separate Bootstrap template, which I customized for my own use. I use Boostrap cards to display multiple products, this way product image and product information are strongly tied together. Information whether a product is vegan, vegetarian, glutenfree is displayed with small images on the products page. Users who are interested in these products are familiar with the imagery.
 
 *   ### Wireframes
     -   #### Discrepancy with original ideas
-        -   I originally intended to create my own HTML pages and CSS styling, however, I decided to use a standard Bootstrap theme instead, which saved me a huge amount of time. I simply followed the theme layout, customized text labels for various forms, so the original wireframes were not used at all. As the theme is fully responsive, I didn't create mobile device wireframes after deciding to use Bootstrap. By using a Boostrap theme, my theme is more unified, too. I also created a menu page for the site, which wasn't in my original plans.
+        -   I originally intended to closely follow the Boutique Ado tutorial, which is strongly reflected in my wireframes. However, the home page and the all products page come from 2 separate Bootstrap templates.
+        The layout for the rest of the pages comes from Boutique Ado. However, I don't use 2 separate headers but one and the search, user and basket icons are in the same line as the nav links. Other than that, the finished site is very similar as drawn up in the wireframes, only I gave forms 100% width in mobile view as it was done in the tutorial.
     -   #### Links to Wireframes
 
-        -   Home Page Wireframe - [View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Home%20Page%20Wireframe.pdf)
+        -   Wireframes in Desktop View - [View](ADD IMAGE)
 
-        -   Booking Page Wireframe - [View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Booking%20Page%20Wireframe.pdf)
+        -   Wireframes in Tablet View - [View](ADD IMAGE)
 
-        -   Contact Us Page Wireframe - [View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Contact%20Page%20Wireframe.pdf)
-
-        -   Login Page Wireframe - [View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Login%20Page%20Wireframe.pdf)
-
-        -   Register Page Wireframe -[View](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/Register%20Page%20Wireframe.pdf)
-
+        -   Wireframes in Mobile View - [View](ADD IMAGE)
 
 
 # Features
