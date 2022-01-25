@@ -226,12 +226,11 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   #### First Time Visitor Goals
 
     1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the business.
-        1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath there is a Hero Image with Text and a "Visit Us Today!" Call to action button. The name a resturant is a banner above the navigation bar, with a bit of a fun fact above. (WINNER OF THE SURPRISE ENTREPRENEUR OF THE YEAR AWARD)
-        2. The main points are made immediately with the hero image, which is a restaurant interior and the text label attached to it.
-        3. The user has two options, click the call to action button "Visit Us Today!" or go to the "Contact Us" page, both of which will lead to the same place, to learn more about the restaurant.
+        1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath there is a Hero Image with Text and an "Order Food Now!" Call to action button. The name of the site is described in the logo in the upper left corner of the page. A different letter type makes the logo stand out. There is also a little sandwich favicon in the browser. Hero image and questions "Stuck in that Office? Hungry for Lunch?" make sites purpose even clearer and the "Order food now!" button reassures user that this is an online service. 
+        2. The user has the option to click the call to action button or go to the navbar and select a link. Also, in the footer there is basic information about product ingredients, a newsletter signup form and links to the company's social media presence, so the user might decide to take a look.
 
     2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
-        1. The site has been designed to have minimum content per page so that the user is not entrapped. The content is limited to what it says in the navigation links. The navigation bar is more towards the middle of the page and each link clearly describes what the page where the user will end up does.
+        1. The site has been designed to have minimum content per page so that the user is not entrapped. The content is limited to what it says in the navigation links. Each link clearly describes what the page where the user will end up does. The navbar always displays on top of the page, and if users scrolls way down, an up arrow link enables them to get back to the top of the page, instead of having to scroll up. At every critital point of site use where user needs to make a product adding or purchasing decision, there is a button on the given page that provides an alternative so that user can leave the page. These are action buttons (Keep Shopping on product detail and basket pages and Adjust Basket on checkout (till) pages. They enable users to leave the given page but also encourage them to stay on the site. This works really well for both first time and returning users. Also, page content is rather minimalistic, it's merely basic information and instructions. 
 
     3. As a First Time Visitor, I want to sign up for a user account to access restricted content.
         1. Once the new visitor has read the Home, Contact us and Menu pages, had a look at what the Login and Register pages do, they might decide to book a table at the restaurant. They will click on the Book a Table navigation link, which will take them to the login page sign in form (hero image with restaurant interior and sign in form).
@@ -447,7 +446,7 @@ This attached Heroku Postgres to my project in Heroku.
 23. After  my application was built, as the first step of the final deployment I turned Debug to False in the settings.py file in Gitpod.
 24. In Heroku I removed the DISABLE_COLLECTSTATIC variable.
 25. I saved my changes on all my files and performed a git add, git commit and git push.
-26. As automatic depoyment had been enabled in Heroku, I waited until my app was built, then I opened it and made sure that all functionalities work.
+26. As automatic deployment had been enabled in Heroku, I waited until my app was built, then I opened it and made sure that all functionalities work.
 
 # Credits
 
