@@ -118,11 +118,15 @@ The site has been designed to be fully responsive on desktop, laptop, tablet and
     -   #### Typography
         -   I used a standard Bootstrap theme with all the components and styling. Montserrat and Quicksand are the main fonts used, with Montserrat representing the more factual content and Quicksand is more used for product detail or where I'm hoping to attract the user to the site - e.g footer headers.
     -   #### Imagery
-        -   Imagery was chosen to go with the website's colour and content theme. I'm using product images with bright, cheerful colours and attractive graphics. The navbar, the home page, the footer and the display all products layout come from 2 separate Bootstrap template, which I customized for my own use. I use Boostrap cards to display multiple products, this way product image and product information are strongly tied together. Information whether a product is vegan, vegetarian, glutenfree is displayed with small images on the products page. Users who are interested in these products are familiar with the imagery.
+        -   Imagery was chosen to go with the website's colour and content theme. I'm using product images with bright, cheerful colours and attractive graphics. The navbar, the home page, the footer and the display all products and product detail layout come from 3 separate Bootstrap templates, which I customized for my own use. I use Boostrap cards to display multiple products, this way product image and product information are strongly tied together. Information whether a product is vegan, vegetarian, glutenfree is displayed with small images on the products page. Users who are interested in these products are familiar with the imagery.
 
 *   ### Wireframes
     -   #### Discrepancy with original ideas
-        -   I originally intended to closely follow the Boutique Ado tutorial, which is strongly reflected in my wireframes. However, the home page and the all products page come from 2 different separate Bootstrap templates.
+        -   I originally intended to closely follow the Boutique Ado tutorial, which is strongly reflected in my wireframes. However, the home page and the all products and the product detail pages come from 3 different separate Bootstrap templates.
+        [Bootstrap template for home page](https://startbootstrap.com/theme/agency)
+        [Bootstrap template for all products page](https://startbootstrap.com/template/shop-homepage)
+        [Bootstrap template for product detail page](https://startbootstrap.com/template/shop-item)
+
         The layout for the rest of the pages comes from Boutique Ado. However, I don't use 2 separate headers but one and the search, user and basket icons are in the same line as the nav links. Other than that, the finished site is very similar as drawn up in the wireframes, only I gave forms 100% width in mobile view as it was done in the tutorial.
     -   #### Links to Wireframes
 
@@ -137,7 +141,7 @@ The site has been designed to be fully responsive on desktop, laptop, tablet and
 
 -   ### Responsivity
 
-The application is responsive on all device sizes, thanks Boostrap. In mobile view there is a collapsible menu icon. All images, text labels, forms get appropriately resized. I followed the code refactoring tutorial in Boutique Ado for the shopping bag page, so the only one that caused problems is resizing properly now. 
+The application is responsive on all device sizes, thanks to Boostrap. In mobile view there is a collapsible menu icon. All images, text labels, forms get appropriately resized. I followed the code refactoring tutorial in Boutique Ado for the shopping bag page, so the only one that caused problems is resizing properly now. 
 
 [Shopping bag in Desktop view](ADD IMAGE)
 
@@ -149,14 +153,18 @@ The application is responsive on all device sizes, thanks Boostrap. In mobile vi
 
 [Order form in Mobile View](ADD IMAGE)
 -   ### Interactive elements
-    -   #### Nav links for Home, Menu, Book a Table, Contact Us, My bookings, Register, Login and Logout pages
-    -   #### Form input fields on signup, register, signout, table booking, edit booking and delete booking forms
-    -   #### Buttons - including form buttons (signup, register, signout, table booking, edit booking and delete booking form buttons) and page buttons (Visit Us button on Home page)
+    -   #### Nav links for Home, Menu, All in Our Store, Food, Drinks, Contact Us, Register, Login and Logout pages
+    -   #### Form input fields on signup, register, signout, checkout (till), user profile, contact us, subscribe to newsletter, search for product, write review and edit review forms plus add and delete product form for superuser
+    -   #### Buttons - including form buttons (signup, register, signout, checkout (till), user profile, contact us, subscribe to newsletter, write review, edit and review buttons plus add, delete product and upload product form buttons for superuser)
+    -   #### Dropdown boxes - including dropdown boxes for All Products, Food, Drinks, User, Sort by, Rating, Grill Option dropdowns
+    -   #### Edit and Delete links - including edit and delete product link for superuser, delete product link on Favourites page, update product quantity and delete product on shopping bag (basket) page.
+    -   #### Update Quantity buttons - enable user to increase or decrease product quantity, present on product detail and shooping bag (basket) pages
+  
 
 -   ### Features to add in future   
-    -   #### I would like to add a dropdown list for registered users to acess their account-related activites like view bookings, login and logout.
+    -   #### I would like to add a lunch deal functionality which allows users to choose 3 products from 3 different categories and get a discount then. This was beyond the scope of this project, yet certain items have a Lunch Deal Item label.
 
-## Technologies Used
+### Technologies Used 
 # Technologies Used
 
 ### Languages Used
@@ -168,28 +176,34 @@ The application is responsive on all device sizes, thanks Boostrap. In mobile vi
 ### Frameworks, Libraries & Programs Used
 1. [Django:](https://www.djangoproject.com/)
     - The Python-based Django framework was used to set up the structure, functionalities,  data model and database of the website.
-1. [Bootstrap 5.1.3:](https://startbootstrap.com/theme/business-casual)
+1. [Bootstrap 5.1.3:](https://startbootstrap.com/theme/agency)
     - Bootstrap was used to assist with the responsiveness and styling of the website.
 1. [Google Fonts:](https://fonts.google.com/)
-    -    Raleway and Lora are the main fonts used, Raleway for label titles and Lora for body text.
+    -    Montserrat and Quicksand are the main fonts used, Quicksand for label titles and Montserrat for body text.
 1. [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 1. [jQuery:](https://jquery.com/)
-    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript. It is also used for the Bootstrap Tempus Dominus datetime picker.
+    - jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript. It is also used for the date picker, the dropdown list, the up arrow button and the toat messages.
 1. [Javascript:](https://en.wikipedia.org/wiki/JavaScript)  
-    - Javascript was used to define visibility duration for popup messages that signal successful completion of different form related activities.
+    - Javascript was used to define visibility duration for popup messages, the functionality of the product quantity updates, navbar toogling, the sort dropdown box, Stripe payment and webhook handling.
+   [Json:](https://en.wikipedia.org/wiki/JSON)
+   - Json files were used to upload fixtures for categories and product categories.
 1. [Git:](https://git-scm.com/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code after being pushed from Git.
 1. [Balsamiq:](https://balsamiq.com/)
-    - Balsamiq was used to create the wireframes during the design process. [Wireframes](https://github.com/renatalantos/booking-system/tree/main/restaurant/documents/screenshots/wireframes)
+    - Balsamiq was used to create the wireframes during the design process.
 1. [Lucidchart:](https://www.lucidchart.com/)
-    - Lucidchart was used to create the data model of the project . [View Booking data model](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/wireframes/1%20model%20only%20with%20Booking.JPG)   
+    - Lucidchart was used to create the data model of the project . 
+    * [View data models for Product, Category and Order](ADD image)   
+    * [View data models for Product, Category and UserProfile](ADD image)  
 1. [SQLite3 database:](https://en.wikipedia.org/wiki/SQLite)
     - SQLite3 is Django's default database system.
 1. [Cloudinary:](https://cloudinary.com/)
-    - I used cloudinary for cloud-based storage and partly for linking of my website images.
+    - I used cloudinary for cloud-based storage of my images, so that I could give my images a linking URL when uploading them into the products json file.
+   [AWS:](https://aws.amazon.com/)
+   - AWS is used to store static and media files in the cloud from the project to host them for deployed application in Heroku.
 1. [Heroku:](https://www.heroku.com/)
     -  Heroku is used for the deployment and ultimate cloud-based storage of my application.
 
