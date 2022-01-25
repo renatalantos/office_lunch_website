@@ -204,6 +204,10 @@ The application is responsive on all device sizes, thanks to Boostrap. In mobile
     - I used cloudinary for cloud-based storage of my images, so that I could give my images a linking URL when uploading them into the products json file.
    [AWS:](https://aws.amazon.com/)
    - AWS is used to store static and media files in the cloud from the project to host them for deployed application in Heroku.
+   [Stripe:](https://stripe.com)
+   - Handles user payments
+   [Mailchimp](https://mailchimp.com/)
+   - Handles form for newsletter sending
 1. [Heroku:](https://www.heroku.com/)
     -  Heroku is used for the deployment and ultimate cloud-based storage of my application.
 
@@ -230,106 +234,62 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         2. The user has the option to click the call to action button or go to the navbar and select a link. Also, in the footer there is basic information about product ingredients, a newsletter signup form and links to the company's social media presence, so the user might decide to take a look.
 
     2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
-        1. The site has been designed to have minimum content per page so that the user is not entrapped. The content is limited to what it says in the navigation links. Each link clearly describes what the page where the user will end up does. The navbar always displays on top of the page, and if users scrolls way down, an up arrow link enables them to get back to the top of the page, instead of having to scroll up. At every critital point of site use where user needs to make a product adding or purchasing decision, there is a button on the given page that provides an alternative so that user can leave the page. These are action buttons (Keep Shopping on product detail and basket pages and Adjust Basket on checkout (till) pages. They enable users to leave the given page but also encourage them to stay on the site. This works really well for both first time and returning users. Also, page content is rather minimalistic, it's merely basic information and instructions. 
+        1. The site has been designed to have minimum content per page so that the user is not entrapped. The content is limited to what it says in the navigation links. Each link clearly describes what the page where the user will end up does. The navbar always displays on top of the page, and if users scrolls way down, an up arrow link enables them to get back to the top of the page, instead of having to scroll up. At every critital point of site use where user needs to make a product adding or purchasing decision, there is a button on the given page that provides an alternative so that user can leave the page. These are action buttons (Keep Shopping on product detail and basket pages and Adjust Basket on checkout (till) pages. They enable users to leave the given page but also encourage them to stay on the site. This works really well for both first time and returning users. Also, page content is rather minimalistic, it's basic information and instructions. 
 
     3. As a First Time Visitor, I want to sign up for a user account to access restricted content.
-        1. Once the new visitor has read the Home, Contact us and Menu pages, had a look at what the Login and Register pages do, they might decide to book a table at the restaurant. They will click on the Book a Table navigation link, which will take them to the login page sign in form (hero image with restaurant interior and sign in form).
-        2. The login page sign in form contains a link where user can create an account from: "If you have not created an account yet, then please sign up to make reservations." This way users can understand that all booking functionalities are only accessed for registered users.
+        1. Once the new visitor has gone through the site links, has looked at all products and individual products, has had a look at what the Login and Register pages do, they might decide to order a product. They can do this without logging in. However, if they would like to create a profile page, they must register first. The link under the user details on the checkout (till page) informs users of this. They are also unable to write reviews, but this won't make sense for the first time anyway. They cannot add products to the favourites page without registering first, either. For unregistered users the favourites button will simply display as an empty heart and won't respond to clicking.
+        2. The login page sign in form contains a link where user can create an account from: "If you have not created an account yet, then please sign up first." This way users can understand that all restricted functionalities are only accessed for registered users.
         3. Alternatively, the user might want to create an account from the navbar link "Register", which will take them straight to the signup form. 
-        4. Once the user signs up by creating a username, optionally adding an email address, creating and repeating the password, they are redirected to the home page. 
-        5. In the navbar now, the Login and Register navbar links have disappeared, My Bookings, Logout and Logged in as (Created username) appear instead.
-    
-    4. As a First Time Visitor, I want to create a table booking, view booking details, and learn what changes I can make on created bookings.
+        4. Once the user signs up by creating after creating a username, optionally adding an email address, creating and repeating the password, verifying the email address and now signing in, they are redirected to the home page. 
+        5. In the navbar now, the username is displayed now beside the user logo. In the dropdown list user can see the additional options Create a Profile and Favourites.
+    4. As a First Time Visitor, I want to search for products, view all products, view individual product details.
+        1. User can view all products when clicking on the All in Our Store link or after clicking the Order Food Now! button on the home page. If they wish to search for a product, they can click on the magnifying glass icon in the navbar. This will take them onto an extra page, which is styled like the home page, except for there is no footer. (Footer is only present on home page as it has no value to the product viewing, adding, and buying) Keyword will return match in both product description and product name. No match will return user to the all products page, with the message "0 product found for keyword "keyword".
+        User can view products by sorting criteria from the dropdown-box (by price, by category, by calory count, by lifestyle choice or all products),
+        Additional sort criteria (Name, Vegan, Vegetarian, Gluten-free) are added to the dropdownbox on the All products page. When there are multiple products displayed, they have labels for Lunch Deal Items (if assigned by me), category tag, product name, lifestyle choice label and product price. 
+        2. Products can be viewed from the All Products page without sorting and by clicking on the product image, user can get to the individual product page. Here there is additional information to the multiple product display: calory count, whether product can be grilled at request and of course, a detailed description.
+    5. As a First Time Visitor, I want to place an order.
+        1. When user decides to place an order from the product detail page, they can add it into the basket. Product quantity can be increased to 99 and decreased to 1. Users can change the quantity before or after adding the product to the basket. If they change the quantity after adding product they will get a quantity update success message. Adding product to the basket will trigger a success message as well, with option to go to secure checkout for the user.
+        As mentioned, user can chose to go back to browse for additional products as well. Shopping basket icon in the navbar will update when user adds a product to the basket. BAsjet page is available form here if user clicks on it, otherwise they can use the success message link to got to the checkout.
+        2. If user has added the items to the basket and decides to go to the checkout page, there are given the option of either browsing for other products (Keep shopping button), updating item quantity in the quantity box beside the product and then overwrite old quantity by selected quantity by using the little pencil icon or even deleting their item. These latter user activities will trigger a success message. Detailed price and delivery charge information is also displayed. If user decides to proceed to the checkout page, he needs to fill in the checkout form with his details (personal, contact, address, delivery date). A first-time user will understand form the link under the address section that in future, he needs to log in in order to be able to save those details. Order summary details display on the right like on the basket page. User can adjust the basket from here if he decides to.
 
+    6.  As a First Time Visitor, I want to make a safe payment.
+        1. Once user got to the checkout page and entered his details, he can enter his credit card number under the order form. 
+        2. This is straighforward, as there are placeholders in this form and Stripe will handle any incorrect user input and error messages will come from Stripe. If user has filled in the form correctly and the credit card details are also correct, user will get a confirmation message if order has gone through, containing user email address and a generated order number. There is a validation in place in the till models.py - past dates are not allowed for delivery. There is a hint to that in my customized error message (doublecheck delivery date). 
 
-        1. Once the first-time user has created an account and been redirected to the home page, they can click on the Book a Table nav link again. This time they will see a hero image with tables and a booking form with the  following form elements:
-            - #### Form title "Table Booking Form"
-            - #### The following input fields:
-                *   ##### Customer name - takes alphanumerical characters
-                *   ##### Phone number - takes alphanumerical characters
-                *   ##### Reservation date and time - has a calendar popping up with date and time picker
-                *   ##### Number of customers - takes only positive whole numbers (not 0)
-            - #### Submit booking button
+    7. As a First Time Visitor, I want to create a user profile, so that I can save my details and make  next-time   interaction with the site faster and easier.
+        Users can see when on the checkout page, that in order to be able to save their details, they need to be logged in. They can follow the link or go to the User icon in the navbar, select Register, create a user account, verify their email address and then log back in.
+        Then in the dropdown list under the user icon, they can create the profile page and when making a purchase, view their order history. 
 
+    8.  As a First Time Visitor, I want to get feedback on all activities performed other than    viewing p  roducts. All actions are fed back to the user, successful or failed registration         (handled by allauth), login, adding, editing and deleting products in basket, checkout form handling, purchase (handled by project code). If there are items in the shopping bag while user performs another successful activity, the success message will display with the basket content and the secure checkout button. Credit card related messages are from Stripe. 
 
-        2.  User enters in Customer name, phone number, reservation date and time and number of customers on the form.
-        Although only two fields are marked with an asterisk, customer cannot submit without filling in all fields. 
-        
-        
-        [Go to booking form validation section from this link to see all issues](#booking-form-validation)
-        
-        
-        Once customer clicks on Submit booking, they are redirected to a page where bookings are arranged in a table. At the same time a pop up message appears just under the navbar: "Booking successful".
-        The table where the booking(s) is visible has the following headings and the row(s) and columns(s) underneath:
-        * Logged in User - username as per what user is logged in as
-        * Booking Id - booking id as generated by the foor loop in view_booking.html
-        * Customer name - as per user input on booking form
-        * Reservation date and time - as per user input on booking form
-        * Phone number - as per user input on booking form
-        * Number of guests - as per user input on booking form
-        * Edit booking - button
-        * Delete booking - button
-
-
-        3. If user decides that they do not wish to perform any further action on their booking, they can easily go on any other site page from the navbar that is visible straight above the bookings table.
-        4. If user decides, that they wish to edit their booking, they must click on the Edit Booking button. The booking will appear on a separate page, with a clean pad and pencil image, on a form like the table booking form. The form has the following elements:
-        - #### Form title "Edit Your Booking"
-        - #### Link "Changed my mind, back to my booking" in case customer has changed their mind
-        - #### The following input fields:
-            *  ##### Customer name - as per user input when creating a booking
-            *  ##### Phone number - as per user input when creating a booking
-            *  ##### Reservation date and time - as per user input when creating a booking
-            *  ##### Number of customers - as per user input when creating a booking
-        - #### Submit edited booking button
-
-        If user clicks on "Changed my mind, back to my booking" link, they are taken back to the previous page, to the table with all booking details.
-        Whether user edits their booking details on the form or leave them unedited on the form and click on the "Submit edited booking" button, they are taken back to the previous page, to the table with all booking details. Additionally, user sees the following popup message "Your booking has been updated". If user enters a date in the past, the form won't update and the error message "Booking date must be in the future" appears. 
-        Customer can then go onto any page after as per navbar links, which are displayed straight above the bookings table.
-        
-        5. If user decides, that they wish to delete their booking, they must click on the Delete Booking button. The booking will appear on a separate page, with a waste paper basket image, on a form like the table booking form. The form has the following elements:
-        - #### Form title "Are You Sure You Want to Delete this Booking?"
-        - #### Link "No, back to my booking" in case customer has changed their mind
-        - #### The following input fields:
-            * ##### Customer name - as per user input when creating a booking
-            * ##### Phone number - as per user input when creating a booking
-            * ##### Reservation date and time - as per user input when creating a booking
-            * ##### Number of customers - as per user input when creating a booking
-        - #### Delete booking button
-
-        If user clicks on "No, back to my booking" link, they are taken back to the previous page, to the table with all booking details.
-        When user clicks on the "Delete booking" button, they are taken back to the previous page, to the table with all booking details, without the deleted booking details. Additionally, user sees the following popup message "Your booking has been deleted". If customer deletes a booking where a date in the past now, the success message won't appear. Customer can then go onto any page after as per navbar links, which are displayed straight above the bookings table.
-
-        
-    5. As a First Time Visitor, I want to sign out of my user account at the end of the session to keep my account related details safe. 
-        1. To accomplish this, user clicks on the Logout navbar link.
-        2. A logout form with matching image as a background and with the following elements appears:
-            *   Form title "Sign Out"
-            *   Text "Are you sure you want to sign out?"
-            *   Sign Out button
-        3. If user clicks on the SIgn Out button, they are taken to the home page, at the same time the message "You have signed out" appears.
-
-     
-
-
+   9. As a First Time Visitor, I want to sign out of my user account at the end of the session to  keep my account related details safe. 
+   User can do this through the logout button in the dropdown list under the user Icon. Success message will display after user clicked the Sign Out button.
+ 
 
 -   #### Returning and Frequent Visitor Goals
 
-     1. As a Returning and Frequent Visitor, I want to sign into my user account to access restricted content.
+    1. As a Returning and Frequent Visitor, I want to sign into my user account to access restricted content.
+        1. Users can signing in from the dropdown box under the navbar's user icon. They are given access to additional activities like adding an item to favourites, adding, editing and deleting own item reviews in the product detail page and save their checkout to data to profiles. The latter can be achieved by checking the Save this delivery information to my profile box under personal details and address on the checkout form. For this functionality to work for name and email address, in the development environment the superuser needs to allow the user and the email address in the admin panel under Email addresses and Users. As mentioned above, this will give user the chance to view their order history as well from now on. This covers User Story nr 2 in User Stories, too.
+    3.  As a Returning and Frequent Visitor, I want to create reviews and alternatively edit them or delete them.
+        1. Reviews can be added under individual products on the product detail page. All review activities require a logged in user. 
+        2. User can add a rating, title and content to their reviews and then click on "Submit Review". Review  will display on left hand side of the page, with all the information the user has entered. User can edit their reviews in a form that is in the same place as the write review form. They select Update review and the edited review appears. Successful adding and editing reviews are confirmed by a success message and so does the deleting review. However, as there is an edit and delete button assigned to each review, users will get an error message if they are trying to edit or delete a review by someone else. Superusers can add and delete reviews but have no permission to edit them.
 
-        1. User clicks on Login button.
-        2. They will be directed to the sign in form.
-        3. They enter username and password created at the signup.
-        4. If username and password match, they are taken to the home page. At the same time a pop up message appears
-        "Successfully signed in as 'username'".
-        5. If username and/or password are incorrect, the following message appears on the signup form: "The username and/or password you specified are not correct." User need to enter correct details or re-register. They are directed to the home page then.
-        6. If user signs in by clicking on the Book a Table link first, they are directed to the Book a Table page.
+    4. As a Returning and Frequent visitor I want to send messages and queries to the site owner.
+        1. This can be achieved through the Contact Us link, where both logged in and anonymous users can fill in a conact form with name, email and content and send it. As this form currently has no custom validation, user should receive a success email if they have provided valid data. However, this form is not set up to send real emails. There is also a phone number displayed on this page.
+
+    5. As a Returning and Frequent visitor I want to add products to my favourites list, to make reordering e easier, alternatively, I would like to delete them from there.
+        1. This can be achieved by the product detail page for logged in users. If user adds a product to their favourites, a full heart will be displayed instead of the empty one and a success messages will appear. If    product is already in the favourites list, user will receive and info message. If they go into the favourites page and remove an item from there, they will receive an info message also.
+
+    6. As a Returning and Frequent Visitor, I want to subscribe to the companies newsletter to find out about new products and deals.
+        1. User should go into the footer and submit their email address. This functionality works with MailChimp.
+        User will get a customized message from mailchimp.
+    7. As a Returning and Frequent Visitor, I want to sign out of my account at the end of the session to keep my account safe.
+        1. This process has been described above.
+    8. As a Returning and Frequent Visitor, I want to get feedback on all activities performed other than viewing products.
+        1. As mentioned, customer is fed back all add, edit, delete functionality.
 
 
-    2. As a Returning and Frequent Visitor, I want to create a new table booking, view details of my newly made and previous bookings, and alternatively edit them or delete them.
 
-        1. Users can create a new booking, as per the steps described above, by clicking on the booking form, from the Book a Table menu .
-        2. After submitting the booking, users can view their newly added or older booking details. Editing and deleting can be done from there.
-        3. Alternatively, if users do not wish to create a new booking, just would like to view their existing booking details or edit or delete them, they can click on the "My bookings" navbar link, which will be visible for authenticated users after login. This exposes the same page where users get after adding a booking.
         
     3. As a Returning and Frequent visitor I want to like the restaurant services on their website.
         1. Currently this feature is outside of this project's scope as was labelled as a non-immediate requirement in the Agile user stories (labelled as could have). I would like to add this feature in future.
@@ -345,19 +305,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 -   #### Site Administrator Goals
 
-    1. As a Site Administrator I would like register as a site admin and then log into the admin page.
-        1. In the Django framework, in the terminal window of the development environment the following command needs to be run:
-        python manage.py createsuperuser and then user needs to press enter 
-        2. Next user is prompted to create a username and then user needs to press enter 
-        3. Next user is prompted to enter an email address (optional) and then user needs to press enter 
-        4. Next user is prompted to enter a password, press enter, repeat password and then user needs to press enter again. 
-        1. In the Django framework, the site administrator can log into the site by adding /admin to the basic web address. 
-        2. They can login here through the standard login form provided.
-
-    2. As a Site Administrator I would like to be able to create, view, edit and delete bookings.
-        1. Once the booking object is created in the admin database (after being created in models.py, registered in admins.py and connection to the database), a site administrator can avail of the inbuilt functionalities in the Django admin site, like adding bookings, viewing all bookings made, editing and deleting bookings. They can do this for themselves and all authenticated users. This is fairly straightforward. All booking related changes on the website on the front end that registered and authenticated users make like adding, editing and deleting are synchronized with the django admin database and vice versa.
-        [Django Admin Database Functionalities](https://github.com/renatalantos/booking-system/tree/main/restaurant/documents/screenshots/admin%20page)
-
+    1. As a Site Administrator I would like to be able to add, view, edit and delete products.
+        1. Site administrator have superuser access. When they log in, they can see a Product Management Link in their prodown under the user icon. They navigate to a product form that contains all product information as described in the model. They can upload files here. Editing and deleting happens though the product pages. The edit/ delete product functionalities are only displayed for superusers.
+    1. As a Site Administrator I would like to be able to create, view, and delete reviews.
+        1. This is the same for site administrators as for any other user. It happens through the same review form and buttons. Their reviews are displayed just as well. Superusers have full CRUD functionalities for their own products, however, they cannot edit other users' products. They can delete them, however. 
 ### Further Testing
 
 -   The Website was tested on Google Chrome, Firefox, Microsoft Edge, Opera and Internet Explorer browsers. The site renders fine in all browsers. In IE the body fonts revert from Lora to Times New Roman.
@@ -368,49 +319,13 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 ### Unresolved Bugs
 
 -   #### In general
-    1. In the Gitpod Development Environment the site works with full CSS styling by now when Debug is off in the settings.py file. However, the admin page (/admin) comes up without CSS styling.
-
-    [No CSS for site admin page](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/admin%20page/Site%20admin%20no%20css.JPG)
+    1. At the moment all features of the product work as expected. However, the added 505 and 404 pages luckily 
+    haven't presented themselves yet. In my understanding, these must just be added to the root folder templates and django will pick them up if necessary. 
+    #### Errors in development
+    1. Most errors I got were fairly common and could be troubleshooted through Slack or StackOverflow. However, 
+    I got a CircularImport error when creating the Review model twice. This issue was resolved by the help of my mentor.
+    1. [CircularImportError]()
     
-    When Debug is on in the development environment, the admin site has full CSS styling.
-    # Booking form validation
--   #### Booking form related validation issues
-    1. Validations I could implement
-        -   1. There is a validation in place where user cannot enter a past or immediate present date (Immediate present date is already the past when user submits the booking form.) There is a validation function in the models.py file, with a validation error raised. In the views.py file in the add_booking function then, when due to the validaton error form is not valid, and cannot be saved, an error pop up message is generated, saying "Booking date must be in the past".
-
-        [Validation function in models.py](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/Booking%20cannot%20be%20in%20past.JPG)
-
-
-        [Error message in views.py](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/Error%20message%20in%20views.JPG)
-
-        -   2. User cannot enter a duplicate booking. This is due to the uniqe_together list with its items in the models.py Meta class. User, customer name and reservation date and time cannot be duplicated together, otherwise a 505 error will show, which I customized as a duplicate_booking.html page.
-
-        [Must be unique](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/unique_together.JPG)
-
-
-        [Customized 505 error](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/Duplicate%20booking%20customized%20page.JPG)
-
-    2. Validations I could not implement
-        -   1. I wanted phone number to be purely numerical. At the moment it's at the user's discretion whether they enter alphabetical or numerical characters. I tried to use PhoneNumberField and validate regular expressions (with from django.core.validators import RegexValidator). However, the former could be deprecated and when I tried to add a regular expression with a validator, my booking page froze. However, no error message appeared.
-        Due to time restraints, I'm not pursuing a further solution at the moment. In future I would like to add this validation.
-
-        -   2. I wanted to define an opening time and make sure that user cannot book a reservation outside the opening hours. My approach was to extract the hour and minute from the reservation date and time and compare this to a certain hour and minute combination of the opening and closing time. However, I didn't manage to find a date-time format for opening and closing time where I could have compared them to the reservation date. Due to time restraints, I'm not pursuing a further solution at the moment. In future I would like to add this problem.
-
-        Please find a screenshot below for a validation attempt and the error I was getting:
-
-
-        
-        [Validation attempt for opening hours](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/errors/Validate%20opening%20time%20error.JPG)
-
-
-        [Error after opening hours validation attempt](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/errors/Validate%20opening%20time.JPG)
-
-    3.  On the booking form, all fields are required, user cannot submit the form without filling in all fields. However, only Customer name and number of customers have an asterisk behind them. I assume the formatting and styling of the form fields is done by the crispy form tags. I noticed that when I changed the model for the form field in models.py, the asterisks were taken away in some cases. In future I would like to correct this validation.
-
-    [No asterisk on form beside import field yet field is required](https://github.com/renatalantos/booking-system/blob/main/restaurant/documents/screenshots/dilemmas/Booking%20form%20no%20asterisk%20yet%20fied%20is%20required.JPG)
-
-
-
 # Deployment
 
 ### Heroku

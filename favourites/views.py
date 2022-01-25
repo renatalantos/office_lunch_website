@@ -5,6 +5,7 @@ and deleting from favourites.
 """
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import Http404
+from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from products.models import Product
@@ -44,13 +45,8 @@ def add_product_to_favourites(request, item_id):
     else:
         favourites.products.add(product)
         messages.success(request, 'The item has been added to favourites.')
-        return redirect(reverse('product_detail', args=[item_id]))
-    context = {
-        'favourites': favourites,
-        'product': product
-        }
-    return render(request, 'products/product_detail.html', context)
-
+    return redirect(reverse('product_detail', args=[item_id]))
+ 
 
 @login_required
 def remove_product_from_favourites(request, item_id, redirect_from):
