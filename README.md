@@ -1,6 +1,6 @@
 
 # Milestone Project 5 - Office Lunches Website
-![All devices](ADD IMAGE!) 
+![All devices](https://github.com/renatalantos/office_lunch_website/blob/main/static/documents/screenshots/Responsivity.JPG) 
 
 [View the live project here.](https://renatalantos-office-lunches.herokuapp.com/)
 
@@ -130,11 +130,11 @@ The site has been designed to be fully responsive on desktop, laptop, tablet and
         The layout for the rest of the pages comes from Boutique Ado. However, I don't use 2 separate headers but one and the search, user and basket icons are in the same line as the nav links. Other than that, the finished site is very similar as drawn up in the wireframes, only I gave forms 100% width in mobile view as it was done in the tutorial.
     -   #### Links to Wireframes
 
-        -   Wireframes in Desktop View - [View](ADD IMAGE)
+        -   Wireframes in Desktop View - [View](https://github.com/renatalantos/office_lunch_website/blob/main/static/documents/wireframes/Wireframes%20for%20Desktop%20view%20MS5%20PDF.pdf)
 
-        -   Wireframes in Tablet View - [View](ADD IMAGE)
+        -   Wireframes in Tablet View - [View](https://github.com/renatalantos/office_lunch_website/blob/main/static/documents/wireframes/Wireframes%20for%20Mobile%20view%20MS5%20PDF.pdf)
 
-        -   Wireframes in Mobile View - [View](ADD IMAGE)
+        -   Wireframes in Mobile View - [View](https://github.com/renatalantos/office_lunch_website/blob/main/static/documents/wireframes/Wireframes%20for%20Mobile%20view%20MS5%20PDF.pdf)
 
 
 # Features
@@ -143,15 +143,6 @@ The site has been designed to be fully responsive on desktop, laptop, tablet and
 
 The application is responsive on all device sizes, thanks to Boostrap. In mobile view there is a collapsible menu icon. All images, text labels, forms get appropriately resized. I followed the code refactoring tutorial in Boutique Ado for the shopping bag page, so the only one that caused problems is resizing properly now. 
 
-[Shopping bag in Desktop view](ADD IMAGE)
-
-[Shopping bag in Tablet View](ADD IMAGE)
-
-[Shopping bag in Mobile View](ADD IMAGE)
-
-[Order form in Desktop View](ADD IMAGE)
-
-[Order form in Mobile View](ADD IMAGE)
 -   ### Interactive elements
     -   #### Nav links for Home, Menu, All in Our Store, Food, Drinks, Contact Us, Register, Login and Logout pages
     -   #### Form input fields on signup, register, signout, checkout (till), user profile, contact us, subscribe to newsletter, search for product, write review and edit review forms plus add and delete product form for superuser
@@ -196,8 +187,8 @@ The application is responsive on all device sizes, thanks to Boostrap. In mobile
     - Balsamiq was used to create the wireframes during the design process.
 1. [Lucidchart:](https://www.lucidchart.com/)
     - Lucidchart was used to create the data model of the project . 
-    * [View data models for Product, Category and Order](ADD image)   
-    * [View data models for Product, Category and UserProfile](ADD image)
+    * [View data models for Product, Category and Order:](ADD image)   
+    * [View data models for Product, Category and UserProfile:](ADD image)
 1. [SQLite3 database:](https://en.wikipedia.org/wiki/SQLite)
     - SQLite3 is Django's default database system.
 1. [Cloudinary:](https://cloudinary.com/)
