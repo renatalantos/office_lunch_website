@@ -324,7 +324,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     #### Errors in development
     1. Most errors I got were fairly common and could be troubleshooted through Slack or StackOverflow. However, 
     I got a CircularImport error when creating the Review model twice. This issue was resolved by the help of my mentor.
-    1. [CircularImportError]()
+    1. [CircularImportError](ADD IMAGE)
     
 # Deployment
 
@@ -340,49 +340,77 @@ The project was created in Github first and then transferred to the Gitpod devel
 3. In Heroku, under the Resources tab, in Add-ons, I searched for Postgres. When found I submitted a request to use it. 
 This attached Heroku Postgres to my project in Heroku.
 4. In the Heroku Settings tab I clicked on "Reveal Config Vars" and copied the automatically added postgres link from beside the DATABASE_URL variable. 
-5. In Gitpod dev environment, I looked for the env.py file that was automatially generated from the CI template at the beginning. This file stores environment variables.
-6. After importing the os into the env.py file, I added the database URL from Heroku into env.py.
-7. I added a secret key in the env.py file after having it generated on the [Django Secret Key Generator - MiniWebtool](https://miniwebtool.com/django-secret-key-generator/) website.
-8. I added the secret key into the Heroku Settings > config vars as well.
-9. In the settings.py file in Gitpod I imported os and added an if statement saying that outside the development environment the environment variables must be used from env.py, including the secret key.
-10. Still in the settings.py file, I commented out the present code for databases and added code to use the currently set up django database URL as set in the env.py file and also in the Heroku config vars.
-11. I migrated these changes in Gitpod using python3 manage.py migrate
-12. To get static and media sites stored on Cloudinary, I went to the dashboard of my previously created Cloudinary account and copied the API Environment Variable.
-13. I added this to the Gitpod env.py file and into the Heroku Settings > config vars. 
-14. I also added DISABLE_COLLECTATIC = 1 to the Heroku config vars. 
+5. In Gitpod dev environment, I installed dj_database_url, and psycopg2. I froze these in requirements.txt.
+6. In Gitpod settings.py I imported dj_database_url.
+
+7. Still in the settings.py file, I commented out the present code to replace the default database with a call to dj_database_url.parse.
+8. I gave it the database URL from Heroku.
+9. I migrated these changes in Gitpod using python3 manage.py migrate.
+
+10. I imported all my product data, to be able to use the fixtures again by first loading in the categories and then the products.
+11. I created superuser for Heroku in Gitpod using python3 manage.py create superuser
+12. I removed the Heroku database config by commenting it and commenting out the original database.
+13. I used an if statement in settings.py so that when the app is running on Heroku the database connects to Postgres and otherwise, it connects to sqlite.
+14. I installed gunicorn to act as web server, froze it and added it the relating code.
+15. I created a Procfile so that it can run gunicorn.
+16. I also added DISABLE_COLLECTATIC = 1 to the Heroku config vars. 
+17. I added the Heroku name followed by herokuapp.com to the ALLOWED_HOSTS variable name in settings.py, followed by a comma and 'localhost' (to allow running in the development environment).
 15. I added cloudinary and cloudinary_storage to the installed apps in settings.py. 
 16. I set up the static file storage, static file directory, the static root, the media url, the default file storage and the templates directory in settings.py.
 17. I added the Heroku name followed by herokuapp.com to the ALLOWED_HOSTS variable name in settings.py, followed by a comma and 'localhost' (to allow running in the development environment).
-18. I created 3 directories at the top level: media, static, templates.
-19. I created a Procfile at the top level directory. 
-20. I did a git add, git commit and git push.
-21. In the Deployment tab in Heroku, in Deployment method, I added Github, set up Enable Automated Deployment, looked for my Github repository, connected my Heroku app to it and clicked on Deploy Branch at the bottom of the page.
-22. When I opened the app after the app was built and deployed, I saw the success message page with a rocket.
-23. After  my application was built, as the first step of the final deployment I turned Debug to False in the settings.py file in Gitpod.
-24. In Heroku I removed the DISABLE_COLLECTSTATIC variable.
-25. I saved my changes on all my files and performed a git add, git commit and git push.
-26. As automatic deployment had been enabled in Heroku, I waited until my app was built, then I opened it and made sure that all functionalities work.
+18. I did a git push.
+19. I did a git push heroku main to deploy to Heroku.
+20. I generated a secret key, and added it to my config variables in Heroku.
+21. In settings.py, I replaced the secret key setting with the call to get it from the environment.
+22. In the Deployment tab in Heroku, in Deployment method, I added Github, set up Enable Automated Deployment, looked for my Github repository, connected my Heroku app to it and clicked on Deploy Branch at the bottom of the page.
+23. I did a git push.
+24. I set up an AWS account.
+25. I created an AWS bucket there.
+26. I generated a policy and added this policy into the bucket policy editor with /*.
+27. I saved these changes.
+28. I created a group called renatalantos-office-lunches.
+28. I created an access policy giving the group access to the s3 bucket.
+29. I attached the policy to the user group.
+30. I creted user.
+31. I downloaded the CSV file containing this user's access key and secret access key.
+32. In Gitpod I installed boto3 and django-storages and froze them.
+33. I added storages to installed apps.
+34. I added AWS variables to Heroku.
+35. I added AWS variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY (from csv file) to Heroku.
+36. I added USE_AWS to Heroku with value True.
+37. I set up if statement in settings to AWS if not in development environment.
+38. I created custom_storages.py in Gitpod, poulated by code by instructor.
+39. I set up static and media urls for AWS use in settings.py.
+40. I added AWS_S3_OBJECT_PARAMETERS in settings.py.
+41. I did a git push.
+42. I created a media folder in AWS and uploaded my image files manually.
+43. I added Stripe variables to Heroku (STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, STRIPE_WH_SECRET)
+
 
 # Credits
 
 ### Code
 
--   The structure and the code of the project was mainly based on two project walkthroughs by Code Institute:
-    * Hello Django - I created CRUD functionalities based on this walkthrough.
-    * I think therefore I blog - I created authentication and messages functionalities based on this walkthrough and followed the deployment steps described here. 
+-   The structure and the code of the project was almost based on two project walkthroughs by Code Institute:
+    * Boutique Ado - I created all functionalities based on this walkthrough.
+    * I was given a helping hand by my classmates Moira and Siobhan. The add to favourites functionality comes from Moira, and I could fix the bug with the quantity buttons thanks to Siobhan. I cannot claim these solutions as my own.
 
--   [Bootstrap5 Template](https://startbootstrap.com/theme/business-casual): Bootstrap Theme used throughout the project  to style pages and make site responsive.
-
+-   [Bootstrap5 Template](https://startbootstrap.com/templates/ecommerce),
+-   [Bootstrap5 Template](https://startbootstrap.com/template/shop-item)
+-   [Bootstrap5 Template](https://startbootstrap.com/theme/agency)
+-   Bootstrap Theme used throughout the project  to style pages and make site responsive.
 -   [Official Django Documentation](https://docs.djangoproject.com/en/3.2/) was researched for syntax, code expressions, code functionalities.
 
--   Stack Overflow was was researched for syntax, code expressions, code functionalities, problem solving. Validation function for reservation date and time is from there.
+-   Stack Overflow and Slack was was researched for syntax, code expressions, code functionalities, problem solving. Validation function for reservation date and time is from there.
+-   I contacted Tutor Support on a few occasions while 
+-   My mentor helped me implement adding reviws.
 
 -   How to implement widgets for form fields was answered by tutor on FullStack Slack channel.
 
 
 ### Content
 
--   Content comes from the Bootstrap template, I made slight changes to the prewritten content there. Food descriptions in Menu page come partly from the Burger Joint web page and various recipe websites. 
+-   Content comes from the Bootstrap template, I made slight changes to the prewritten content there.
 
 
 ### Media
@@ -392,5 +420,5 @@ This attached Heroku Postgres to my project in Heroku.
 
 -   My Mentor Rohit for continuous helpful feedback.
 -   Kasia for supporting all of us in all circumstances and for being available for individual support.
--   My classmates for their ongoing support and solidarity.
--   My family for their patience. Thanks for putting up with me in these intense times.
+-   My classmates for their ongoing support and solidarity, I mentioned two of them, but all do deserve praise and acknowledgement.
+-   My children for their patience. Thanks for putting up with me in these intense times.
